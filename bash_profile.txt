@@ -2,11 +2,10 @@
 # The original version is saved in .bash_profile.pysave
 PATH="/Library/Frameworks/Python.framework/Versions/3.6/bin:${PATH}"
 PATH=$HOME/mongodb/bin:$PATH
-export PATH
-
 # Add Homebrew `/usr/local/bin` and User `~/bin` to the `$PATH`
 PATH=/usr/local/bin:$PATH
 PATH=$HOME/bin:$PATH
+
 export PATH
 
 # Load the shell dotfiles, and then some:
