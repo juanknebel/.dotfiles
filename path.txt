@@ -1,0 +1,10 @@
+# Personal path
+export PATH=$PATH:$HOME/anaconda2/bin:$HOME/bin:/usr/local/bin
+
+# Temp directory
+export TMP=$HOME/tmp
+
+# SDKMAN
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
