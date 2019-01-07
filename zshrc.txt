@@ -2,7 +2,7 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/zero/.oh-my-zsh"
+export ZSH="/Users/$USER/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -105,5 +105,5 @@ done
 unset file
 
 # SDKMAN
-export SDKMAN_DIR="/Users/zero/.sdkman"
-[[ -s "/Users/zero/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/zero/.sdkman/bin/sdkman-init.sh"
+export SDKMAN_DIR="/Users/$USER/.sdkman"
+[[ -s "/Users/$USER/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/$USER/.sdkman/bin/sdkman-init.sh"
