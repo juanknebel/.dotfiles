@@ -1,6 +1,9 @@
 # Personal path
 export PATH=$PATH:$HOME/bin:/usr/local/bin
 
+# Anaconda
+export PATH=$PATH:$HOME/anaconda3/bin
+
 # Temp directory
 export TMP=$HOME/tmp
 
