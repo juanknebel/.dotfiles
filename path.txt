@@ -3,6 +3,7 @@ export PATH=$PATH:$HOME/bin:/usr/local/bin
 
 # Anaconda
 export PATH=$PATH:$HOME/anaconda3/bin
+source $HOME/anaconda3/bin/activate
 
 # Temp directory
 export TMP=$HOME/tmp
