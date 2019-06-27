@@ -28,3 +28,6 @@ alias dus='du -sh'
 
 # Show the summarize memory used in human readable by directory
 alias dua='du -ah'
+
+# To get pip3
+alias pip3='python3 -m pip'
