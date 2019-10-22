@@ -1,10 +1,16 @@
 # This is for my personal configuration for the terminal
 
-### To install and configure oh-my-zsh
+### To install and configure oh-my-zsh with powerline9k theme
 
 1. brew install zsh zsh-completions (replace brew install for any linux installer)
 2. sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-3. Edit ~/.zshrc
+3. git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
+4. Edit ~/.zshrc with: 
+	* ZSH_THEME="powerlevel9k/powerlevel9k" to use the theme
+	* POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status virtualenv) to see the virtual envs of python
+5. Install the font with FontBook (double click), and click Install: (MACOS)
+	* https://github.com/powerline/fonts/blob/master/SourceCodePro/Source%20Code%20Pro%20for%20Powerline.otf
+	* Set the font iTerm, make sure size is 14pt: iTerm -> Preferences -> Profiles -> Text -> Change Font
 
 ## This is only for MacOs
 ### Move curser forward/backward one word
