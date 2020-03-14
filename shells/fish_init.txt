@@ -1,11 +1,12 @@
+omf update 
+omf install bobthefish
+omf install battery git-flow 
+
 Setting variables
 
-set -x GOPATH $HOME/Projects/go
-set -x GOROOT /usr/local/opt/go/libexec
+set -U fish_user_paths $HOME/bin /usr/local/bin /usr/local/go/bin
 
-set -U fish_user_paths $HOME/git/mpcsgc-dev-tools/bin $HOME/bin $HOME/bin/scripts $HOME/bin/router /usr/local/bin $HOME/Library/Python/3.7/bin /usr/local/mysql/bin $HOME/Projects/request-utils /usr/local/Cellar/python/3.7.4/Frameworks/Python.framework/Versions/3.7/bin $GOPATH/bin $GOROOT/bin
-
-set -x TMP $HOME/tmp
+set -U TMP $HOME/tmp
 
 Install fisher
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
@@ -28,3 +29,10 @@ funcsave lt
 
 alias lsd 'ls -l | grep "^d"'
 funcsave lsd
+
+alias glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
+funcsave glog
+
+alias gst 'git status'
+funcsave gst
+
