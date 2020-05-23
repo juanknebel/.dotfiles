@@ -1,38 +1,53 @@
-omf update 
-omf install bobthefish
-omf install battery git-flow 
+# https://www.rockyourcode.com/fish-plugins-i-like/
 
-Setting variables
+# Set fish as default shell
+sudo usermod --shell /usr/bin/fish $USER;
 
-set -U fish_user_paths $HOME/bin /usr/local/bin /usr/local/go/bin
+# Install oh-my-fish
+git clone https://github.com/oh-my-fish/oh-my-fish;
+cd oh-my-fish;
+bin/install --path=~/.local/share/omf --config=~/.config/omf;
 
-set -U TMP $HOME/tmp
+omf update;
+omf install bobthefish;
+omf install battery git-flow;
 
-Install fisher
-curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
+# Setting variables
 
-For sdkman
-fisher add reitzig/sdkman-for-fish
+set -U fish_user_paths $HOME/bin /usr/local/bin /usr/local/go/bin;
 
-For NVM
-fisher add jorgebucaran/fish-nvm
+set -U TMP $HOME/tmp;
 
-Aliases
-alias ll "ls -lh"
-funcsave ll
+# Install fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish;
 
-alias la "ls -lha"
-funcsave la
+# For sdkman
+fisher add reitzig/sdkman-for-fish;
 
-alias lt "ls -ltrh"
-funcsave lt
+# For NVM
+fisher add jorgebucaran/fish-nvm;
 
-alias lsd 'ls -l | grep "^d"'
-funcsave lsd
+# For bax
+# To run bash script.
+# Example: bax "source ~/.nvm/nvm.sh --no-use; nvm use latest"
+jorgebucaran/fish-bax
 
-alias glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
-funcsave glog
+# Aliases
+alias ll "ls -lh";
+funcsave ll;
 
-alias gst 'git status'
-funcsave gst
+alias la "ls -lha";
+funcsave la;
+
+alias lt "ls -ltrh";
+funcsave lt;
+
+alias lsd 'ls -l | grep "^d"';
+funcsave lsd;
+
+alias glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"';
+funcsave glog;
+
+alias gst 'git status';
+funcsave gst;
 
