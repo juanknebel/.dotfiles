@@ -51,3 +51,8 @@ funcsave glog;
 alias gst 'git status';
 funcsave gst;
 
+alias stats-glances 'konsole --profile stats -e glances';
+funcsave stats-glances;
+
+alias stats-gpu 'konsole --profile stats -e gpustat -cp --watch';
+funcsave stats-gpu;
