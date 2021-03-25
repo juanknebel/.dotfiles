@@ -14,7 +14,7 @@ omf install battery git-flow;
 
 # Setting variables
 
-set -U fish_user_paths $HOME/bin /usr/local/bin /usr/local/go/bin;
+set -U fish_user_paths $HOME/bin /usr/local/bin $HOME/.local/bin /usr/local/go/bin;
 
 set -U TMP $HOME/tmp;
 
