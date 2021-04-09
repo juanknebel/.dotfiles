@@ -172,7 +172,10 @@ Temporary Items
 .nfs*
 
 # Python section
-# Virtual environment
 venv/
 .venv/
 *egg-info/
+__pycache__/
+
+# Logs
+*.log
