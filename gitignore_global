@@ -179,3 +179,7 @@ __pycache__/
 
 # Logs
 *.log
+
+# Kile latex
+.kile
+*.kilepr
