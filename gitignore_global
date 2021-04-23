@@ -184,6 +184,9 @@ __pycache__/
 .kile
 *.kilepr
 
+# Texstudio
+*.bcf
+
 # Latex files
 *.aux
 *.bbl
