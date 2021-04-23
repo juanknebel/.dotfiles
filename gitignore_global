@@ -180,6 +180,14 @@ __pycache__/
 # Logs
 *.log
 
-# Kile latex
+# Kile
 .kile
 *.kilepr
+
+# Latex files
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.synctex.gz
+*.toc
