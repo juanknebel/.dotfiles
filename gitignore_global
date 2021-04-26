@@ -184,7 +184,7 @@ __pycache__/
 .kile
 *.kilepr
 
-# Texstudio
+# Biber metadata
 *.bcf
 
 # Latex files
@@ -194,3 +194,6 @@ __pycache__/
 *.dvi
 *.synctex.gz
 *.toc
+
+# Temporary files
+*~
