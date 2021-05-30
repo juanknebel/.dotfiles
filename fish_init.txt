@@ -1,8 +1,5 @@
 # https://www.rockyourcode.com/fish-plugins-i-like/
 
-# Set fish as default shell
-sudo usermod --shell /usr/bin/fish $USER;
-
 # Install oh-my-fish
 git clone https://github.com/oh-my-fish/oh-my-fish;
 cd oh-my-fish;
@@ -11,12 +8,6 @@ bin/install --path=~/.local/share/omf --config=~/.config/omf;
 omf update;
 omf install bobthefish;
 omf install battery git-flow;
-
-# Setting variables
-
-set -U fish_user_paths $HOME/bin /usr/local/bin $HOME/.local/bin /usr/local/go/bin;
-
-set -U TMP $HOME/tmp;
 
 # Install fisher
 curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish;
@@ -31,28 +22,3 @@ fisher add jorgebucaran/fish-nvm;
 # To run bash script.
 # Example: bax "source ~/.nvm/nvm.sh --no-use; nvm use latest"
 jorgebucaran/fish-bax
-
-# Aliases
-alias ll "ls -lh";
-funcsave ll;
-
-alias la "ls -lha";
-funcsave la;
-
-alias lt "ls -ltrh";
-funcsave lt;
-
-alias lsd 'ls -l | grep "^d"';
-funcsave lsd;
-
-alias glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"';
-funcsave glog;
-
-alias gst 'git status';
-funcsave gst;
-
-alias stats-glances 'konsole --profile stats -e glances';
-funcsave stats-glances;
-
-alias stats-gpu 'konsole --profile stats -e gpustat -cp --watch';
-funcsave stats-gpu;

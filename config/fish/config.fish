@@ -1,2 +1,69 @@
-set -x SPOTIPY_CLIENT_ID XXXX
-set -x SPOTIPY_CLIENT_SECRET XXXX
+# 
+#    ___ _   _  ___   _   _   _   __
+#   |_  | | | |/ _ \ | \ | | | | / /
+#     | | | | / /_\ \|  \| | | |/ / 
+#     | | | | |  _  || . ` | |    \ 
+# /\__/ / |_| | | | || |\  | | |\  \
+# \____/ \___/\_| |_/\_| \_/ \_| \_/
+#                                   
+# My fish config file. https://github.com/juanknebel/.dotfiles
+
+### ADDING TO THE PATH
+# First line removes the path; second line sets it.  Without the first line,
+# your path gets massive and fish becomes very slow.
+set -e fish_user_paths
+set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/bin /usr/local/bin $fish_user_paths
+set -U TMP $HOME/tmp
+# set PATH /var/lib/snapd/snap/bin $PATH
+
+### EXPORT
+set fish_greeting                                 # Supresses fish's intro message
+set TERM "xterm-256color"                         # Sets the terminal type
+
+### PYENV init
+if command -v pyenv 1>/dev/null 2>&1
+  pyenv init - | source
+end
+
+### Aliases
+
+# navigation
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# Changing "ls" to "exa"
+alias ls='exa -a --color=always --group-directories-first' # my preferred listing
+alias la='exa -al --color=always --group-directories-first'  # all files and dirs
+alias ll='exa -l --color=always --group-directories-first'  # long format
+alias ltr='exa -aT --color=always --group-directories-first' # tree listing
+alias l.='exa -a | grep "^\."'
+alias lt='exa -lr --color=always --group-directories-first' # reverse searching
+
+# Colorize grep output (good for log files)
+alias grep='grep --color=auto'
+#alias egrep='egrep --color=auto'
+#alias fgrep='fgrep --color=auto'
+
+# confirm before overwriting something
+alias cp="cp -i"
+alias mv='mv -i'
+alias rm='rm -i'
+
+## get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4'
+alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+
+## get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3'
+alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# status
+alias stats-glances='konsole --profile stats -e glances'
+alias stats-gpu='konsole --profile stats -e gpustat -cp --watch'
+
+# git
+alias glog='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
+alias gst='git status'
