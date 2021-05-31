@@ -66,17 +66,21 @@ alias grep='grep --color=auto'
 #alias fgrep='fgrep --color=auto'
 
 # confirm before overwriting something
-alias cp="cp -i"
-alias mv='mv -i'
+# alias cp='cp -i'
+# alias mv='mv -i'
 alias rm='rm -i'
 
-## get top process eating memory
+# get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
 
-## get top process eating cpu ##
+# get top process eating cpu ##
 alias pscpu='ps auxf | sort -nr -k 3'
 alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+
+# mvn
+alias mvncinstall='mvn clean install'
+alias mvnskipcheck='mvn clean install -Dcheckstyle.skip'
 
 # status
 alias stats-glances='konsole --profile stats -e glances'
