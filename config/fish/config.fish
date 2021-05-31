@@ -14,18 +14,10 @@
 set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/bin /usr/local/bin $fish_user_paths
 set -U TMP $HOME/tmp
-# Pyenv paths
-set -Ux PYENV_ROOT $HOME/.pyenv
-set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
-# set PATH /var/lib/snapd/snap/bin $PATH
 
 ### EXPORT
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
-
-### PYENV init
-status is-login; and pyenv init --path | source
-pyenv init - | source
 
 ### Config by OS
 switch (uname)
