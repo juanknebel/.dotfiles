@@ -27,6 +27,22 @@ set TERM "xterm-256color"                         # Sets the terminal type
 status is-login; and pyenv init --path | source
 pyenv init - | source
 
+### Config by OS
+switch (uname)
+  case Darwin
+    source (dirname (status --current-filename))/config-osx.fish
+  case Linux
+    # Do nothing
+  case '*'
+    # Do nothing
+end
+
+### Config local
+set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
+if test -f $LOCAL_CONFIG
+  source $LOCAL_CONFIG
+end
+
 ### Aliases
 
 # navigation
