@@ -32,7 +32,7 @@ switch (uname)
   case Darwin
     source (dirname (status --current-filename))/config-osx.fish
   case Linux
-    # Do nothing
+    source (dirname (status --current-filename))/config-linux.fish
   case '*'
     # Do nothing
 end
@@ -82,10 +82,12 @@ alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
 alias mvncinstall='mvn clean install'
 alias mvnskipcheck='mvn clean install -Dcheckstyle.skip'
 
-# status
-alias stats-glances='konsole --profile stats -e glances'
-alias stats-gpu='konsole --profile stats -e gpustat -cp --watch'
-
 # git
 alias glog='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
 alias gst='git status'
+alias gri='git rebase -i'
+alias grc='git rebase --continue'
+
+# status
+# alias stats-glances='konsole --profile stats -e glances'
+# alias stats-gpu='konsole --profile stats -e gpustat -cp --watch'
