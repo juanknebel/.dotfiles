@@ -197,3 +197,6 @@ __pycache__/
 
 # Temporary files
 *~
+
+# Misc
+*.fury
