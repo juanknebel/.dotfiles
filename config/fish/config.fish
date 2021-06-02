@@ -54,13 +54,13 @@ alias lt='exa -lr --color=always --group-directories-first' # reverse searching
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
-#alias egrep='egrep --color=auto'
-#alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 # confirm before overwriting something
 # alias cp='cp -i'
 # alias mv='mv -i'
-alias rm='rm -i'
+# alias rm='rm -i'
 
 # get top process eating memory
 alias psmem='ps auxf | sort -nr -k 4'
@@ -79,7 +79,3 @@ alias glog='git log --date-order --all --graph --format="%C(green)%h%Creset %C(y
 alias gst='git status'
 alias gri='git rebase -i'
 alias grc='git rebase --continue'
-
-# status
-# alias stats-glances='konsole --profile stats -e glances'
-# alias stats-gpu='konsole --profile stats -e gpustat -cp --watch'
