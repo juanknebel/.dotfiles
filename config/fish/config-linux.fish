@@ -1,8 +1,10 @@
 ### Pyenv
+# paths
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # init
-if command -v pyenv 1>/dev/null 2>&1
-  pyenv init - | source
-end
+status is-login; and pyenv init --path | source
+pyenv init - | source
 
 ### Alias
 # status with konsole
