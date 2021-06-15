@@ -62,20 +62,29 @@ alias fgrep='fgrep --color=auto'
 # alias mv='mv -i'
 # alias rm='rm -i'
 
+### Abbr
+
 # get top process eating memory
-alias psmem='ps auxf | sort -nr -k 4'
-alias psmem10='ps auxf | sort -nr -k 4 | head -10'
+abbr psmem 'ps auxf | sort -nr -k 4'
+abbr psmem10 'ps auxf | sort -nr -k 4 | head -10'
 
 # get top process eating cpu ##
-alias pscpu='ps auxf | sort -nr -k 3'
-alias pscpu10='ps auxf | sort -nr -k 3 | head -10'
+abbr pscpu 'ps auxf | sort -nr -k 3'
+abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'
 
 # mvn
-alias mvncinstall='mvn clean install'
-alias mvnskipcheck='mvn clean install -Dcheckstyle.skip'
+abbr mvncinstall 'mvn clean install'
+abbr mvnskipcheck 'mvn clean install -Dcheckstyle.skip'
 
 # git
-alias glog='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
-alias gst='git status'
-alias gri='git rebase -i'
-alias grc='git rebase --continue'
+abbr glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
+abbr gst 'git status'
+abbr gri 'git rebase -i'
+abbr grc 'git rebase --continue'
+abbr gau 'git add -u'
+abbr gaa 'git add -A'
+abbr gc 'git commit -m '
+abbr gca 'git commit --amend'
+abbr gpo 'git push origin'
+abbr grs 'git reset --soft HEAD~'
+abbr grh 'git reset --hard '
