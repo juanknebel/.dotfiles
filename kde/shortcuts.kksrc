@@ -1,6 +1,12 @@
 [ActivityManager][Global Shortcuts]
 switch-to-activity-2e00e5d3-f97f-426d-ad84-fbb5ad345654=
 
+[Clementine][Global Shortcuts]
+next_track=
+play_pause=
+prev_track=
+stop=
+
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch keyboard layout to English (US, alt. intl.)=
 Switch to Next Keyboard Layout=Ctrl+Alt+K
@@ -8,7 +14,7 @@ Switch to Next Keyboard Layout=Ctrl+Alt+K
 [StandardShortcuts]
 AboutApp=
 AboutKDE=
-Activate Next Tab=Ctrl+PgDown; Ctrl+]
+Activate Next Tab=Ctrl+]; Ctrl+PgDown
 Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
@@ -20,9 +26,9 @@ Clear=
 Close=Ctrl+W
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+Ins; Ctrl+C
+Copy=Ctrl+C; Ctrl+Ins
 CreateFolder=F10
-Cut=Shift+Del; Ctrl+X
+Cut=Ctrl+X; Shift+Del
 DeleteFile=Shift+Del
 DeleteWordBack=Ctrl+Backspace
 DeleteWordForward=Ctrl+Del
@@ -39,7 +45,7 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Forward; Alt+Right
+Forward=Alt+Right; Forward
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
@@ -55,7 +61,7 @@ Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
 OpenRecent=
-Paste=Ctrl+V; Shift+Ins
+Paste=Shift+Ins; Ctrl+V
 Paste Selection=Ctrl+Shift+Ins
 Preferences=Ctrl+Shift+,
 PrevCompletion=Ctrl+Up
@@ -64,7 +70,7 @@ PrintPreview=
 Prior=PgUp
 Quit=Ctrl+Q
 Redo=Ctrl+Shift+Z
-Reload=F5; Refresh
+Reload=Refresh; F5
 RenameFile=F2
 Replace=Ctrl+R
 ReportBug=
@@ -88,7 +94,7 @@ Undo=Ctrl+Z
 Up=Alt+Up
 WhatsThis=Shift+F1
 Zoom=
-ZoomIn=Ctrl+=; Ctrl++
+ZoomIn=Ctrl++; Ctrl+=
 ZoomOut=Ctrl+-
 
 [kaccess][Global Shortcuts]
@@ -101,7 +107,7 @@ Toggle Touchpad=Touchpad Toggle
 
 [kded5][Global Shortcuts]
 Show System Activity=
-display=Display; Meta+P
+display=Meta+P; Display
 
 [khotkeys][Global Shortcuts]
 {a8cccb60-a3c8-4710-a93a-c29dc89ad859}=Ctrl+Alt+T
@@ -121,11 +127,11 @@ toggle_mainwindow_visibility=
 
 [krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Alt+Space; Search; Alt+F2
+_launch=Alt+F2; Meta+Space; Search
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=Ctrl+Alt+Shift+PgDown
-Lock Session=Meta+L; Ctrl+Alt+L; Screensaver
+Lock Session=Ctrl+Alt+L; Meta+L; Screensaver
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=Ctrl+Alt+Shift+Del
 Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
@@ -134,11 +140,38 @@ Reboot Without Confirmation=Ctrl+Alt+Shift+PgUp
 Activate Window Demanding Attention=Ctrl+Alt+A
 Decrease Opacity=
 Expose=Ctrl+F9
-ExposeAll=Ctrl+F10; Ctrl+Alt+Up; Launch (C)
+ExposeAll=Ctrl+Alt+Up; Ctrl+F10; Launch (C)
 ExposeClass=Ctrl+F7
 Increase Opacity=
 Invert Screen Colors=
 Kill Window=Ctrl+Alt+Esc
+Krohnkite: Cycle Layout=
+Krohnkite: Decrease=Meta+Shift+D
+Krohnkite: Down/Next=Meta+Alt+J
+Krohnkite: Float=Meta+F
+Krohnkite: Float All=Meta+Shift+F
+Krohnkite: Floating Layout=Meta+Alt+F
+Krohnkite: Grow Height=Meta+Ctrl+J
+Krohnkite: Grow Width=Meta+Ctrl+L
+Krohnkite: Increase=Meta+Shift+I
+Krohnkite: Left=
+Krohnkite: Monocle Layout=Meta+M
+Krohnkite: Move Down/Next=Meta+Shift+J
+Krohnkite: Move Left=Meta+Shift+H
+Krohnkite: Move Right=Meta+Shift+L
+Krohnkite: Move Up/Prev=Meta+Shift+K
+Krohnkite: Next Layout=Meta+\\
+Krohnkite: Previous Layout=Meta+|
+Krohnkite: Quarter Layout=Meta+Alt+Q
+Krohnkite: Right=
+Krohnkite: Set master=
+Krohnkite: Shrink Height=Meta+Ctrl+K
+Krohnkite: Shrink Width=Meta+Ctrl+H
+Krohnkite: Spread Layout=
+Krohnkite: Stair Layout=
+Krohnkite: Three Column Layout=Meta+Alt+T
+Krohnkite: Tile Layout=Meta+T
+Krohnkite: Up/Prev=Meta+Alt+K
 MoveMouseToCenter=Meta+F6
 MoveMouseToFocus=Meta+F5
 MoveZoomDown=
@@ -205,7 +238,7 @@ Walk Through Windows of Current Application Alternative=
 Walk Through Windows of Current Application Alternative (Reverse)=
 Window Above Other Windows=
 Window Below Other Windows=
-Window Close=Alt+F4
+Window Close=Alt+F4; Meta+Q
 Window Fullscreen=
 Window Grow Horizontal=
 Window Grow Vertical=
@@ -331,7 +364,7 @@ clipboard_action=Ctrl+Alt+X
 cycleNextAction=
 cyclePrevAction=
 edit_clipboard=
-manage activities=Meta+Q
+manage activities=
 next activity=Meta+Tab
 previous activity=Meta+Shift+Tab
 repeat_action=Ctrl+Alt+R

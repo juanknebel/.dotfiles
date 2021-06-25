@@ -34,6 +34,13 @@ desktoprule=3
 wmclass=joplin
 wmclassmatch=1
 
+[Application settings for kate]
+Description=Application settings for kate
+desktop=2
+desktoprule=3
+wmclass=kate
+wmclassmatch=1
+
 [Application settings for keepassxc]
 Description=Application settings for keepassxc
 desktop=4
@@ -67,6 +74,14 @@ Description=Application settings for spotify
 desktop=5
 desktoprule=2
 wmclass=spotify
+wmclassmatch=1
+
+[Application settings for systemsettings]
+Description=Application settings for systemsettings
+desktop=7
+desktoprule=3
+wmclass=systemsettings5 systemsettings
+wmclasscomplete=true
 wmclassmatch=1
 
 [Application settings for virt-manager]
