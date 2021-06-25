@@ -1,0 +1,84 @@
+[Application settings for code]
+Description=Application settings for code
+desktop=1
+desktoprule=3
+wmclass=code
+wmclassmatch=1
+
+[Application settings for dolphin]
+Description=Application settings for dolphin
+desktop=4
+desktoprule=3
+wmclass=dolphin
+wmclassmatch=1
+
+[Application settings for firefox]
+Description=Application settings for firefox
+desktop=3
+desktoprule=3
+wmclass=navigator firefox
+wmclasscomplete=true
+wmclassmatch=1
+
+[Application settings for jetbrains-goland]
+Description=Application settings for jetbrains-goland
+desktop=1
+desktoprule=3
+wmclass=jetbrains-goland
+wmclassmatch=1
+
+[Application settings for joplin]
+Description=Application settings for joplin
+desktop=4
+desktoprule=3
+wmclass=joplin
+wmclassmatch=1
+
+[Application settings for keepassxc]
+Description=Application settings for keepassxc
+desktop=4
+desktoprule=3
+wmclass=keepassxc
+wmclassmatch=1
+
+[Application settings for kile]
+Description=Application settings for kile
+desktop=2
+desktoprule=3
+wmclass=kile
+wmclassmatch=1
+
+[Application settings for konsole]
+Description=Application settings for konsole
+desktop=1
+desktoprule=3
+wmclass=konsole
+wmclassmatch=1
+
+[Application settings for okular]
+Description=Application settings for okular
+desktop=2
+desktoprule=3
+wmclass=okular
+wmclassmatch=1
+
+[Application settings for spotify]
+Description=Application settings for spotify
+desktop=5
+desktoprule=2
+wmclass=spotify
+wmclassmatch=1
+
+[Application settings for virt-manager]
+Description=Application settings for virt-manager
+desktop=7
+desktoprule=3
+wmclass=virt-manager
+wmclassmatch=1
+
+[Application settings for vlc]
+Description=Application settings for vlc
+desktop=6
+desktoprule=3
+wmclass=vlc
+wmclassmatch=1

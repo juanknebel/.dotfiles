@@ -12,4 +12,4 @@ abbr stats-glances 'konsole --profile stats -e glances'
 abbr stats-gpu 'konsole --profile stats -e gpustat -cp --watch'
 
 ### Snap
-#set PATH /var/lib/snapd/snap/bin $PATH
+set -U fish_user_paths /snap/bin $fish_user_paths
