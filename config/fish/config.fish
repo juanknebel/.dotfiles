@@ -48,9 +48,9 @@ alias .5='cd ../../../../..'
 alias ls='exa -a --color=always --group-directories-first' # my preferred listing
 alias la='exa -al --color=always --group-directories-first'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first'  # long format
-alias ltr='exa -aT --color=always --group-directories-first' # tree listing
+alias lt='exa -aT --color=always --group-directories-first' # tree listing
+alias ltr='exa --sort=modified -l --color=always --group-directories-first' # last modified
 alias l.='exa -a | grep "^\."'
-alias lt='exa -lr --color=always --group-directories-first' # reverse searching
 
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
