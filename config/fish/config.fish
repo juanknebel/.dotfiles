@@ -35,6 +35,13 @@ if test -f $LOCAL_CONFIG
   source $LOCAL_CONFIG
 end
 
+### Pyenv
+# paths
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+# init
+status is-login; and pyenv init --path | source
+
 ### Aliases
 
 # navigation
@@ -73,8 +80,12 @@ abbr pscpu 'ps auxf | sort -nr -k 3'
 abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'
 
 # mvn
-abbr mvncinstall 'mvn clean install'
-abbr mvnskipcheck 'mvn clean install -Dcheckstyle.skip'
+abbr mci 'mvn clean install'
+abbr mcish 'mvn clean install -Dcheckstyle.skip'
+abbr mcist 'mvn clean install -DskipTests'
+abbr mcisct 'mvn clean install -Dcheckstyle.skip -DskipTests'
+abbr mgs 'mvn generate-sources'
+abbr mcom 'mvn compile'
 
 # git
 abbr glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
