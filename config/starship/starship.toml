@@ -57,3 +57,10 @@ truncation_symbol = "../"
 
 [python]
 pyenv_version_name = false
+
+[git_branch]
+always_show_remote = false
+
+[git_state]
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
