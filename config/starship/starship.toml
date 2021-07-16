@@ -15,12 +15,12 @@ $python\
 $ruby\
 $rust\
 $memory_usage\
+$time\
 $custom\
 $cmd_duration\
 $line_break\
 $jobs\
 $battery\
-$time\
 $status\
 $shell\
 $character"""
@@ -71,7 +71,7 @@ style = "bold red"
 
 [[battery.display]]
 threshold = 50
-style = "bold orange"
+style = "bold purple"
 
 [[battery.display]]
 threshold = 100
@@ -86,3 +86,10 @@ style = "bold dimmed green"
 [shell]
 fish_indicator = ""
 disabled = false
+
+[time]
+disabled = false
+format = '🕙[\[ $time \]]($style) '
+time_format = "%T"
+utc_time_offset = "-3"
+#time_range = "00:00:00-23:59:59"
