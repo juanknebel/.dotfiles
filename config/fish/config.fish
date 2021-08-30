@@ -40,7 +40,10 @@ end
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 # init
-status is-login; and pyenv init --path | source
+#status is-login; and pyenv init --path | source
+status --is-interactive; and pyenv init --path | source
+status --is-interactive; and pyenv init - | source
+status --is-interactive; and pyenv virtualenv-init - | source
 
 ### Aliases
 
