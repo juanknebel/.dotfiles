@@ -89,6 +89,7 @@ abbr mcist 'mvn clean install -DskipTests'
 abbr mcisct 'mvn clean install -Dcheckstyle.skip -DskipTests'
 abbr mgs 'mvn generate-sources'
 abbr mcom 'mvn compile'
+abbr mtfast 'mvn test -o -Djacoco.skip=true -Dsurefire.useFile=false -Dsurefire.shutdown=kill -Dorg.slf4j.simpleLogger.showShortLogName=false -Dorg.slf4j.simpleLogger.defaultLogLevel=off -Dorg.slf4j.simpleLogger.log.org.apache.maven.cli.event=info'
 
 # git
 abbr glog 'git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d %Creset%s"'
