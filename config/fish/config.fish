@@ -84,6 +84,7 @@ abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'
 
 # mvn
 abbr mci 'mvn clean install'
+abbr mcio 'mvn clean install -o'
 abbr mcish 'mvn clean install -Dcheckstyle.skip'
 abbr mcist 'mvn clean install -DskipTests'
 abbr mcisct 'mvn clean install -Dcheckstyle.skip -DskipTests'
