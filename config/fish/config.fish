@@ -45,6 +45,9 @@ status --is-interactive; and pyenv init --path | source
 status --is-interactive; and pyenv init - | source
 status --is-interactive; and pyenv virtualenv-init - | source
 
+### Poetry
+set -U fish_user_paths $HOME/.poetry/bin $fish_user_paths
+
 ### Aliases
 
 # navigation
