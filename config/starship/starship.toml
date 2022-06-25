@@ -47,7 +47,7 @@ disabled = false
 show_always = true
 
 [directory]
-truncation_length = 8
+truncation_length = 20
 truncation_symbol = "../"
 
 [python]
@@ -92,4 +92,8 @@ disabled = false
 format = '🕙[\[ $time \]]($style) '
 time_format = "%T"
 utc_time_offset = "-3"
+style = "bold blue"
 #time_range = "00:00:00-23:59:59"
+
+[cmd_duration]
+style = "bold blue"
