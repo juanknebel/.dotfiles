@@ -37,6 +37,11 @@ alias fgrep='fgrep --color=auto'
 
 ### Abbr
 
+# tmux
+abbr txls 'tmux ls'
+abbr txnw 'tmux new -t'
+abbr txat 'tmux a -t'
+
 # get top process eating memory
 abbr psmem 'ps auxf | sort -nr -k 4'
 abbr psmem10 'ps auxf | sort -nr -k 4 | head -10'
