@@ -40,14 +40,24 @@ alias fgrep='fgrep --color=auto'
 # tmux
 abbr txls 'tmux ls'
 abbr txnw 'tmux new -t'
-abbr txat 'tmux a -t'
 abbr txmain 'tmux new -t main'
 abbr txrust 'tmux new -t rust -d'
 abbr txgo 'tmux new -t go -d'
 abbr txpy 'tmux new -t python -d'
 abbr txjava 'tmux new -t java -d'
+abbr txjet 'tmux new -t jetbrains -d'
 abbr txmisc 'tmux new -t misc -d'
 abbr txssh 'tmux new -t ssh -d'
+abbr txat 'tmux a -t'
+abbr txatmain 'tmux a -t main'
+abbr txatrust 'tmux a -t rust'
+abbr txatgo 'tmux a -t go'
+abbr txatpy 'tmux a -t python'
+abbr txatjava 'tmux a -t java'
+abbr txatjet 'tmux a -t jetbrains'
+abbr txatmisc 'tmux a -t misc'
+abbr txatshh 'tmux a -t ssh'
+
 
 
 # get top process eating memory

@@ -52,3 +52,6 @@ abbr grs 'git reset --soft HEAD~'
 abbr grh 'git reset --hard'
 abbr guo 'git branch -u origin/'
 abbr gbu 'git branch -u'
+
+## Http
+abbr chead 'curl -s -D - -o  /dev/null'
