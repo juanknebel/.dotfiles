@@ -11,6 +11,9 @@
 ## Rust
 set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 
+## Surreal db
+set -U fish_user_paths $HOME/.surrealdb $fish_user_paths
+
 ## Python
 ### Pyenv
 # paths
@@ -52,6 +55,7 @@ abbr grs 'git reset --soft HEAD~'
 abbr grh 'git reset --hard'
 abbr guo 'git branch -u origin/'
 abbr gbu 'git branch -u'
+abbr grmo 'git push origin :'
 
 ## Http
 abbr chead 'curl -s -D - -o  /dev/null'

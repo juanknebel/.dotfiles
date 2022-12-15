@@ -15,6 +15,8 @@ git config --global user.name "Juan Knebel";
 
 # Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
+mkdir -p $HOME/.config/rustfmt;
+ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
 
 # Pyenv
 git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
