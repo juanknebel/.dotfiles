@@ -58,7 +58,12 @@ abbr txatjet 'tmux a -t jetbrains'
 abbr txatmisc 'tmux a -t misc'
 abbr txatshh 'tmux a -t ssh'
 
-
+# skim
+#abbr skpr 'sk --preview "preview.sh {}"'
+abbr skpr 'sk --preview "bat {} --color=always"'
+abbr skim 'sk --ansi -i -c \'rg --color=always --line-number "{}"\''
+abbr skimpr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\' --preview "preview.sh {}"'
+#abbr skimpr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\' --preview "batcat {} --color=always"'
 
 # get top process eating memory
 abbr psmem 'ps auxf | sort -nr -k 4'
