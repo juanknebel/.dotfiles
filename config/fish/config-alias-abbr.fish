@@ -35,6 +35,12 @@ alias fgrep='fgrep --color=auto'
 # alias mv='mv -i'
 # alias rm='rm -i'
 
+# Common
+alias ip="ip -color"
+alias tarnow='tar -acf '
+alias untar='tar -xvf '
+alias wget='wget -c '
+
 ### Abbr
 
 # tmux

@@ -3,8 +3,20 @@
 function setup_basic_install
     echo "**** SOFTWARE ****"
     echo "Installing essentials"
+
     # Ubuntu Essentials
-    # sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3-openssl xclip;
+    if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+        sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
+    end
+    #
+    if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+        pacman -S peco openssh git fish exa tmux fd tokei procs macchina browsh wttr ddgr stacer-bin install noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx;
+
+        sudo pacman -S docker;
+        sudo usermod -a -G docker username;
+        sudo systemctl start docker.service;
+        sudo systemctl enable docker.service;
+    end
     echo "Done."
 end
 
@@ -35,7 +47,16 @@ function setup_rust
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
     mkdir -p $HOME/.config/rustfmt;
     ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
+    rustup toolchain install nightly;
+    rustup default nightly;
     echo "Done."
+end
+
+function install_rust_apps
+    cargo install du-dust;
+    cargo install procs;
+    cargo install --locked broot;
+    cargo install skim;
 end
 
 function setup_python
@@ -78,30 +99,33 @@ function setup_fish_shell
     end
     ln -s $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish;
     ln -s $HOME/.dotfiles/config/fish/config-alias-abbr.fish $HOME/.config/fish/config-alias-abbr.fish;
-    ln -s $HOME/.dotfiles/config/fish/functions/fish_greeting.fish $HOME/.config/fish/functions/fish_greeting.fish;
+    # ln -s $HOME/.dotfiles/config/fish/functions/fish_greeting.fish $HOME/.config/fish/functions/fish_greeting.fish;
 
     # Coding
     ln -s $HOME/.dotfiles/config/fish/config-dev.fish $HOME/.config/fish/config-dev.fish;
 
     # Linux
     ln -s $HOME/.dotfiles/config/fish/config-linux.fish $HOME/.config/fish/config-linux.fish;
+    if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+        ln -s $HOME/.dotfiles/config/fish/config-garuda.fish $HOME/.config/fish/config-garuda.fish
+    end
     # For some local configuration that is only for this machine
     touch $HOME/.config/fish/config-local.fish;
 
-    echo "Fuzzy search"
-    # z fuzzy search
-    mkdir -p $HOME/.local/share/z;
-    touch $HOME/.local/share/z/data;
+    # echo "Fuzzy search"
+    # z fuzzy search if zoxide insn't install
+    # mkdir -p $HOME/.local/share/z;
+    # touch $HOME/.local/share/z/data;
 
-    cd $HOME/git;
-    git clone https://github.com/jethrokuan/z.git;
-    ln -s $HOME/git/z/functions/__z_add.fish $HOME/.config/fish/functions/__z_add.fish;
-    ln -s $HOME/git/z/functions/__z_clean.fish $HOME/.config/fish/functions/__z_clean.fish;
-    ln -s $HOME/git/z/functions/__z_complete.fish $HOME/.config/fish/functions/__z_complete.fish;
-    ln -s $HOME/git/z/functions/__z.fish $HOME/.config/fish/functions/__z.fish;
-    ln -s $HOME/git/z/conf.d/z.fish $HOME/.config/fish/conf.d/;
+    # cd $HOME/git;
+    # git clone https://github.com/jethrokuan/z.git;
+    # ln -s $HOME/git/z/functions/__z_add.fish $HOME/.config/fish/functions/__z_add.fish;
+    # ln -s $HOME/git/z/functions/__z_clean.fish $HOME/.config/fish/functions/__z_clean.fish;
+    # ln -s $HOME/git/z/functions/__z_complete.fish $HOME/.config/fish/functions/__z_complete.fish;
+    # ln -s $HOME/git/z/functions/__z.fish $HOME/.config/fish/functions/__z.fish;
+    # ln -s $HOME/git/z/conf.d/z.fish $HOME/.config/fish/conf.d/;
 
-    #### Command timer not install if starship is install
+    # Command timer not install if starship is install
     # cd $HOME/git
     # git clone https://github.com/jichu4n/fish-command-timer.git;
     # ln -s $HOME/git/fish-command-timer/conf.d/fish_command_timer.fish $HOME/.config/fish/conf.d;
@@ -128,11 +152,20 @@ function init
     echo "Done."
 end
 
-init
-setup_fish_shell
-setup_git
-setup_tmux
-setup_starfish_prompt
-setup_rust
-setup_python
-setup_java
+function setup_skim
+mkdir -p $HOME/Apps
+ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
+end
+
+
+#init
+#setup_fish_shell
+#setup_git
+#setup_tmux
+#setup_starfish_prompt
+#setup_rust
+#install_rust_apps
+#setup_python
+#setup_java
+#setup_skim
+

@@ -15,6 +15,13 @@ set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/Apps $HOME/bin /usr/local/bin $fish_user_paths
 set -U TMP $HOME/tmp
 
+# Add ~/.local/bin to PATH
+if test -d ~/.local/bin
+    if not contains -- ~/.local/bin $PATH
+        set -p PATH ~/.local/bin
+    end
+end
+
 ### EXPORT
 set fish_greeting                                 # Supresses fish's intro message
 set TERM "xterm-256color"                         # Sets the terminal type
@@ -27,6 +34,12 @@ switch (uname)
     source (dirname (status --current-filename))/config-linux.fish
   case '*'
     # Do nothing
+end
+
+### Config for Garuda
+set GARUDA_CONFIG (dirname (status --current-filename))/config-garuda.fish
+if test -f $GARUDA_CONFIG
+  source $GARUDA_CONFIG
 end
 
 ### Config local
@@ -46,3 +59,6 @@ set ALIAS_ABBR_CONFIG (dirname (status --current-filename))/config-alias-abbr.fi
 if test -f $ALIAS_ABBR_CONFIG
   source $ALIAS_ABBR_CONFIG
 end
+
+### Start zoxide
+zoxide init fish | source
