@@ -49,6 +49,9 @@ function setup_rust
     ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
     rustup toolchain install nightly;
     rustup default nightly;
+    # For webassembly
+    rustup target add wasm32-unknown-unknown;
+    cargo install trunk;
     echo "Done."
 end
 

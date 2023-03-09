@@ -428,11 +428,11 @@ live_config_reload: true
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /opt/homebrew/bin/fish
-  args:
-    - -l
-    - -c
-    - "tmux"
+  program: /usr/bin/fish
+#  args:
+#    - -l
+#    - -c
+#    - "tmux"
 
 # Startup directory
 #
