@@ -6,24 +6,39 @@ function setup_basic_install
 
     # Ubuntu Essentials
     if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+        echo "Ubuntu"
         sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
     end
     #
     if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-        pacman -S peco openssh git fish exa tmux fd tokei procs macchina browsh wttr ddgr stacer-bin install noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx;
-
+        echo "Garuda"
+        sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx;
         sudo pacman -S docker;
-        sudo usermod -a -G docker username;
+        sudo usermod -a -G docker $USER;
         sudo systemctl start docker.service;
         sudo systemctl enable docker.service;
+    end
+    if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+        echo "Fedora"
     end
     echo "Done."
 end
 
 function setup_tmux
-    echo "*** TMUX ****"
+    echo "**** TMUX ****"
+    if test -f $HOME/.tmux.conf
+        mv $HOME/.tmux.conf $HOME/.tmux.conf.bak;
+    end
     ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf;
     echo "Done."
+end
+
+function setup_alacritty
+    echo "**** Alacritty ****"
+    if test -f $HOME/.config/alacritty/alacritty.yml
+        mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
+    end
+    ln -s $HOME/.dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml;
 end
 
 function setup_git
@@ -34,6 +49,9 @@ function setup_git
     # xclip -selection clipboard < $HOME/.ssh/id_ed25519.pub;
     # pbcopy < $HOME/.ssh/id_ed25519.pub; #for macos
     echo "**** GIT ****"
+    if test -f $HOME/.gitignore_global
+        mv $HOME/.gitignore_global $HOME/.gitignore_global.bak;
+    end
     ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global;
     git config --global core.excludesfile $HOME/.gitignore_global;
     git config --global init.defaultBranch main;
@@ -46,6 +64,9 @@ function setup_rust
     echo "**** RUST ****"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
     mkdir -p $HOME/.config/rustfmt;
+    if test -f $HOME/.config/rustfmt/rustfmt.toml
+        mv $HOME/.config/rustfmt/rustfmt.toml $HOME/rustfmt/rustfmt.toml.bak;
+    end
     ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
     rustup toolchain install nightly;
     rustup default nightly;
@@ -66,6 +87,7 @@ function setup_python
     echo "**** PYTHON ****"
     echo "Pyenv"
     # Pyenv
+    rm -rf ~/.pyenv;
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
     git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv;
     pyenv install 3.11;
@@ -98,10 +120,17 @@ function setup_fish_shell
     echo "Extras"
     # Fish extras
     if test -e "$HOME/.config/fish/config.fish"
-        rm $HOME/.config/fish/config.fish;
+        mv $HOME/.config/fish/config.fish $HOME/.config/fish/config.fish.bak;
     end
     ln -s $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish;
+
+    # remove old configs
+    rm $HOME/.config/fish/config-*;
+    
+    # Abbr
     ln -s $HOME/.dotfiles/config/fish/config-alias-abbr.fish $HOME/.config/fish/config-alias-abbr.fish;
+    
+    # Greeting
     # ln -s $HOME/.dotfiles/config/fish/functions/fish_greeting.fish $HOME/.config/fish/functions/fish_greeting.fish;
 
     # Coding
@@ -109,9 +138,12 @@ function setup_fish_shell
 
     # Linux
     ln -s $HOME/.dotfiles/config/fish/config-linux.fish $HOME/.config/fish/config-linux.fish;
+    
+    # Save old garuda config file
     if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
         ln -s $HOME/.dotfiles/config/fish/config-garuda.fish $HOME/.config/fish/config-garuda.fish
     end
+
     # For some local configuration that is only for this machine
     touch $HOME/.config/fish/config-local.fish;
 
@@ -144,6 +176,9 @@ function setup_starfish_prompt
     unzip firaCode.zip -d $HOME/.fonts;
     rm firaCode.zip;
     echo 'starship init fish | source'>> $HOME/.config/fish/config-local.fish;
+    if test -f $HOME/.config/starship.toml
+        mv $HOME/.config/starship.toml $HOME/.config/starship.toml.bak
+    end
     ln -s $HOME/.dotfiles/config/starship/starship.toml $HOME/.config/starship.toml;
     echo "Done."
 end
@@ -156,19 +191,20 @@ function init
 end
 
 function setup_skim
-mkdir -p $HOME/Apps
-ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
+    mkdir -p $HOME/Apps
+    ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
 end
 
 
 #init
-#setup_fish_shell
 #setup_git
+#setup_basic_install
 #setup_tmux
+#setup_alacritty
 #setup_starfish_prompt
 #setup_rust
 #install_rust_apps
 #setup_python
 #setup_java
 #setup_skim
-
+#setup_fish_shell
