@@ -37,7 +37,12 @@ function setup_tmux
     if test -f $HOME/.tmux.conf
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak;
     end
-    ln -s $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf;
+    switch (uname)
+        case Linux
+            ln -s $HOME/.dotfiles/tmux-linux.conf $HOME/.tmux.conf;
+        case Darwin
+            ln -s $HOME/.dotfiles/tmux-osx.conf $HOME/.tmux.conf;
+    end
     echo "Done."
 end
 
