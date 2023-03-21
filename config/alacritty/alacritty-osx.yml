@@ -25,6 +25,8 @@ env:
   TERM: xterm-256color
 
 window:
+  # Only in version 0.12 and up
+  option_as_alt: Both
   # Window dimensions (changes require restart)
   #
   # Number of lines/columns (not pixels) in the terminal. The number of columns
@@ -157,7 +159,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 9.0
+  size: 10.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -441,7 +443,7 @@ shell:
 #working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-#alt_send_esc: true
+alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
