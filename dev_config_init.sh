@@ -4,22 +4,30 @@ function setup_basic_install
     echo "**** SOFTWARE ****"
     echo "Installing essentials"
 
-    # Ubuntu Essentials
-    if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-        echo "Ubuntu"
-        sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
-    end
-    #
-    if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-        echo "Garuda"
-        sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx;
-        sudo pacman -S docker;
-        sudo usermod -a -G docker $USER;
-        sudo systemctl start docker.service;
-        sudo systemctl enable docker.service;
-    end
-    if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-        echo "Fedora"
+    switch (uname)
+        case Linux
+            # Ubuntu Essentials
+            if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Ubuntu"
+                sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
+            end
+            # Garuda soft
+            if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Garuda"
+                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij;
+                sudo pacman -S docker;
+                sudo usermod -a -G docker $USER;
+                sudo systemctl start docker.service;
+                sudo systemctl enable docker.service;
+            end
+            if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Fedora"
+            end
+        case Darwin
+            echo "MacOs"
+            # install soft for mac
+        case '*'
+            # Do nothing
     end
     echo "Done."
 end
@@ -38,7 +46,15 @@ function setup_alacritty
     if test -f $HOME/.config/alacritty/alacritty.yml
         mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
     end
-    ln -s $HOME/.dotfiles/config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml;
+
+    switch (uname)
+        case Darwin
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.yml $HOME/.config/alacritty/alacritty.yml;
+        case Linux
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-linux.yml $HOME/.config/alacritty/alacritty.yml;
+        case '*'
+            # Do nothing
+    end
 end
 
 function setup_git
@@ -191,8 +207,25 @@ function init
 end
 
 function setup_skim
+    echo "**** SKIM ****"
     mkdir -p $HOME/Apps
     ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
+end
+
+function setup_zellij
+    echo "**** ZELLIJ ****"
+    mkdir -p $HOME/.config/zellij;
+    if test -f $HOME/.config/zellij/config.kdl
+        mv $HOME/.config/zellij/config.kdl $HOME/.config/zellij/config.kdl.bak
+    end
+    switch (uname)
+        case Linux
+            ln -s $HOME/.dotfile/config/zellij/config-linux.kdl $HOME/.config/zellij/config.kdl
+        case Darwin
+            ln -s $HOME/.dotfile/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl
+        case '*'
+            # Do nothing
+    end
 end
 
 
@@ -208,3 +241,4 @@ end
 #setup_java
 #setup_skim
 #setup_fish_shell
+#setup_zellij
