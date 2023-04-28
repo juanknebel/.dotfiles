@@ -14,7 +14,7 @@ function setup_basic_install
             # Garuda soft
             if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Garuda"
-                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij;
+                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl;
                 sudo pacman -S docker;
                 sudo usermod -a -G docker $USER;
                 sudo systemctl start docker.service;
@@ -37,12 +37,18 @@ function setup_tmux
     if test -f $HOME/.tmux.conf
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak;
     end
+    mkdir -p $HOME/.tmux/plugins/tpm;
+    rm -rf $HOME/.tmux/plugins/tpm;
+    git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm;
+    mkdir -p $HOME/.config/tmux;
     switch (uname)
         case Linux
-            ln -s $HOME/.dotfiles/tmux-linux.conf $HOME/.tmux.conf;
+            ln -s $HOME/.dotfiles/config/tmux/tmux-linux.conf $HOME/.config/tmux/tmux.conf;
         case Darwin
-            ln -s $HOME/.dotfiles/tmux-osx.conf $HOME/.tmux.conf;
+            ln -s $HOME/.dotfiles/config/tmux/tmux-osx.conf $HOME/.config/tmux/tmux.conf;
     end
+    mkdir -p $HOME/.tmux/plugins/tpm;
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm;
     echo "Done."
 end
 
@@ -102,6 +108,8 @@ function install_rust_apps
     cargo install procs;
     cargo install --locked broot;
     cargo install skim;
+    cargo install --locked bacon;
+    cargo install --version 0.1.0-alpha.5 gobang;
 end
 
 function setup_python
@@ -128,6 +136,12 @@ function setup_java
     curl -s "https://get.sdkman.io" | bash ;
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
+    echo "Done."
+end
+
+function setup_nvm
+    echo "**** NVM ****"
+    fisher install jorgebucaran/nvm.fish
     echo "Done."
 end
 
