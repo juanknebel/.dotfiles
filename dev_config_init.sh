@@ -14,7 +14,7 @@ function setup_basic_install
             # Garuda soft
             if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Garuda"
-                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl;
+                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl lazygit;
                 sudo pacman -S docker;
                 sudo usermod -a -G docker $USER;
                 sudo systemctl start docker.service;
@@ -97,6 +97,12 @@ function setup_rust
     ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
     rustup toolchain install nightly;
     rustup default nightly;
+    rustup component add rust-analyzer;
+    rustup component add clippy;
+    rustup component add rustfmt;
+    cargo install cargo-watch;
+    cargo install cargo-audit;
+    cargo install cargo-tarpaulin;
     # For webassembly
     rustup target add wasm32-unknown-unknown;
     cargo install trunk;
@@ -141,7 +147,10 @@ end
 
 function setup_nvm
     echo "**** NVM ****"
-    fisher install jorgebucaran/nvm.fish
+    fisher install jorgebucaran/nvm.fish;
+    nvm install latest;
+    nvm use latest;
+    node -v > $HOME/.nvmrc;
     echo "Done."
 end
 
@@ -239,12 +248,21 @@ function setup_zellij
     end
     switch (uname)
         case Linux
-            ln -s $HOME/.dotfile/config/zellij/config-linux.kdl $HOME/.config/zellij/config.kdl
+            ln -s $HOME/.dotfiles/config/zellij/config-linux.kdl $HOME/.config/zellij/config.kdl
         case Darwin
-            ln -s $HOME/.dotfile/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl
+            ln -s $HOME/.dotfiles/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl
         case '*'
             # Do nothing
     end
+end
+
+function setup_neovim
+    # install nvim
+    # intall git
+    rm -rf $HOME/.config/nvim;
+    rm -rf $HOME/.local/share/nvim;
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
+    # select N in the first start
 end
 
 
