@@ -21,8 +21,8 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
-  TERM: xterm-256color
+  TERM: alacritty
+  #TERM: xterm-256color
 
 window:
   # Only in version 0.12 and up
@@ -443,7 +443,7 @@ shell:
 #working_directory: None
 
 # Send ESC (\x1b) before characters when alt is pressed.
-alt_send_esc: true
+# alt_send_esc: true
 
 # Offer IPC using `alacritty msg` (unix only)
 #ipc_socket: true
