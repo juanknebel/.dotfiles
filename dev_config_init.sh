@@ -9,12 +9,12 @@ function setup_basic_install
             # Ubuntu Essentials
             if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Ubuntu"
-                sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
+                sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip;
             end
             # Garuda soft
             if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Garuda"
-                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl lazygit;
+                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl lazygit neovim neovim-qt;
                 sudo pacman -S docker;
                 sudo usermod -a -G docker $USER;
                 sudo systemctl start docker.service;
@@ -263,6 +263,7 @@ function setup_neovim
     rm -rf $HOME/.local/share/nvim;
     git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
     # select N in the first start
+    ln -s $HOME/.dotfiles/config/nvim/lua/custom/ $HOME/.config/nvim/lua/;
 end
 
 
