@@ -68,9 +68,8 @@ function setup_neovim
     pip install pynvim;
     rm -rf $HOME/.config/nvim;
     rm -rf $HOME/.local/share/nvim;
-    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1;
-    # select N in the first start
-    ln -s $HOME/.dotfiles/config/nvim/lua/custom/ $HOME/.config/nvim/lua/;
+    rm -rf $HOME/.config/nvim/;
+    ln -s $HOME/.dotfiles/config/nvim $HOME/.config/nvim;
 end
 
 function setup_skim
