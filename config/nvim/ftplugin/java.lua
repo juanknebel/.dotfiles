@@ -1,4 +1,20 @@
 local home = os.getenv("HOME")
+local os_name = vim.loop.os_uname().sysname
+
+local jdlts_server = ""
+local jdlts_configuration = ""
+
+if os_name == "Darwin" then
+  jdlts_server = "/opt/homebrew/Cellar/jdtls/1.18.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar"
+  jdlts_configuration = home .. "/.local/share/eclipse/jdtls/config_mac/"
+elseif os_name == "Linux" then
+  jdlts_server = "/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
+  jdlts_configuration = home .. "/.local/share/eclipse/jdtls/config_linux/"
+else
+  -- Estás en un sistema operativo diferente
+  -- Coloca aquí el código para otros sistemas operativos si es necesario
+end
+
 local jdtls = require("jdtls")
 
 -- File types that signify a Java project's root directory. This will be
@@ -10,7 +26,7 @@ local root_dir = require("jdtls.setup").find_root(root_markers)
 -- with multiple different projects, each project must use a dedicated data directory.
 -- This variable is used to configure eclipse to use the directory name of the
 -- current project found using the root_marker as the folder for project specific data.
-local workspace_folder = "/home/zero/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
+local workspace_folder = home .. "/.local/share/eclipse/" .. vim.fn.fnamemodify(root_dir, ":p:h:t")
 
 -- Helper function for creating keymaps
 function nnoremap(rhs, lhs, bufopts, desc)
@@ -23,36 +39,36 @@ end
 local on_attach = function(client, bufnr)
   -- Regular Neovim LSP client keymappings
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  nnoremap("gD", vim.lsp.buf.declaration, bufopts, "Go to declaration")
-  nnoremap("gd", vim.lsp.buf.definition, bufopts, "Go to definition")
-  nnoremap("gi", vim.lsp.buf.implementation, bufopts, "Go to implementation")
-  nnoremap("K", vim.lsp.buf.hover, bufopts, "Hover text")
-  nnoremap("<C-k>", vim.lsp.buf.signature_help, bufopts, "Show signature")
-  nnoremap("<space>wa", vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
-  nnoremap("<space>wr", vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
-  nnoremap("<space>wl", function()
+  -- nnoremap("gD", vim.lsp.buf.declaration, bufopts, "Go to declaration")
+  -- nnoremap("gd", vim.lsp.buf.definition, bufopts, "Go to definition")
+  -- nnoremap("gi", vim.lsp.buf.implementation, bufopts, "Go to implementation")
+  -- nnoremap("K", vim.lsp.buf.hover, bufopts, "Hover text")
+  -- nnoremap("<C-k>", vim.lsp.buf.signature_help, bufopts, "Show signature")
+  nnoremap("<leader>wa", vim.lsp.buf.add_workspace_folder, bufopts, "Add workspace folder")
+  nnoremap("<leader>wr", vim.lsp.buf.remove_workspace_folder, bufopts, "Remove workspace folder")
+  nnoremap("<leader>wl", function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts, "List workspace folders")
-  nnoremap("<space>D", vim.lsp.buf.type_definition, bufopts, "Go to type definition")
-  nnoremap("<space>rn", vim.lsp.buf.rename, bufopts, "Rename")
-  nnoremap("<space>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
-  vim.keymap.set(
-    "v",
-    "<space>ca",
-    "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
-    { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
-  )
-  nnoremap("<space>f", function()
-    vim.lsp.buf.format({ async = true })
-  end, bufopts, "Format file")
-
+  -- nnoremap("<space>D", vim.lsp.buf.type_definition, bufopts, "Go to type definition")
+  -- nnoremap("<space>rn", vim.lsp.buf.rename, bufopts, "Rename")
+  -- nnoremap("<space>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
+  -- vim.keymap.set(
+  --   "v",
+  --   "<space>ca",
+  --   "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
+  --   { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
+  -- )
+  -- nnoremap("<space>f", function()
+  --   vim.lsp.buf.format({ async = true })
+  -- end, bufopts, "Format file")
+  --
   -- Java extensions provided by jdtls
-  nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
-  nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
+  -- nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
+  -- nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
+  -- nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
   vim.keymap.set(
     "v",
-    "<space>em",
+    "<leader>em",
     [[<ESC><CMD>lua require('jdtls').extract_method(true)<CR>]],
     { noremap = true, silent = true, buffer = bufnr, desc = "Extract method" }
   )
@@ -75,7 +91,7 @@ local config = {
           -- Use Google Java style guidelines for formatting
           -- To use, make sure to download the file from https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml
           -- and place it in the ~/.local/share/eclipse directory
-          url = "/home/zero/.local/share/eclipse/eclipse-java-google-style.xml",
+          url = home .. "/.local/share/eclipse/eclipse-java-google-style.xml",
           profile = "GoogleStyle",
         },
       },
@@ -146,7 +162,7 @@ local config = {
   -- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
   -- for the full list of options
   cmd = {
-    "/home/zero/.sdkman/candidates/java/17.0.7-zulu/bin/java",
+    home .. "/.sdkman/candidates/java/17.0.7-zulu/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -166,12 +182,12 @@ local config = {
     -- The jar file is located where jdtls was installed. This will need to be updated
     -- to the location where you installed jdtls
     "-jar",
-    vim.fn.glob("/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"),
+    vim.fn.glob(jdlts_server),
 
     -- The configuration for jdtls is also placed where jdtls was installed. This will
     -- need to be updated depending on your environment
     "-configuration",
-    "/home/zero/.local/share/eclipse/jdtls/config_linux",
+    jdlts_configuration,
 
     -- Use the workspace_folder defined above to store data for this project
     "-data",

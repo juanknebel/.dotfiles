@@ -82,6 +82,32 @@ keymap.set("n", "<A-[>", "<Cmd>BufferLineMovePrev<CR>")
 keymap.set("n", "<A-,>", "<Cmd>BufferLineCycleNext<CR>")
 keymap.set("n", "<A-.>", "<Cmd>BufferLineCyclePrev<CR>")
 
+-- lsp Keybindings
+keymap.set("n", "gD", function()
+  vim.lsp.buf.declaration()
+end, { desc = "LSP declaration" })
+keymap.set("n", "gd", function()
+  vim.lsp.buf.definition()
+end, { desc = "LSP declaration" })
+keymap.set("n", "K", function()
+  vim.lsp.buf.hover()
+end, { desc = "LSP hover" })
+keymap.set("n", "gi", function()
+  vim.lsp.buf.implementation()
+end, { desc = "LSP implementation" })
+keymap.set("n", "<leader>ls", function()
+  vim.lsp.buf.signature_help()
+end, { desc = "LSP signature help" })
+keymap.set("n", "<leader>d", function()
+  vim.lsp.buf.type_definition()
+end, { desc = "LSP type definition" })
+keymap.set("n", "<leader>ca", function()
+  vim.lsp.buf.code_action()
+end, { desc = "LSP code action" })
+keymap.set("n", "gr", function()
+  vim.lsp.buf.references()
+end, { desc = "LSP references" })
+
 ----------------------
 -- BarBar Keybinds
 ----------------------
