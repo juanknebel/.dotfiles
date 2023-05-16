@@ -16,6 +16,9 @@ function setup_rust
     cargo install cargo-watch;
     cargo install cargo-audit;
     cargo install cargo-tarpaulin;
+    cargo install cargo-generate;
+    cargo install cargo-udeps --locked;
+    cargo +stable install cargo-llvm-cov;
     cargo install du-dust;
     cargo install procs;
     cargo install --locked broot;
@@ -54,10 +57,10 @@ function setup_java
     curl -s "https://get.sdkman.io" | bash ;
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
-    mkdir -p $HOME/.local/share/eclipse;
+    mkdir -p $HOME/.local/share/eclipse/jdtls;
     curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
     wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz;
-    tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
+    tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
     rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz; 
     echo "Done."
 end

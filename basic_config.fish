@@ -21,7 +21,7 @@ function setup_software
             # Garuda soft
             if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Garuda"
-                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl lazygit neovim neovim-qt;
+                sudo pacman -S peco openssh git fish exa tmux fd tokei procs ddgr noto-color-emoji-fontconfig noto-fonts-emoji unzip starship jq xclip vlc neofetch keepassxc zsh htop cmake wget llvm httpie bat ripgrep zoxide openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl fd skim clang libpqxx gitui nushell zellij youtube-dl lazygit neovim neovim-qt wget curl;
                 sudo pacman -S docker;
                 sudo usermod -a -G docker $USER;
                 sudo systemctl start docker.service;
@@ -32,7 +32,7 @@ function setup_software
             end
         case Darwin
             echo "MacOs"
-            # install soft for mac
+            brew install wget curl;
         case '*'
             # Do nothing
     end

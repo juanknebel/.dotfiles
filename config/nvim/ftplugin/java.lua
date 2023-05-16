@@ -4,14 +4,17 @@ local jdtls_home = home .. "/.local/share/eclipse/jdtls"
 
 local jdlts_server = jdtls_home .. "/plugins/org.eclipse.equinox.launcher_*.jar"
 local jdlts_configuration = ""
+local java8 = ""
 
 if os_name == "Darwin" then
   --jdlts_server = home .. "/.local/share/eclipse/jdtls/org.eclipse.equinox.launcher_*.jar"
   jdlts_configuration = jdtls_home .. "/config_mac/"
+  java8 = home .. "/.sdkman/candidates/java/8.0.322-z-arm64"
 elseif os_name == "Linux" then
   --jdlts_server = home .. "/.local/share/eclipse/jdtls/org.eclipse.equinox.launcher_*.jar"
   --jdlts_server = "/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
   jdlts_configuration = jdtls_home .. "/config_linux/"
+  java8 = home .. "/.sdkman/candidates/java/8.0.372-zulu"
 else
   -- Estás en un sistema operativo diferente
   -- Coloca aquí el código para otros sistemas operativos si es necesario
@@ -152,7 +155,7 @@ local config = {
           },
           {
             name = "JavaSE-1.8",
-            path = home .. "/.sdkman/candidates/java/8.0.372-zulu",
+            path = java8,
           },
         },
       },
