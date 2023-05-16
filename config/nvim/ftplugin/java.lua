@@ -1,15 +1,17 @@
 local home = os.getenv("HOME")
 local os_name = vim.loop.os_uname().sysname
+local jdtls_home = home .. "/.local/share/eclipse/jdtls"
 
-local jdlts_server = ""
+local jdlts_server = jdtls_home .. "/plugins/org.eclipse.equinox.launcher_*.jar"
 local jdlts_configuration = ""
 
 if os_name == "Darwin" then
-  jdlts_server = "/opt/homebrew/Cellar/jdtls/1.18.0/libexec/plugins/org.eclipse.equinox.launcher_*.jar"
-  jdlts_configuration = home .. "/.local/share/eclipse/jdtls/config_mac/"
+  --jdlts_server = home .. "/.local/share/eclipse/jdtls/org.eclipse.equinox.launcher_*.jar"
+  jdlts_configuration = jdtls_home .. "/config_mac/"
 elseif os_name == "Linux" then
-  jdlts_server = "/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
-  jdlts_configuration = home .. "/.local/share/eclipse/jdtls/config_linux/"
+  --jdlts_server = home .. "/.local/share/eclipse/jdtls/org.eclipse.equinox.launcher_*.jar"
+  --jdlts_server = "/usr/share/java/jdtls/plugins/org.eclipse.equinox.launcher_*.jar"
+  jdlts_configuration = jdtls_home .. "/config_linux/"
 else
   -- Estás en un sistema operativo diferente
   -- Coloca aquí el código para otros sistemas operativos si es necesario

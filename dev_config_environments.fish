@@ -38,6 +38,8 @@ function setup_python
     pyenv install 3.11;
     pyenv global system;
     pyenv local 3.11;
+    pip install pyright;
+    pip install pynvim;
 
     echo "Poetry"
     # Poetry
@@ -52,6 +54,11 @@ function setup_java
     curl -s "https://get.sdkman.io" | bash ;
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
+    mkdir -p $HOME/.local/share/eclipse;
+    curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
+    wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz;
+    tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
+    rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz; 
     echo "Done."
 end
 
