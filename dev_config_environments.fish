@@ -55,7 +55,6 @@ function setup_java
     echo "**** JAVA ****"
     echo "SDK Manager ..."
     curl -s "https://get.sdkman.io" | bash ;
-    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
     mkdir -p $HOME/.local/share/eclipse/jdtls;
     curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;

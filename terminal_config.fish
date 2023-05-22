@@ -6,6 +6,8 @@ function setup_alacritty
         mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
     end
 
+    git clone https://github.com/catppuccin/alacritty.git $HOME/.config/alacritty/catppuccin;
+
     switch (uname)
         case Darwin
             ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.yml $HOME/.config/alacritty/alacritty.yml;
@@ -51,6 +53,13 @@ function setup_fish_shell
     touch $HOME/.config/fish/config-local.fish;
 
     source $HOME/.config/fish/config.fish;
+
+    # Install fisher
+    curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
+    
+    # Catppuccin theme
+    fisher install catppuccin/fish;
+    fish_config theme save "Catppuccin Mocha";
     echo "Done."
 end
 
@@ -102,6 +111,12 @@ function setup_zellij
         case '*'
             # Do nothing
     end
+end
+
+function setup_konsole()
+    mkdir -p $HOME/tmp;
+    git clone git@github.com:catppuccin/konsole.git $HOME/tmp/catppuccin-konsole;
+    cp $HOME/tmp/catppuccin-konsole/Catppuccin-Mocha.colorscheme $HOME/.local/share/konsole;
 end
 
 #setup_fish_shell
