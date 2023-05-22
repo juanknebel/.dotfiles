@@ -6,7 +6,6 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 -- General Keymaps
 ---------------------
-
 -- use jk to exit insert mode
 keymap.set("i", "jk", "<ESC>")
 
@@ -31,82 +30,37 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
-----------------------
+---------------------
 -- Plugin Keybinds
 ----------------------
-
 -- vim-maximizer
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
--- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
-
--- telescope
-keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
-keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
-keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
-keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
-keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-
--- telescope git commands (not on youtube nvim video)
-keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
-keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
-keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
-keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
-
--- restart lsp server (not on youtube nvim video)
-keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
-
-----------------------
--- Dap Keybinds
-----------------------
-keymap.set("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Toggle breakpoint" }) -- toggle a breakpoint
-keymap.set("n", "<leader>dus", function()
-  local widgets = require("dap.ui.widgets")
-  local sidebar = widgets.sidebar(widgets.scopes)
-  sidebar.open()
-end, { desc = "Open debugging sidebar" }) -- Open the debug window
-
-----------------------
--- Rust Keybinds
-----------------------
-keymap.set("n", "<leader>rcu", function()
-  require("crates").upgrade_all_crates()
-end, { desc = "Update crates" })
-
------------------------
--- Bufferline Keybinds
-----------------------
-keymap.set("n", "<A-]>", "<Cmd>BufferLineMoveNext<CR>")
-keymap.set("n", "<A-[>", "<Cmd>BufferLineMovePrev<CR>")
-keymap.set("n", "<A-,>", "<Cmd>BufferLineCycleNext<CR>")
-keymap.set("n", "<A-.>", "<Cmd>BufferLineCyclePrev<CR>")
-
 -- lsp Keybindings
-keymap.set("n", "gD", function()
-  vim.lsp.buf.declaration()
-end, { desc = "LSP declaration" })
-keymap.set("n", "gd", function()
-  vim.lsp.buf.definition()
-end, { desc = "LSP declaration" })
-keymap.set("n", "K", function()
-  vim.lsp.buf.hover()
-end, { desc = "LSP hover" })
-keymap.set("n", "gi", function()
-  vim.lsp.buf.implementation()
-end, { desc = "LSP implementation" })
-keymap.set("n", "<leader>ls", function()
-  vim.lsp.buf.signature_help()
-end, { desc = "LSP signature help" })
-keymap.set("n", "<leader>d", function()
-  vim.lsp.buf.type_definition()
-end, { desc = "LSP type definition" })
-keymap.set("n", "<leader>ca", function()
-  vim.lsp.buf.code_action()
-end, { desc = "LSP code action" })
-keymap.set("n", "gr", function()
-  vim.lsp.buf.references()
-end, { desc = "LSP references" })
+-- keymap.set("n", "gD", function()
+--   vim.lsp.buf.declaration()
+-- end, { desc = "LSP declaration" })
+-- keymap.set("n", "gd", function()
+--   vim.lsp.buf.definition()
+-- end, { desc = "LSP declaration" })
+-- keymap.set("n", "K", function()
+--   vim.lsp.buf.hover()
+-- end, { desc = "LSP hover" })
+-- keymap.set("n", "gi", function()
+--   vim.lsp.buf.implementation()
+-- end, { desc = "LSP implementation" })
+-- keymap.set("n", "<leader>ls", function()
+--   vim.lsp.buf.signature_help()
+-- end, { desc = "LSP signature help" })
+-- keymap.set("n", "<leader>d", function()
+--   vim.lsp.buf.type_definition()
+-- end, { desc = "LSP type definition" })
+-- keymap.set("n", "<leader>ca", function()
+--   vim.lsp.buf.code_action()
+-- end, { desc = "LSP code action" })
+-- keymap.set("n", "gr", function()
+--   vim.lsp.buf.references()
+-- end, { desc = "LSP references" })
 
 ----------------------
 -- BarBar Keybinds

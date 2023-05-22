@@ -61,7 +61,7 @@ return packer.startup(function(use)
   --    "nvim-tree/nvim-web-devicons", -- OPTIONAL: for file icons
   --  },
   --})
-  use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
+  -- use({ "akinsho/bufferline.nvim", tag = "*", requires = "nvim-tree/nvim-web-devicons" })
 
   -- vs-code like icons
   use("nvim-tree/nvim-web-devicons")
@@ -188,6 +188,7 @@ return packer.startup(function(use)
 
   -- debbuger
   use("mfussenegger/nvim-dap")
+  use("rcarriga/nvim-dap-ui")
 
   use({
     "theHamsta/nvim-dap-virtual-text",

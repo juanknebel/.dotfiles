@@ -117,3 +117,5 @@ lspconfig["pyright"].setup({
 
 -- configure rust analyzer
 -- lspconfig["rust-analyzer"]
+
+vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
