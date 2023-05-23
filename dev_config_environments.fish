@@ -40,10 +40,11 @@ function setup_python
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
     git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv;
     pyenv install 3.11;
-    pyenv global system;
-    pyenv local 3.11;
+    # pyenv global system;
+    pyenv global 3.11;
     pip install pyright;
     pip install pynvim;
+    pip install black;
 
     echo "Poetry"
     # Poetry
@@ -96,6 +97,44 @@ function setup_mc
     echo "**** MC ****"
     mkdir -p $HOME/.local/share/mc/skins && cd $HOME/.local/share/mc/skins && git clone https://github.com/catppuccin/mc.git && ln -s -f ./mc/catppuccin.ini .
     # Change or add skin=catppuccin in the [Midnight-Commander] section inside ~/.config/mc/ini
+end
+
+function setup_vscode
+  echo "**** VSCODE ****"
+  # In mac Ctrl+Shift+P and type shell
+  # Install code in Path
+  
+  switch (uname)
+        case Linux
+            echo "Linux"
+            mkdir -p $HOME/.config/Code/User;
+            ln -s $HOME/.dotfiles/config/Code/User/settings.json $HOME/.config/Code/User/settings.json;
+        case Darwin
+            echo "MacOs"
+            mkdir -p $HOME/Library/Application\ Support/Code/User;
+            ln -s $HOME/.dotfiles/config/Code/User/settings.json $HOME/Library/Application\ Support/Code/User/settings.json;
+        case '*'
+            # Do nothing
+    end
+  
+  
+  code --install-extension 1YiB.rust-bundle
+  code --install-extension bungcip.better-toml
+  code --install-extension Catppuccin.catppuccin-vsc
+  code --install-extension Catppuccin.catppuccin-vsc-icons
+  code --install-extension dustypomerleau.rust-syntax
+  code --install-extension ms-azuretools.vscode-docker
+  code --install-extension ms-python.python
+  code --install-extension ms-python.vscode-pylance
+  code --install-extension ms-toolsai.jupyter
+  code --install-extension ms-toolsai.jupyter-keymap
+  code --install-extension ms-toolsai.jupyter-renderers
+  code --install-extension ms-toolsai.vscode-jupyter-cell-tags
+  code --install-extension ms-toolsai.vscode-jupyter-slideshow
+  code --install-extension ms-vscode-remote.remote-containers
+  code --install-extension rust-lang.rust-analyzer
+  code --install-extension serayuzgur.crates
+  code --install-extension vadimcn.vscode-lldb
 end
 
 function catppuccin
