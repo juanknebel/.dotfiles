@@ -135,6 +135,16 @@ function setup_vscode
   code --install-extension rust-lang.rust-analyzer
   code --install-extension serayuzgur.crates
   code --install-extension vadimcn.vscode-lldb
+  code --install-extension ms-python.isort
+  code --install-extension redhat.java
+  code --install-extension usernamehw.errorlens
+  # code --install-extension VisualStudioExptTeam.intellicode-api-usage-examples
+  # code --install-extension VisualStudioExptTeam.vscodeintellicode
+  code --install-extension vscjava.vscode-java-debug
+  code --install-extension vscjava.vscode-java-dependency
+  code --install-extension vscjava.vscode-java-pack
+  code --install-extension vscjava.vscode-java-test
+  code --install-extension vscjava.vscode-maven
 end
 
 function catppuccin
