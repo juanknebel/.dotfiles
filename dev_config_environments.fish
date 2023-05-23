@@ -9,7 +9,8 @@ function setup_rust
     end
     ln -s $HOME/.dotfiles/config/rustfmt/rustfmt.toml $HOME/.config/rustfmt;
     rustup toolchain install nightly;
-    rustup default nightly;
+    rustup default stable;
+    # rustup override set nightly; --> whenever is neccessary
     rustup component add rust-analyzer;
     rustup component add clippy;
     rustup component add rustfmt;
@@ -58,9 +59,13 @@ function setup_java
     fisher install reitzig/sdkman-for-fish@v1.4.0;
     mkdir -p $HOME/.local/share/eclipse/jdtls;
     curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
-    wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz;
+    wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz "https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz";
     tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
-    rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz; 
+    rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
+    sdk install maven 3.9.2;
+    sdk install java 8.0.372-zulu;
+    sdk install java 11.0.19-zule;
+    sdk install java-17.0.7-zulu;
     echo "Done."
 end
 
@@ -85,6 +90,24 @@ function setup_skim
     echo "**** SKIM ****"
     mkdir -p $HOME/Apps
     ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
+end
+
+function setup_mc
+    echo "**** MC ****"
+    mkdir -p $HOME/.local/share/mc/skins && cd $HOME/.local/share/mc/skins && git clone https://github.com/catppuccin/mc.git && ln -s -f ./mc/catppuccin.ini .
+    # Change or add skin=catppuccin in the [Midnight-Commander] section inside ~/.config/mc/ini
+end
+
+function catppuccin
+    echo "**** VSCODE ****"
+    echo "Catppuccin for VSCode -> theme"
+    echo "Catppuccin.catppuccin-vsc-icons -> icons"
+
+    echo "**** Jetbrains ****"
+    echo "Catppuccin Theme -> theme"
+
+    echo "**** Firefox ****"
+    echo "https://github.com/catppuccin/firefox"
 end
 
 #setup_rust
