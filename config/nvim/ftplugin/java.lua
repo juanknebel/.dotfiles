@@ -55,22 +55,22 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts, "List workspace folders")
   -- nnoremap("<space>D", vim.lsp.buf.type_definition, bufopts, "Go to type definition")
-  -- nnoremap("<space>rn", vim.lsp.buf.rename, bufopts, "Rename")
-  -- nnoremap("<space>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
-  -- vim.keymap.set(
-  --   "v",
-  --   "<space>ca",
-  --   "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
-  --   { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
-  -- )
+  nnoremap("<leader>rn", vim.lsp.buf.rename, bufopts, "Rename")
+  nnoremap("<leader>ca", vim.lsp.buf.code_action, bufopts, "Code actions")
+  vim.keymap.set(
+    "v",
+    "<leader>ca",
+    "<ESC><CMD>lua vim.lsp.buf.range_code_action()<CR>",
+    { noremap = true, silent = true, buffer = bufnr, desc = "Code actions" }
+  )
   -- nnoremap("<space>f", function()
   --   vim.lsp.buf.format({ async = true })
   -- end, bufopts, "Format file")
   --
   -- Java extensions provided by jdtls
-  -- nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
-  -- nnoremap("<space>ev", jdtls.extract_variable, bufopts, "Extract variable")
-  -- nnoremap("<space>ec", jdtls.extract_constant, bufopts, "Extract constant")
+  nnoremap("<C-o>", jdtls.organize_imports, bufopts, "Organize imports")
+  nnoremap("<leader>ev", jdtls.extract_variable, bufopts, "Extract variable")
+  nnoremap("<leader>ec", jdtls.extract_constant, bufopts, "Extract constant")
   vim.keymap.set(
     "v",
     "<leader>em",
