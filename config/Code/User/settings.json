@@ -27,11 +27,6 @@
     "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "security.workspace.trust.untrustedFiles": "open",
-    "[python]": {
-        "editor.formatOnType": true
-    },
-    "editor.fontSize": 11,
-    "editor.minimap.enabled": false,
     "workbench.colorTheme": "Catppuccin Mocha",
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.startupEditor": "none",
@@ -39,14 +34,18 @@
     "python.formatting.blackArgs": [
         "--line-length 79"
     ],
+    "[python]": {
+        "editor.formatOnType": true
+    },
     "files.autoSave": "onWindowChange",
+    "editor.minimap.enabled": false,
     "editor.wordWrap": "wordWrapColumn",
     "editor.rulers": [
         80, 100,
     ],
-    "jupyter.askForKernelRestart": false,
+    "editor.fontSize": 11,
+    "editor.fontFamily": "FiraCode Nerd Font",
+    "editor.tabSize": 2,
     "editor.wrappingStrategy": "advance",
-    "[python]": {
-        "editor.formatOnType": true
-    },
+    "jupyter.askForKernelRestart": false,
 }

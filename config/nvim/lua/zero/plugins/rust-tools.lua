@@ -30,3 +30,17 @@ rt.setup({
 vim.keymap.set("n", "<leader>rcu", function()
   require("crates").upgrade_all_crates()
 end, { desc = "Update crates" })
+
+-- Enable auto format on saving
+vim.cmd([[
+  autocmd FileType rust autocmd BufWritePre <buffer> RustFmt
+]])
+
+-- RustFmt configuration
+vim.g.rustfmt_autosave = 1
+vim.g.rustfmt_command = "rustfmt"
+
+-- Tabs configuration
+vim.cmd([[
+  autocmd FileType rust setlocal expandtab shiftwidth=2 softtabstop=2
+]])
