@@ -26,6 +26,8 @@ function setup_rust
     cargo install skim;
     cargo install --locked bacon;
     cargo install --version 0.1.0-alpha.5 gobang;
+    cargo install diesel_cli;
+    cargo install diesel_cli_ext;
     # For webassembly
     rustup target add wasm32-unknown-unknown;
     cargo install trunk;
@@ -40,8 +42,8 @@ function setup_python
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
     git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv;
     pyenv install 3.11;
-    # pyenv global system;
-    pyenv global 3.11;
+    pyenv global system;
+    # pyenv global 3.11;
     pip install pyright;
     pip install pynvim;
     pip install black;
@@ -56,17 +58,18 @@ end
 function setup_java
     echo "**** JAVA ****"
     echo "SDK Manager ..."
-    curl -s "https://get.sdkman.io" | bash ;
+    curl -s "https://get.sdkman.io" | bash;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
     mkdir -p $HOME/.local/share/eclipse/jdtls;
     curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
     wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz "https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz";
     tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
     rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
+    #reload the terminal 
     sdk install maven 3.9.2;
     sdk install java 8.0.372-zulu;
-    sdk install java 11.0.19-zule;
-    sdk install java-17.0.7-zulu;
+    sdk install java 11.0.19-zulu;
+    sdk install java 17.0.7-zulu;
     echo "Done."
 end
 
@@ -122,6 +125,7 @@ function setup_vscode
   code --install-extension bungcip.better-toml
   code --install-extension Catppuccin.catppuccin-vsc
   code --install-extension Catppuccin.catppuccin-vsc-icons
+  code --install-extension Nord
   code --install-extension dustypomerleau.rust-syntax
   code --install-extension ms-azuretools.vscode-docker
   code --install-extension ms-python.python

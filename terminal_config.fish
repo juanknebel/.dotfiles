@@ -16,6 +16,15 @@ function setup_alacritty
         case '*'
             # Do nothing
     end
+    ln -s $HOME/.dotfiles/config/alacritty/themes/ $HOME/.config/alacritty/themes;
+end
+
+function setup_terminator
+    echo "**** Terminator ****"
+    if test -f $HOME/.config/terminator/config
+        mv $HOME/.config/terminator/config $HOME/.config/terminator/config.bak;
+    end
+    ln -s $HOME/.dotfiles/config/terminator/config $HOME/.config/terminator/config;
 end
 
 function setup_fish_shell
