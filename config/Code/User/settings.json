@@ -27,7 +27,7 @@
     "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Nord",
+    "workbench.colorTheme": "Nord Aurora Darker",
     "workbench.iconTheme": "catppuccin-mocha",
     "workbench.startupEditor": "none",
     "python.formatting.provider": "black",

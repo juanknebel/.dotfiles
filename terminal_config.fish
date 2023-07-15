@@ -141,6 +141,10 @@ function setup_iterm2
     # Click on Color Presets and choose the Catppuccin flavour
 end
 
+function setup_tilix
+  ln -s $HOME/.dotfiles/config/tilix/ $HOME/.config/;
+end
+
 #setup_fish_shell
 #setup_alacritty
 #setup_starfish_prompt
