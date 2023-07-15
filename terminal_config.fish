@@ -92,8 +92,9 @@ function setup_tmux
     if test -f $HOME/.tmux.conf
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak;
     end
-    mkdir -p $HOME/.tmux/plugins/tpm;
+    mkdir -p $HOME/.config/tmux;
     rm -rf $HOME/.tmux/plugins/tpm;
+    mkdir -p $HOME/.tmux/plugins/tpm;
     git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm;
     mkdir -p $HOME/.config/tmux;
     switch (uname)
