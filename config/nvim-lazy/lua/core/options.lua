@@ -1,7 +1,21 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+-- Set the cursorline option to enable a line cursor in insert mode
+--vim.cmd([[autocmd InsertEnter * set cursorline]])
+--vim.cmd([[autocmd InsertLeave * set nocursorline]])
 
-vim.opt.backspace = '2'
+--vim.o.guicursor = "n-v-c-sm-i-ci-ve:block,r-cr-o:hor20,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor"
+-- Set the cursor shape to a line in insert mode
+--vim.cmd([[autocmd InsertLeave * set guicursor=n:ver100]])
+--vim.cmd([[autocmd InsertEnter * set guicursor=]])
+
+-- Set the cursor shape to a line in insert mode
+vim.cmd([[autocmd InsertEnter * silent! execute "!echo -ne '\e[6 q'"]])
+vim.cmd([[autocmd InsertLeave * silent! execute "!echo -ne '\e[2 q'"]])
+
+-- Leader key
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
+vim.opt.backspace = "2"
 vim.opt.showcmd = true
 vim.opt.laststatus = 2
 vim.opt.autowrite = true
@@ -14,7 +28,7 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
-vim.cmd [[ set noswapfile ]]
+vim.cmd([[ set noswapfile ]])
 
 -- line numbers
 vim.wo.number = true

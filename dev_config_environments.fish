@@ -28,6 +28,8 @@ function setup_rust
     cargo install --version 0.1.0-alpha.5 gobang;
     cargo install diesel_cli;
     cargo install diesel_cli_ext;
+    cargo install ripgrep;
+    cargo install fd-find;
     # For webassembly
     rustup target add wasm32-unknown-unknown;
     cargo install trunk;
