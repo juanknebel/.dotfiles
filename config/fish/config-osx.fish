@@ -11,3 +11,6 @@
 ### Paths
 set -U fish_user_paths /usr/local/sbin $fish_user_paths
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
+
+set -Ux LANG en_US.UTF-8
+set -Ux LC_ALL en_US.UTF-8

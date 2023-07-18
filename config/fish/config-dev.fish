@@ -56,6 +56,7 @@ abbr grh 'git reset --hard'
 abbr guo 'git branch -u origin/'
 abbr gbu 'git branch -u'
 abbr grmo 'git push origin :'
+abbr gwho 'git for-each-ref refs/remotes --format="%(authorname) %(refname)"'
 
 ## Http
 abbr chead 'curl -s -D - -o  /dev/null'

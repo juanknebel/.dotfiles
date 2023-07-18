@@ -13,7 +13,8 @@
 
 import:
   # uncomment the flavour you want below:
-  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
+  - ~/.config/alacritty/themes/nord.yaml
+#  - ~/.config/alacritty/catppuccin/catppuccin-mocha.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-macchiato.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-frappe.yml
 #  - ~/.config/alacritty/catppuccin/catppuccin-latte.yml
@@ -28,8 +29,9 @@ env:
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  TERM: alacritty
+  #TERM: alacritty
   #TERM: xterm-256color
+  TERM: screen-256color
 
 window:
   # Only in version 0.12 and up
@@ -127,7 +129,8 @@ font:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: Hack Nerd Font Propo
 
     # The `style` can be specified to pick a specific face.
     #style: Regular
@@ -138,7 +141,8 @@ font:
     #
     # If the bold family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: Hack Nerd Font Propo
 
     # The `style` can be specified to pick a specific face.
     #style: Bold
@@ -149,7 +153,8 @@ font:
     #
     # If the italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: Hack Nerd Font Propo
 
     # The `style` can be specified to pick a specific face.
     #style: Italic
@@ -160,13 +165,14 @@ font:
     #
     # If the bold italic family is not specified, it will fall back to the
     # value specified for the normal font.
-    family: FiraCode Nerd Font
+    # family: FiraCode Nerd Font
+    family: Hack Nerd Font Propo
 
     # The `style` can be specified to pick a specific face.
     #style: Bold Italic
 
   # Point size
-  size: 10.0
+  size: 11.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
