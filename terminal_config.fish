@@ -19,6 +19,24 @@ function setup_alacritty
     ln -s $HOME/.dotfiles/config/alacritty/themes/ $HOME/.config/alacritty/themes;
 end
 
+function setup_wezterm
+    echo "**** Wezterm ****"
+    if test -f $HOME/.config/wezterm/wezterm.lua
+        mv $HOME/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua.bak;
+    end
+
+    mkdir -p $HOME/.config/wezterm/;
+
+    switch (uname)
+        case Darwin
+            ln -s $HOME/.dotfiles/config/wezterm/wezterm-osx.lua $HOME/.config/wezterm/wezterm.lua;
+        case Linux
+            ln -s $HOME/.dotfiles/config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua;
+        case '*'
+            # Do nothing
+    end
+end
+
 function setup_terminator
     echo "**** Terminator ****"
     if test -f $HOME/.config/terminator/config
