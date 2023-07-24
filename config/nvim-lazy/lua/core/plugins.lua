@@ -44,6 +44,9 @@ local plugins = {
 	"rust-lang/rust.vim",
 	"saecki/crates.nvim",
 
+	-- Java
+	"mfussenegger/nvim-jdtls",
+
 	-- Formatting
 	"jose-elias-alvarez/null-ls.nvim",
 
