@@ -122,6 +122,8 @@ function setup_tmux
             ln -s $HOME/.dotfiles/config/tmux/tmux-osx.conf $HOME/.config/tmux/tmux.conf;
     end
     # Install the plugins, inside the tmux press: <preffix>I
+    # script to create and attach session in tmux using z oxide
+    ln -s $HOME/.dotfiles/bin/t $HOME/Apps/t;
     echo "Done."
 end
 

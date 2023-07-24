@@ -97,7 +97,8 @@ end
 function setup_skim
     echo "**** SKIM ****"
     mkdir -p $HOME/Apps
-    ln -s $HOME/.dotfiles/preview.sh $HOME/Apps/preview.sh
+    ln -s $HOME/.dotfiles/bin/preview.sh $HOME/Apps/preview.sh
+    ln -s $HOME/.dotfiles/bin/sk-tmux $HOME/Apps/sk-tmux;
 end
 
 function setup_mc

@@ -16,7 +16,7 @@ function setup_software
             # Ubuntu Essentials
             if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Ubuntu"
-                sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev btop;
+                sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev btop fzf;
                 # install https://pkgs.org/download/webapp-manager
                 sudo apt-get install ca-certificates curl gnupg;
                 sudo install -m 0755 -d /etc/apt/keyrings;
