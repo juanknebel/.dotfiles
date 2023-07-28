@@ -15,13 +15,6 @@ set -e fish_user_paths
 set -U fish_user_paths $HOME/.local/bin $HOME/Applications $HOME/Apps $HOME/bin /usr/local/bin $fish_user_paths
 set -U TMP $HOME/tmp
 
-# Add ~/.local/bin to PATH
-if test -d ~/.local/bin
-    if not contains -- ~/.local/bin $PATH
-        set -p PATH ~/.local/bin
-    end
-end
-
 ### EXPORT
 set fish_greeting                                 # Supresses fish's intro message
 #set TERM "xterm-256color"                         # Sets the terminal type
@@ -63,3 +56,11 @@ end
 
 ### Start zoxide
 zoxide init fish | source
+
+### Start mcfly
+mcfly init fish | source
+set -gx MCFLY_KEY_SCHEME vim
+set -gx MCFLY_FUZZY 2
+set -gx MCFLY_RESULTS 50
+set -gx MCFLY_RESULTS_SORT LAST_RUN # RANK
+set -gx MCFLY_PROMPT "<<the-doc>>"

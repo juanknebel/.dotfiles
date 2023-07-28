@@ -52,8 +52,7 @@ function setup_fish_shell
     mkdir -p $HOME/.config/fish/conf.d;
     mkdir -p $HOME/.config/fish/functions;
 
-    echo "Extras"
-    # Fish extras
+    # Fish configuration
     if test -e "$HOME/.config/fish/config.fish"
         mv $HOME/.config/fish/config.fish $HOME/.config/fish/config.fish.bak;
     end
@@ -78,6 +77,9 @@ function setup_fish_shell
 
     # For some local configuration that is only for this machine
     touch $HOME/.config/fish/config-local.fish;
+
+    # cond.d
+    ln -s $HOME/.dotfiles/config/fish/conf.d/fnm.fish $HOME/.config/fish/conf.d/fnm.fish;
 
     source $HOME/.config/fish/config.fish;
 

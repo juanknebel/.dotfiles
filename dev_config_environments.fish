@@ -1,5 +1,32 @@
 #!/usr/bin/fish
 
+function init
+    echo "**** INIT ****"
+    git clone git@github.com:juanknebel/.dotfiles.git;
+    mkdir -p $HOME/git;
+    echo "Done."
+end
+
+function setup_git
+    # SSH
+    # ssh-keygen -t ed25519 -b 4096 -C "juanknebel@gmail.com";
+    # eval (ssh-agent -c);
+    # ssh-add $HOME/.ssh/id_ed25519;
+    # xclip -selection clipboard < $HOME/.ssh/id_ed25519.pub;
+    # pbcopy < $HOME/.ssh/id_ed25519.pub; #for macos
+    echo "**** GIT ****"
+    if test -f $HOME/.gitignore_global
+        mv $HOME/.gitignore_global $HOME/.gitignore_global.bak;
+    end
+    ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global;
+    git config --global core.excludesfile $HOME/.gitignore_global;
+    git config --global init.defaultBranch main;
+    git config --global user.email "juanknebel@gmail.com";
+    git config --global user.name "Juan Knebel";
+    git config --global core.editor "nvim"
+    echo "Done."
+end
+
 function setup_rust
     echo "**** RUST ****"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
@@ -14,22 +41,16 @@ function setup_rust
     rustup component add rust-analyzer;
     rustup component add clippy;
     rustup component add rustfmt;
+    # Cargo adds
     cargo install cargo-watch;
     cargo install cargo-audit;
     cargo install cargo-tarpaulin;
     cargo install cargo-generate;
     cargo install cargo-udeps --locked;
     cargo +stable install cargo-llvm-cov;
-    cargo install du-dust;
-    cargo install procs;
-    cargo install --locked broot;
-    cargo install skim;
-    cargo install --locked bacon;
-    cargo install --version 0.1.0-alpha.5 gobang;
+    # To handle database migrations
     cargo install diesel_cli;
     cargo install diesel_cli_ext;
-    cargo install ripgrep;
-    cargo install fd-find;
     # For webassembly
     rustup target add wasm32-unknown-unknown;
     cargo install trunk;
@@ -91,7 +112,13 @@ function setup_neovim
     rm -rf $HOME/.config/nvim/;
     ln -s $HOME/.dotfiles/config/nvim $HOME/.config/nvim;
     ln -s $HOME/.dotfiles/config/nvim-lazy $HOME/.config/nvim;
+end
 
+function setup_helix
+  rm -rf $HOME/.config/helix/;
+  mkdir -p $HOME/.config/helix;
+  ln -s $HOME/.dotfiles/config/helix/config.toml $HOME/.config/helix/config.toml;
+  ln -s $HOME/.dotfiles/config/helix/languages.toml $HOME/.config/helix/languages.toml;
 end
 
 function setup_skim

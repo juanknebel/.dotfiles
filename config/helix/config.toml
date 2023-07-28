@@ -1,0 +1,58 @@
+theme = "nord"
+
+[editor]
+line-number = "relative"
+mouse = true
+cursorline = true
+rulers = [80]
+bufferline = "multiple"
+completion-trigger-len = 3
+auto-pairs = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["file-name", "file-modification-indicator"]
+right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+separator = ">"
+mode.normal = "NORMAL"
+mode.insert = "INSERT"
+mode.select = "SELECT"
+
+[editor.lsp]
+enable = true
+display-messages = true
+auto-signature-help = true
+display-inlay-hints = true
+display-signature-help-docs = true
+snippets = true
+goto-reference-include-declaration = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.file-picker]
+hidden = false
+
+#[keys.insert.j]
+#k = "normal_mode" # Maps `jk` to exit insert mode
+
+[keys.normal.g]
+a = "code_action" # Maps `ga` to show possible code actions
+w = ":buffer-close"
+
+# invert `j` and `k` in view mode
+[keys.normal.z]
+j = "scroll_up"
+k = "scroll_down"
+
+# create a new minor mode bound to `+`
+[keys.normal."+"]
+c = ":run-shell-command cargo build"
+t = ":run-shell-command cargo test"
+
+
+[keys.normal."backspace"]
+"s" = [":w", ":config-reload"]
+"c" = ":config-open"
