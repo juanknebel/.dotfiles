@@ -1,50 +1,5 @@
 #!/usr/bin/fish
 
-function setup_alacritty
-    echo "**** Alacritty ****"
-    if test -f $HOME/.config/alacritty/alacritty.yml
-        mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
-    end
-
-    git clone https://github.com/catppuccin/alacritty.git $HOME/.config/alacritty/catppuccin;
-
-    switch (uname)
-        case Darwin
-            ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.yml $HOME/.config/alacritty/alacritty.yml;
-        case Linux
-            ln -s $HOME/.dotfiles/config/alacritty/alacritty-linux.yml $HOME/.config/alacritty/alacritty.yml;
-        case '*'
-            # Do nothing
-    end
-    ln -s $HOME/.dotfiles/config/alacritty/themes/ $HOME/.config/alacritty/themes;
-end
-
-function setup_wezterm
-    echo "**** Wezterm ****"
-    if test -f $HOME/.config/wezterm/wezterm.lua
-        mv $HOME/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua.bak;
-    end
-
-    mkdir -p $HOME/.config/wezterm/;
-
-    switch (uname)
-        case Darwin
-            ln -s $HOME/.dotfiles/config/wezterm/wezterm-osx.lua $HOME/.config/wezterm/wezterm.lua;
-        case Linux
-            ln -s $HOME/.dotfiles/config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua;
-        case '*'
-            # Do nothing
-    end
-end
-
-function setup_terminator
-    echo "**** Terminator ****"
-    if test -f $HOME/.config/terminator/config
-        mv $HOME/.config/terminator/config $HOME/.config/terminator/config.bak;
-    end
-    ln -s $HOME/.dotfiles/config/terminator/config $HOME/.config/terminator/config;
-end
-
 function setup_fish_shell
     echo "*** FISH ****"
     echo "Shell"
@@ -90,6 +45,51 @@ function setup_fish_shell
     fisher install catppuccin/fish;
     fish_config theme save "Catppuccin Mocha";
     echo "Done."
+end
+
+function setup_alacritty
+    echo "**** Alacritty ****"
+    if test -f $HOME/.config/alacritty/alacritty.yml
+        mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
+    end
+
+    git clone https://github.com/catppuccin/alacritty.git $HOME/.config/alacritty/catppuccin;
+
+    switch (uname)
+        case Darwin
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.yml $HOME/.config/alacritty/alacritty.yml;
+        case Linux
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-linux.yml $HOME/.config/alacritty/alacritty.yml;
+        case '*'
+            # Do nothing
+    end
+    ln -s $HOME/.dotfiles/config/alacritty/themes/ $HOME/.config/alacritty/themes;
+end
+
+function setup_wezterm
+    echo "**** Wezterm ****"
+    if test -f $HOME/.config/wezterm/wezterm.lua
+        mv $HOME/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua.bak;
+    end
+
+    mkdir -p $HOME/.config/wezterm/;
+
+    switch (uname)
+        case Darwin
+            ln -s $HOME/.dotfiles/config/wezterm/wezterm-osx.lua $HOME/.config/wezterm/wezterm.lua;
+        case Linux
+            ln -s $HOME/.dotfiles/config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua;
+        case '*'
+            # Do nothing
+    end
+end
+
+function setup_terminator
+    echo "**** Terminator ****"
+    if test -f $HOME/.config/terminator/config
+        mv $HOME/.config/terminator/config $HOME/.config/terminator/config.bak;
+    end
+    ln -s $HOME/.dotfiles/config/terminator/config $HOME/.config/terminator/config;
 end
 
 function setup_starfish_prompt

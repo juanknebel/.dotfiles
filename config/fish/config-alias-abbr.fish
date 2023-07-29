@@ -67,9 +67,11 @@ abbr skpr 'sk --preview "bat {} --color=always"'
 #abbr skimpr 'sk --ansi -i -c \'rg --color=always --line-number "{}"\' --preview "batcat {} --color=always"'
 
 # get top process eating memory
-abbr psmem 'ps auxf | sort -nr -k 4'
-abbr psmem10 'ps auxf | sort -nr -k 4 | head -10'
+abbr psmem 'procs --sortd mem'
+#abbr psmem 'ps auxf | sort -nr -k 4'
+#abbr psmem10 'ps auxf | sort -nr -k 4 | head -10'
 
 # get top process eating cpu ##
-abbr pscpu 'ps auxf | sort -nr -k 3'
-abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'
+abbr pscpu 'procs --sortd cpu'
+#abbr pscpu 'ps auxf | sort -nr -k 3'
+#abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'

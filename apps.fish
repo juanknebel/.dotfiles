@@ -45,3 +45,9 @@ end
 function other_apps
     # https://github.com/noahgorstein/jqp
 end
+
+function app_links
+    # Procs configuration
+    mkdir -p $HOME/.config/procs;
+    ln -s $HOME/.dotfiles/config/procs/config.toml $HOME/.config/procs/config.toml;
+end
