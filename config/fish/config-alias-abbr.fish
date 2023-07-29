@@ -40,6 +40,7 @@ alias ip="ip -color"
 alias tarnow='tar -acf '
 alias untar='tar -xvf '
 alias wget='wget -c '
+alias cl='clear'
 
 ### Abbr
 
@@ -50,22 +51,6 @@ abbr txnw 'tmux new -As'
 abbr txat 'tmux a -t'
 abbr txas "tmux a -t (pwd | sed 's/.*\///g')"
 abbr txzoidberg "tmux new -d -s zoidberg 'ssh elmo@192.168.1.56 -t fish'"
-#abbr txmain 'tmux new -t main'
-#abbr txrust 'tmux new -t rust -d'
-#abbr txgo 'tmux new -t go -d'
-#abbr txpy 'tmux new -t python -d'
-#abbr txjava 'tmux new -t java -d'
-#abbr txjet 'tmux new -t jetbrains -d'
-#abbr txmisc 'tmux new -t misc -d'
-#abbr txssh 'tmux new -t ssh -d'
-#abbr txatmain 'tmux a -t main'
-#abbr txatrust 'tmux a -t rust'
-#abbr txatgo 'tmux a -t go'
-#abbr txatpy 'tmux a -t python'
-#abbr txatjava 'tmux a -t java'
-#abbr txatjet 'tmux a -t jetbrains'
-#abbr txatmisc 'tmux a -t misc'
-#abbr txatshh 'tmux a -t ssh'
 
 # Open files in neovim using skim
 abbr vsk 'fd --type f --hidden --exclude .git | sk-tmux --prompt "==>" --preview "bat {} --color=always"| xargs nvim'
