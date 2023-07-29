@@ -65,6 +65,7 @@ local plugins = {
 	"neovim/nvim-lspconfig",
 	"williamboman/mason-lspconfig.nvim",
 	"glepnir/lspsaga.nvim",
+
 	{
 		"nvim-telescope/telescope-fzf-native.nvim",
 		run = "make",
@@ -74,6 +75,26 @@ local plugins = {
 		--tag = '0.1.0',
 		branch = "0.1.x",
 		dependencies = { { "nvim-lua/plenary.nvim" } },
+	},
+
+	-- flotating term
+	"voldikss/vim-floaterm",
+
+	-- flotating cmd line
+	{
+		"folke/noice.nvim",
+		event = "VeryLazy",
+		opts = {
+			-- add any options here
+		},
+		dependencies = {
+			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+			"MunifTanjim/nui.nvim",
+			-- OPTIONAL:
+			--   `nvim-notify` is only needed, if you want to use the notification view.
+			--   If not available, we use `mini` as the fallback
+			"rcarriga/nvim-notify",
+		},
 	},
 }
 
