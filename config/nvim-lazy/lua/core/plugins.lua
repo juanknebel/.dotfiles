@@ -96,6 +96,16 @@ local plugins = {
 			"rcarriga/nvim-notify",
 		},
 	},
+	-- plant uml
+	{
+		"javiorfo/nvim-soil",
+		lazy = true,
+		ft = "plantuml",
+		config = function()
+			-- If you want to change default configurations
+		end,
+	},
+	"javiorfo/nvim-nyctophilia",
 }
 
 local opts = {}
