@@ -160,7 +160,7 @@ local config = {
 	-- See: https://github.com/eclipse/eclipse.jdt.ls#running-from-the-command-line
 	-- for the full list of options
 	cmd = {
-		home .. "/.sdkman/candidates/java/17.0.7-zulu/bin/java",
+		home .. "/.sdkman/candidates/java/17.0.8-zulu/bin/java",
 		"-Declipse.application=org.eclipse.jdt.ls.core.id1",
 		"-Dosgi.bundles.defaultStartLevel=4",
 		"-Declipse.product=org.eclipse.jdt.ls.core.product",

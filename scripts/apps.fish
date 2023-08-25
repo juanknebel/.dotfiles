@@ -24,6 +24,7 @@ function install_rust_apps
   cargo install tokei; # code stats.
   cargo install so; # stackoverflow client.
   cargo install gping; # ping with graphs.
+  cargo install tree-sitter-cli; # tree sitter cli.
 
   # ---------- #
   # other app
