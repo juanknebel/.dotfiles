@@ -154,7 +154,7 @@ function setup_vscode
   
   
   code --install-extension 1YiB.rust-bundle
-  code --install-extension bungcip.better-toml
+  code --install-extension tamasfe.even-better-toml
   code --install-extension Catppuccin.catppuccin-vsc
   code --install-extension Catppuccin.catppuccin-vsc-icons
   code --install-extension Nord

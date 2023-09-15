@@ -14,3 +14,5 @@ set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
 
 set -Ux LANG en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
+abbr lsport 'lsof -t -i :'
+abbr seport 'netstat -nap TCP UDP | grep '
