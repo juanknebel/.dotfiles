@@ -1,0 +1,64 @@
+theme = "my-solarized-dark"
+
+[editor]
+mouse = false
+"true-color" = true
+"idle-timeout" = 100
+scrolloff=10
+completion-trigger-len=1
+bufferline="always"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.file-picker]
+hidden = false
+
+[editor.lsp]
+display-inlay-hints = true
+display-messages = true
+snippets = true
+
+[editor.statusline]
+left = ["mode", "spinner",  "file-name", "file-modification-indicator" ]
+right = ["version-control", "diagnostics", "selections", "position", "file-encoding", "total-line-numbers", "file-type"]
+
+[editor.cursor-shape]
+insert = "bar"
+
+[keys.normal]
+"#" = "toggle_comments"
+"C-h" = "jump_view_left"
+"C-l" = "jump_view_right"
+"C-j" = "wclose"
+"A-l" = "goto_next_buffer"
+"A-h" = "goto_previous_buffer"
+"A-j" = ":buffer-close"
+"A-L" = "extend_to_line_end"
+"A-H" = "extend_to_line_start"
+
+# supertab
+tab = "move_parent_node_end"
+S-tab = "move_parent_node_start"
+
+
+[keys.normal.space]
+i = ":toggle lsp.display-inlay-hints"
+
+
+# supertab
+#[keys]
+# smart-tab = "move_parent_node_end"
+[editor.smart-tab]
+enable = true
+
+
+[keys.insert]
+#supertab
+S-tab = "move_parent_node_start"
+
+[keys.select]
+#supertab
+tab = "extend_parent_node_end"
+S-tab = "extend_parent_node_start"
+

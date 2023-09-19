@@ -14,6 +14,10 @@ set -U fish_user_paths $HOME/.cargo/bin $fish_user_paths
 ## Surreal db
 set -U fish_user_paths $HOME/.surrealdb $fish_user_paths
 
+## Go
+set -U fish_user_paths /usr/local/go/bin $fish_user_paths
+set -U fish_user_paths $HOME/go/bin/ $fish_user_paths
+
 ## Python
 ### Pyenv
 # paths

@@ -27,8 +27,7 @@
     "terminal.integrated.tabs.defaultColor": "terminal.ansiGreen",
     "terminal.integrated.fontFamily": "FiraCode Nerd Font",
     "security.workspace.trust.untrustedFiles": "open",
-    "workbench.colorTheme": "Nord Aurora Darker",
-    "workbench.iconTheme": "catppuccin-mocha",
+    "workbench.colorTheme": "GitHub Dark",
     "workbench.startupEditor": "none",
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
@@ -53,5 +52,7 @@
     "[rust]": {
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
         "editor.formatOnSave": true
-    }
+    },
+    "redhat.telemetry.enabled": false,
+    "workbench.iconTheme": "catppuccin-mocha"
 }
