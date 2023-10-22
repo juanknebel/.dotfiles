@@ -149,28 +149,32 @@ local keys = {
 	},
 	{
 		key = "h",
-		mods = "CTRL",
+		mods = "LEADER",
 		action = action.EmitEvent("activate_pane_l"),
 	},
 	{
 		key = "j",
-		mods = "CTRL",
+		mods = "LEADER",
 		action = action.EmitEvent("activate_pane_d"),
 	},
 	{
 		key = "k",
-		mods = "CTRL",
+		mods = "LEADER",
 		action = action.EmitEvent("activate_pane_u"),
 	},
 	{
 		key = "l",
-		mods = "CTRL",
+		mods = "LEADER",
 		action = action.EmitEvent("activate_pane_r"),
 	},
+	{ key = "h", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Left", 1 } }) },
+	{ key = "l", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Right", 1 } }) },
+	{ key = "k", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Up", 1 } }) },
+	{ key = "j", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Down", 1 } }) },
 }
 
 return {
 	disable_default_key_bindings = true,
-	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 },
+	leader = { key = "a", mods = "ALT", timeout_milliseconds = 5000 },
 	keys = keys,
 }
