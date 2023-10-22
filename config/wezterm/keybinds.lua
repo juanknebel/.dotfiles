@@ -1,0 +1,176 @@
+local wezterm = require("wezterm")
+local action = wezterm.action
+
+local function activate_pane(window, pane, pane_direction, vim_direction)
+	local isViProcess = pane:get_foreground_process_name():find("n?vim") ~= nil
+	if isViProcess then
+		window:perform_action( -- This should match the keybinds you set in Neovim.
+			action.SendKey({ key = vim_direction, mods = "CTRL" }),
+			pane
+		)
+	else
+		window:perform_action(action.ActivatePaneDirection(pane_direction), pane)
+	end
+end
+
+wezterm.on("activate_pane_r", function(window, pane)
+	activate_pane(window, pane, "Right", "l")
+end)
+
+wezterm.on("activate_pane_l", function(window, pane)
+	activate_pane(window, pane, "Left", "h")
+end)
+
+wezterm.on("activate_pane_u", function(window, pane)
+	activate_pane(window, pane, "Up", "k")
+end)
+
+wezterm.on("activate_pane_d", function(window, pane)
+	activate_pane(window, pane, "Down", "j")
+end)
+
+local keys = {
+	{
+		key = "y",
+		mods = "CTRL|ALT",
+		action = wezterm.action.SpawnCommandInNewTab({
+			args = { "htop" },
+		}),
+	},
+	{
+		key = "c",
+		mods = "CTRL|SHIFT",
+		action = action({ CopyTo = "Clipboard" }),
+	},
+	{
+		key = "v",
+		mods = "CTRL|SHIFT",
+		action = action({ PasteFrom = "Clipboard" }),
+	},
+	{
+		key = "LeftArrow",
+		mods = "LEADER",
+		action = action({ ActivateTabRelative = -1 }),
+	},
+	{
+		key = "RightArrow",
+		mods = "LEADER",
+		action = action({ ActivateTabRelative = 1 }),
+	},
+	{
+		key = "r",
+		mods = "CTRL|SHIFT",
+		action = action.ReloadConfiguration,
+	},
+	-- {
+	--   key = "q",
+	--   mods = "CTRL|SHIFT",
+	--   action = action.QuitApplication,
+	-- },
+	{
+		key = "c",
+		mods = "LEADER",
+		action = action({ SpawnTab = "CurrentPaneDomain" }),
+	},
+	-- {
+	--   key = "n",
+	--   mods = "CTRL",
+	--   action = action(SpawnCommand = "navi"),
+	-- },
+	{
+		key = "n",
+		mods = "LEADER",
+		action = action.SpawnWindow,
+	},
+	{
+		key = "w",
+		mods = "LEADER",
+		action = action({ CloseCurrentTab = { confirm = true } }),
+	},
+	{
+		key = "1",
+		mods = "CTRL",
+		action = action({ ActivateTab = 0 }),
+	},
+	{
+		key = "2",
+		mods = "CTRL",
+		action = action({ ActivateTab = 1 }),
+	},
+	{
+		key = "3",
+		mods = "CTRL",
+		action = action({ ActivateTab = 2 }),
+	},
+	{
+		key = "4",
+		mods = "CTRL",
+		action = action({ ActivateTab = 3 }),
+	},
+	{
+		key = "5",
+		mods = "CTRL",
+		action = action({ ActivateTab = 4 }),
+	},
+	{
+		key = "6",
+		mods = "CTRL",
+		action = action({ ActivateTab = 5 }),
+	},
+	{
+		key = "7",
+		mods = "CTRL",
+		action = action({ ActivateTab = 6 }),
+	},
+	{
+		key = "8",
+		mods = "CTRL",
+		action = action({ ActivateTab = 7 }),
+	},
+	{
+		key = "9",
+		mods = "CTRL",
+		action = action({ ActivateTab = 8 }),
+	},
+	{
+		key = "0",
+		mods = "CTRL",
+		action = action({ ActivateTab = 9 }),
+	},
+	{
+		key = "|",
+		mods = "LEADER|SHIFT",
+		action = action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
+	},
+	{
+		key = "-",
+		mods = "LEADER",
+		action = action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
+	},
+	{
+		key = "h",
+		mods = "CTRL",
+		action = action.EmitEvent("activate_pane_l"),
+	},
+	{
+		key = "j",
+		mods = "CTRL",
+		action = action.EmitEvent("activate_pane_d"),
+	},
+	{
+		key = "k",
+		mods = "CTRL",
+		action = action.EmitEvent("activate_pane_u"),
+	},
+	{
+		key = "l",
+		mods = "CTRL",
+		action = action.EmitEvent("activate_pane_r"),
+	},
+}
+
+return {
+	disable_default_key_bindings = true,
+	leader = { key = "a", mods = "CTRL", timeout_milliseconds = 5000 },
+	keys = keys,
+}

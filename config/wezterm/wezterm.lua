@@ -1,22 +1,10 @@
--- Pull in the wezterm API
-local wezterm = require("wezterm")
+local merge = require("utils").merge
+local cursor = require("cursor")
+local font = require("font")
+local startup = require("startup")
+local ui = require("ui")
+local mouse_binds = require("mouse_binds")
+local shell = require("shell")
+local keybinds = require("keybinds")
 
--- This table will hold the configuration.
-local config = {}
-
--- In newer versions of wezterm, use the config_builder which will
--- help provide clearer error messages
-if wezterm.config_builder then
-	config = wezterm.config_builder()
-end
-
--- This is where you actually apply your config choices
-
--- For example, changing the color scheme:
-config.color_scheme = "Batman"
-
--- Spawn a fish shell in login mode
-config.default_prog = { "/usr/bin/fish", "-l" }
-
--- and finally, return the configuration to wezterm
-return config
+return merge(cursor, font, startup, ui, mouse_binds, shell, keybinds)

@@ -29,23 +29,22 @@
     "security.workspace.trust.untrustedFiles": "open",
     "workbench.colorTheme": "GitHub Dark",
     "workbench.startupEditor": "none",
-    "python.formatting.provider": "black",
-    "python.formatting.blackArgs": [
-        "--line-length 79"
-    ],
     "[python]": {
-        "editor.formatOnType": true
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "files.autoSave": "afterDelay",
     "editor.minimap.enabled": false,
     "editor.wordWrap": "wordWrapColumn",
     "editor.rulers": [
-        80, 100,
+        80,
+        100,
     ],
     "editor.fontSize": 11,
     "editor.fontFamily": "FiraCode Nerd Font",
     "editor.tabSize": 2,
-    "editor.wrappingStrategy": "advance",
+    "editor.wrappingStrategy": "advanced",
     "jupyter.askForKernelRestart": false,
     "window.zoomLevel": 1,
     "rust-analyzer.check.command": "clippy",
@@ -54,5 +53,14 @@
         "editor.formatOnSave": true
     },
     "redhat.telemetry.enabled": false,
-    "workbench.iconTheme": "catppuccin-mocha"
+    "workbench.iconTheme": "catppuccin-mocha",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "diffEditor.wordWrap": "on",
+    "go.formatTool": "gofmt",
+    "black-formatter.showNotifications": "onError",
+    "black-formatter.args": [
+        "--line-length",
+        "79"
+    ],
 }
