@@ -49,12 +49,12 @@ local keys = {
 	},
 	{
 		key = "LeftArrow",
-		mods = "CTRL|ALT",
+		mods = "CTRL|SUPER",
 		action = action({ ActivateTabRelative = -1 }),
 	},
 	{
 		key = "RightArrow",
-		mods = "CTRL|ALT",
+		mods = "CTRL|SUPER",
 		action = action({ ActivateTabRelative = 1 }),
 	},
 	{
