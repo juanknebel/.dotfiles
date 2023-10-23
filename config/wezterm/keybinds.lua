@@ -31,10 +31,10 @@ end)
 
 local keys = {
 	{
-		key = "y",
-		mods = "CTRL|ALT",
+		key = "b",
+		mods = "LEADER",
 		action = wezterm.action.SpawnCommandInNewTab({
-			args = { "htop" },
+			args = { "btop" },
 		}),
 	},
 	{
@@ -49,34 +49,29 @@ local keys = {
 	},
 	{
 		key = "LeftArrow",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action({ ActivateTabRelative = -1 }),
 	},
 	{
 		key = "RightArrow",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action({ ActivateTabRelative = 1 }),
 	},
 	{
 		key = "r",
-		mods = "CTRL|SHIFT",
+		mods = "SUPER",
 		action = action.ReloadConfiguration,
 	},
-	-- {
-	--   key = "q",
-	--   mods = "CTRL|SHIFT",
-	--   action = action.QuitApplication,
-	-- },
+	{
+		key = "q",
+		mods = "SUPER",
+		action = action.QuitApplication,
+	},
 	{
 		key = "c",
 		mods = "LEADER",
 		action = action({ SpawnTab = "CurrentPaneDomain" }),
 	},
-	-- {
-	--   key = "n",
-	--   mods = "CTRL",
-	--   action = action(SpawnCommand = "navi"),
-	-- },
 	{
 		key = "n",
 		mods = "LEADER",
@@ -139,38 +134,54 @@ local keys = {
 	},
 	{
 		key = "|",
-		mods = "LEADER|SHIFT",
+		mods = "CTRL|ALT|SHIFT",
 		action = action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
 	},
 	{
 		key = "-",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
 	},
 	{
 		key = "h",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action.EmitEvent("activate_pane_l"),
 	},
 	{
 		key = "j",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action.EmitEvent("activate_pane_d"),
 	},
 	{
 		key = "k",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action.EmitEvent("activate_pane_u"),
 	},
 	{
 		key = "l",
-		mods = "LEADER",
+		mods = "CTRL|ALT",
 		action = action.EmitEvent("activate_pane_r"),
 	},
-	{ key = "h", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Left", 1 } }) },
-	{ key = "l", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Right", 1 } }) },
-	{ key = "k", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Up", 1 } }) },
-	{ key = "j", mods = "CTRL|ALT|SHIFT", action = action({ AdjustPaneSize = { "Down", 1 } }) },
+	{
+		key = "h",
+		mods = "CTRL|ALT|SHIFT",
+		action = action({ AdjustPaneSize = { "Left", 1 } }),
+	},
+	{
+		key = "l",
+		mods = "CTRL|ALT|SHIFT",
+		action = action({ AdjustPaneSize = { "Right", 1 } }),
+	},
+	{
+		key = "k",
+		mods = "CTRL|ALT|SHIFT",
+		action = action({ AdjustPaneSize = { "Up", 1 } }),
+	},
+	{
+		key = "j",
+		mods = "CTRL|ALT|SHIFT",
+		action = action({ AdjustPaneSize = { "Down", 1 } }),
+	},
 }
 
 return {

@@ -25,9 +25,9 @@ wezterm.on("gui-startup", function(cmd)
 	local downloads_tab = window:spawn_tab({ cwd = home .. "/Downloads" })
 	downloads_tab:set_title("Downloads")
 
-	local stats_tab, stats_pane = window:spawn_tab({ cwd = home })
-	stats_pane:send_text("btop\n")
-	stats_tab:set_title("Stats")
+	--local stats_tab, stats_pane = window:spawn_tab({ cwd = home })
+	--stats_pane:send_text("btop\n")
+	--stats_tab:set_title("Stats")
 
 	window:gui_window():perform_action(act.ActivateTab(0), home_pane)
 end)
