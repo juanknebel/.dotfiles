@@ -84,7 +84,7 @@ function setup_wezterm
             ln -s $HOME/.dotfiles/config/wezterm/shell-osx.lua $HOME/.config/wezterm/shell.lua;
             ln -s $HOME/.dotfiles/config/wezterm/utils.lua $HOME/.config/wezterm/utils.lua;
             ln -s $HOME/.dotfiles/config/wezterm/ui.lua $HOME/.config/wezterm/ui.lua;
-            ln -s $HOME/.dotfiles/config/wezterm/startup.lua $HOME/.config/wezterm/startup.lua;
+            ln -s $HOME/.dotfiles/config/wezterm/startup-osx.lua $HOME/.config/wezterm/startup.lua;
         case Linux
             ln -s $HOME/.dotfiles/config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua;
             ln -s $HOME/.dotfiles/config/wezterm/font.lua $HOME/.config/wezterm/font.lua;
