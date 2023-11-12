@@ -29,7 +29,9 @@ wezterm.on("gui-startup", function(cmd)
 	--stats_pane:send_text("btop\n")
 	--stats_tab:set_title("Stats")
 
-	window:gui_window():perform_action(act.ActivateTab(0), home_pane)
+	local gui_windows = window:gui_window()
+	gui_windows:perform_action(act.ActivateTab(0), home_pane)
+	gui_windows:maximize()
 end)
 
 return {}
