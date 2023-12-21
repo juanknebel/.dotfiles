@@ -39,32 +39,32 @@ local keys = {
 	},
 	{
 		key = "c",
-		mods = "CTRL|SHIFT",
+		mods = "CMD",
 		action = action({ CopyTo = "Clipboard" }),
 	},
 	{
 		key = "v",
-		mods = "CTRL|SHIFT",
+		mods = "CMD",
 		action = action({ PasteFrom = "Clipboard" }),
 	},
 	{
 		key = "LeftArrow",
-		mods = "CTRL|SUPER",
+		mods = "CTRL|CMD",
 		action = action({ ActivateTabRelative = -1 }),
 	},
 	{
 		key = "RightArrow",
-		mods = "CTRL|SUPER",
+		mods = "CTRL|CMD",
 		action = action({ ActivateTabRelative = 1 }),
 	},
 	{
 		key = "r",
-		mods = "SUPER",
+		mods = "CMD",
 		action = action.ReloadConfiguration,
 	},
 	{
 		key = "q",
-		mods = "SUPER",
+		mods = "CMD",
 		action = action.QuitApplication,
 	},
 	{
@@ -84,52 +84,52 @@ local keys = {
 	},
 	{
 		key = "1",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 0 }),
 	},
 	{
 		key = "2",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 1 }),
 	},
 	{
 		key = "3",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 2 }),
 	},
 	{
 		key = "4",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 3 }),
 	},
 	{
 		key = "5",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 4 }),
 	},
 	{
 		key = "6",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 5 }),
 	},
 	{
 		key = "7",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 6 }),
 	},
 	{
 		key = "8",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 7 }),
 	},
 	{
 		key = "9",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 8 }),
 	},
 	{
 		key = "0",
-		mods = "CTRL",
+		mods = "CMD",
 		action = action({ ActivateTab = 9 }),
 	},
 	{
@@ -144,42 +144,42 @@ local keys = {
 	},
 	{
 		key = "h",
-		mods = "CTRL|ALT",
+		mods = "CTRL|CMD",
 		action = action.EmitEvent("activate_pane_l"),
 	},
 	{
 		key = "j",
-		mods = "CTRL|ALT",
+		mods = "CTRL|CMD",
 		action = action.EmitEvent("activate_pane_d"),
 	},
 	{
 		key = "k",
-		mods = "CTRL|ALT",
+		mods = "CTRL|CMD",
 		action = action.EmitEvent("activate_pane_u"),
 	},
 	{
 		key = "l",
-		mods = "CTRL|ALT",
+		mods = "CTRL|CMD",
 		action = action.EmitEvent("activate_pane_r"),
 	},
 	{
 		key = "h",
-		mods = "CTRL|ALT|SHIFT",
+		mods = "CTRL|CMD|SHIFT",
 		action = action({ AdjustPaneSize = { "Left", 1 } }),
 	},
 	{
 		key = "l",
-		mods = "CTRL|ALT|SHIFT",
+		mods = "CTRL|CMD|SHIFT",
 		action = action({ AdjustPaneSize = { "Right", 1 } }),
 	},
 	{
 		key = "k",
-		mods = "CTRL|ALT|SHIFT",
+		mods = "CTRL|CMD|SHIFT",
 		action = action({ AdjustPaneSize = { "Up", 1 } }),
 	},
 	{
 		key = "j",
-		mods = "CTRL|ALT|SHIFT",
+		mods = "CTRL|CMD|SHIFT",
 		action = action({ AdjustPaneSize = { "Down", 1 } }),
 	},
 }
