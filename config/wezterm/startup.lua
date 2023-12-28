@@ -22,6 +22,15 @@ wezterm.on("gui-startup", function(cmd)
 	local git_tab = window:spawn_tab({ cwd = home .. "/git" })
 	git_tab:set_title("git")
 
+	local hummingbird_tab = window:spawn_tab({ cwd = home .. "/git/hummingbird" })
+	hummingbird_tab:set_title("hummingbird")
+
+	local cala_tourist_tab = window:spawn_tab({ cwd = home .. "/git/cala-tourist" })
+	cala_tourist_tab:set_title("cala-tourist")
+
+	local cala_recruiter_tab = window:spawn_tab({ cwd = home .. "/git/cala-recruiter" })
+	cala_recruiter_tab:set_title("cala-recruiter")
+
 	local downloads_tab = window:spawn_tab({ cwd = home .. "/Downloads" })
 	downloads_tab:set_title("Downloads")
 

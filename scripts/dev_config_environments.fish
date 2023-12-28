@@ -119,7 +119,6 @@ function setup_neovim
     pip install pynvim;
     rm -rf $HOME/.config/nvim;
     rm -rf $HOME/.local/share/nvim;
-    rm -rf $HOME/.config/nvim/;
     ln -s $HOME/.dotfiles/config/nvim $HOME/.config/nvim;
     ln -s $HOME/.dotfiles/config/nvim-lazy $HOME/.config/nvim;
 end

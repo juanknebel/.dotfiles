@@ -64,7 +64,7 @@ local keys = {
 	},
 	{
 		key = "q",
-		mods = "SUPER",
+		mods = "LEADER",
 		action = action.QuitApplication,
 	},
 	{
