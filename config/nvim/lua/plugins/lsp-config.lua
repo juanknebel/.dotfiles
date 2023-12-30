@@ -12,11 +12,11 @@ return {
     opts = {
       auto_install = true,
     },
-    config = function ()
+    config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "rust_analyzer", "html" }
+        ensure_installed = { "lua_ls", "rust_analyzer", "html", "pylsp" },
       })
-    end
+    end,
   },
   {
     "neovim/nvim-lspconfig",
@@ -33,6 +33,9 @@ return {
       })
       lspconfig.lua_ls.setup({
         capabilites = capabilities,
+      })
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
       })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
