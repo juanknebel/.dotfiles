@@ -75,3 +75,9 @@ abbr psmem 'procs --sortd mem'
 abbr pscpu 'procs --sortd cpu'
 #abbr pscpu 'ps auxf | sort -nr -k 3'
 #abbr pscpu10 'ps auxf | sort -nr -k 3 | head -10'
+
+# Setting NVIM configurations
+set NVIM_ABBR_CONFIG (dirname (status --current-filename))/config-abbr-nvim.fish
+if test -f $NVIM_ABBR_CONFIG
+  source $NVIM_ABBR_CONFIG
+end

@@ -18,6 +18,13 @@ function setup_fish_shell
     
     # Abbr
     ln -s $HOME/.dotfiles/config/fish/config-alias-abbr.fish $HOME/.config/fish/config-alias-abbr.fish;
+
+    # Nvim abbr and repos
+    ln -s $HOME/.dotfiles/config/fish/config-abbr-nvim.fish $HOME/.config/fish/config-abbr-nvim.fish;
+    git clone git@github.com:pgosar/CyberNvim.git ~/.config/CyberNvim:
+    git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/AstroNvim;
+    git clone https://github.com/nvim-lua/kickstart.nvim.git ~/.config/KickstarNvim;
+    ln -s $HOME/.dotfiles/config/fish/functions/nv.fish $HOME/.config/fish/functions/nv.fish;
     
     # Coding
     ln -s $HOME/.dotfiles/config/fish/config-dev.fish $HOME/.config/fish/config-dev.fish;
