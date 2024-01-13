@@ -59,3 +59,17 @@ function app_links
     # To use mpv as a image viewer in the terminal
     ln -s $HOME/.dotfiles/config/mvi/ $HOME/.config/mvi;
 end
+
+function setup_skim
+    echo "**** SKIM ****"
+    mkdir -p $HOME/Apps
+    ln -s $HOME/.dotfiles/bin/preview.sh $HOME/Apps/preview.sh
+    ln -s $HOME/.dotfiles/bin/sk-tmux $HOME/Apps/sk-tmux;
+end
+
+function setup_mc
+    echo "**** MC ****"
+    mkdir -p $HOME/.local/share/mc/skins && cd $HOME/.local/share/mc/skins && git clone https://github.com/catppuccin/mc.git && ln -s -f ./mc/catppuccin.ini .
+    # Change or add skin=catppuccin in the [Midnight-Commander] section inside ~/.config/mc/ini
+end
+
