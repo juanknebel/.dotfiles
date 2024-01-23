@@ -33,10 +33,10 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 	return format_title(title, tab.is_active, max_width, hover)
 end)
 
-wezterm.on("update-right-status", function(window)
-	local date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
-	window:set_right_status({ Foreground = { Color = "#cad3f5" } }, wezterm.format({ { Text = " " .. date .. " " } }))
-end)
+-- wezterm.on("update-right-status", function(window)
+-- 	local date = wezterm.strftime("%Y-%m-%d %H:%M:%S")
+-- 	window:set_right_status({ Foreground = { Color = "#cad3f5" } }, wezterm.format({ { Text = " " .. date .. " " } }))
+-- end)
 
 wezterm.on("user-var-changed", function(window, pane, name, value)
 	wezterm.log_info("user-var-changed", name, value)

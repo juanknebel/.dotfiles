@@ -1,5 +1,4 @@
 local module = {}
 
-module.default_prog = { "/usr/bin/fish" }
-
+module.default_prog = { "/usr/bin/fish", "-l" }
 return module

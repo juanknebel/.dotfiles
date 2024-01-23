@@ -43,5 +43,5 @@ vim.keymap.set("n", "<leader>sx", ":close<CR>") -- close current split window
 vim.opt.shell = 'fish'
 
 -- Terminal
-vim.keymap.set('n', '<Leader>t', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
+vim.keymap.set('n', '<C-t>', [[<Cmd>ToggleTerm<CR>]], { noremap = true, silent = true })
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { noremap = true, silent = true })

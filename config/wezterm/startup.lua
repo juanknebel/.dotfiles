@@ -1,6 +1,7 @@
 local wezterm = require("wezterm")
 local act = wezterm.action
 local mux = wezterm.mux
+local shell = require("shell")
 
 wezterm.on("gui-startup", function(cmd)
 	-- allow `wezterm start -- something` to affect what we spawn
@@ -8,6 +9,8 @@ wezterm.on("gui-startup", function(cmd)
 	local args = {}
 	if cmd then
 		args = cmd.args
+	else
+    args = shell.default_prog
 	end
 
 	local home = wezterm.home_dir
