@@ -10,6 +10,7 @@ function setup_neovim
     git clone git@github.com:pgosar/CyberNvim.git ~/.config/CyberNvim:
     git clone --depth 1 https://github.com/AstroNvim/AstroNvim ~/.config/AstroNvim;
     git clone https://github.com/nvim-lua/kickstart.nvim.git ~/.config/KickstarNvim;
+    git clone https://github.com/NvChad/NvChad ~/.config/NvChad --depth 1;
     ln -s $HOME/.dotfiles/config/fish/functions/nv.fish $HOME/.config/fish/functions/nv.fish;
 end
 
