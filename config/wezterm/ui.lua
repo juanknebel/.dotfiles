@@ -46,7 +46,7 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 end)
 
 return {
-  font = wezterm.font("FiraCode Nerd Font"),
+  -- font = wezterm.font('JetBrains Mono', { weight = 'Bold'}),
   -- color_scheme = "nordfox",
   color_scheme = "tokyonight_moon",
   font_size = 14,
