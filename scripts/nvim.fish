@@ -3,7 +3,8 @@ function setup_neovim
     rm -rf $HOME/.config/nvim;
     rm -rf $HOME/.local/share/nvim;
     ln -s $HOME/.dotfiles/config/nvim $HOME/.config/nvim;
-    ln -s $HOME/.dotfiles/config/nvim-lazy $HOME/.config/nvim-lazy;
+    # Nvim profile only to develop in java.
+    ln -s $HOME/.dotfiles/config/JavaNvim $HOME/.config/JavaNvim;
 
     # Nvim abbr and repos
     ln -s $HOME/.dotfiles/config/fish/config-abbr-nvim.fish $HOME/.config/fish/config-abbr-nvim.fish;
