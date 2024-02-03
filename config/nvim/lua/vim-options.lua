@@ -39,6 +39,10 @@ vim.keymap.set("n", "<leader>mj", "<C-w>-", { desc = "Resize down" }) -- resize 
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make equal split windows" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split window" }) -- close current split window
 
+-- Navigate
+vim.keymap.set("n", "J", "20jzz")
+vim.keymap.set("n", "K", "20kzz")
+
 -- Setting fish shell
 vim.opt.shell = "fish"
 
