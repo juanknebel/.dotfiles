@@ -1,1 +1,8 @@
 config/nvim/plugin/packer_compiled.lua
+*lazy-lock.json
+# only temporary
+config/sway/
+config/swaylock/
+config/waybar/
+config/wlogout/
+config/wofi/
