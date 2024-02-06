@@ -14,7 +14,12 @@ return {
 		},
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls", "rust_analyzer", "html", "pylsp" },
+				ensure_installed = {
+					"lua_ls",
+					"rust_analyzer",
+					"html",
+					"pyright" --[[, "pylsp"  ]],
+				},
 			})
 		end,
 	},
@@ -31,11 +36,14 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilites = capabilities,
 			})
-			lspconfig.pylsp.setup({
+			-- lspconfig.pylsp.setup({
+			-- 	capabilities = capabilities,
+			-- })
+			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
 
-			vim.keymap.set("n", "<leader>gk", vim.lsp.buf.hover, {desc = "Hover"})
+			vim.keymap.set("n", "<leader>gk", vim.lsp.buf.hover, { desc = "Hover" })
 			vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, { desc = "Go to definition" })
 			vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, { desc = "Look references" })
 			-- vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
