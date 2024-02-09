@@ -1,0 +1,68 @@
+" Install from the marketplace plugin:
+" - fuzzier
+" - which-key
+
+let mapleader = " "
+
+" Space instead of tabs
+set expandtab
+set shiftround
+set tabstop=2
+set shiftwidth=2
+
+" Line Number
+set relativenumber
+set number
+
+" Search
+nnoremap <leader>h :nohlsearch<CR>
+
+" Navigate
+nnoremap J 20jzz
+nnoremap K 20kzz
+nnoremap <c-k> :wincmd k<CR>
+nnoremap <c-j> :wincmd j<CR>
+nnoremap <c-h> :wincmd h<CR>
+nnoremap <c-l> :wincmd l<CR>
+nnoremap <leader>sv <C-w>v
+nnoremap <leader>sh <C-w>s
+nnoremap <leader>ml <C-w>>
+nnoremap <leader>mh <C-w><
+nnoremap <leader>mk <C-w>+
+nnoremap <leader>mj <C-w>-
+nnoremap <leader>se <C-w>=
+nnoremap <leader>sx :close<CR>
+
+" Specific for IdeaVim
+nmap <leader>r <Action>(RenameElement)
+nmap <leader>gb <Action>(Back)
+nmap <leader>gf <Action>(Forward)
+nmap <leader>ca <Action>(ShowIntentionActions)<CR>
+nmap <leader>gi <Action>(GotoImplementation)<CR>
+nmap <leader>gu <Action>(ShowUsages)<CR>
+nmap <leader>gU <Action>(FindUsages)<CR>
+nmap <leader>gr <Action>(ReformatCode)<CR>
+nmap <leader>gk <Action>(ShowHoverInfo)<CR>
+map <leader>gg <Action>(FindInPath)<CR>
+map <leader>pf <Action>(com.mituuz.fuzzier.Fuzzier)
+
+" Plugins
+Plug 'tpope/vim-commentary'
+et commentary
+
+Plug 'tpope/vim-surround'
+
+Plug 'preservim/nerdtree'
+set NERDTree
+map <leader>nt :NERDTreeToggle<CR>
+map <leader>nf :NERDTreeFind<CR>
+
+set which-key
+set timeoutlen=5000
+" let g:WhichKeyDesc_split_vertically = "<leader>sv"
+" let g:WhichKeyDesc_split_horizontally = "<leader>sh"
+" let g:WhichKeyDesc_rename = "<leader>r"
+
+Plug 'easymotion/vim-easymotion'
+set easymotion
+" map <leader><leader> <Plug>(easymotion-prefix)
