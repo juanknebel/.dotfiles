@@ -46,11 +46,11 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 end)
 
 return {
-  -- font = wezterm.font('JetBrains Mono', { weight = 'Bold'}),
+  font = wezterm.font('JetBrains Mono', { weight = 'Bold'}),
   -- color_scheme = "nordfox",
   color_scheme = "tokyonight_moon",
-  font_size = 14,
-  -- dpi = 144.0,
+  font_size = 10,
+  -- dpi = 192.0,
   tab_max_width = 100,
   window_decorations = "RESIZE",
   tab_bar_at_bottom = false,
