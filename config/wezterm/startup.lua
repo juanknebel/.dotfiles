@@ -25,8 +25,8 @@ wezterm.on("gui-startup", function(cmd)
 	local git_tab = window:spawn_tab({ cwd = home .. "/git" })
 	git_tab:set_title("git")
 
-	local raftita_tab = window:spawn_tab({ cwd = home .. "/git/raftita" })
-	raftita_tab:set_title("raftita")
+	local raftita_tab = window:spawn_tab({ cwd = home .. "/git/raft-ik" })
+	raftita_tab:set_title("raft-ik")
 
 	local hummingbird_tab = window:spawn_tab({ cwd = home .. "/git/hummingbird" })
 	hummingbird_tab:set_title("hummingbird")
