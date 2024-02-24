@@ -1,0 +1,34 @@
+import = ["/home/zero/.config/alacritty/themes/nord.toml"]
+live_config_reload = true
+
+[env]
+TERM = "screen-256color"
+
+[font]
+size = 11.0
+
+[font.bold]
+family = "FiraCode Nerd Font"
+
+[font.bold_italic]
+family = "FiraCode Nerd Font"
+
+[font.italic]
+family = "FiraCode Nerd Font"
+
+[font.normal]
+family = "FiraCode Nerd Font"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
+
+[shell]
+program = "/usr/bin/fish"
+
+[window]
+title = "Juan's Terminal"

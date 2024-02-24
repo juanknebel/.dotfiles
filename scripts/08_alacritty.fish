@@ -2,17 +2,17 @@
 
 function config_alacritty
     echo "**** Alacritty ****"
-    if test -f $HOME/.config/alacritty/alacritty.yml
-        mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
+    if test -f $HOME/.config/alacritty/alacritty.toml
+        mv $HOME/.config/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml.bak;
     end
 
     git clone https://github.com/catppuccin/alacritty.git $HOME/.config/alacritty/catppuccin;
 
     switch (uname)
         case Darwin
-            ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.yml $HOME/.config/alacritty/alacritty.yml;
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.toml $HOME/.config/alacritty/alacritty.toml;
         case Linux
-            ln -s $HOME/.dotfiles/config/alacritty/alacritty-linux.yml $HOME/.config/alacritty/alacritty.yml;
+            ln -s $HOME/.dotfiles/config/alacritty/alacritty-linux.toml $HOME/.config/alacritty/alacritty.toml;
         case '*'
             # Do nothing
     end
