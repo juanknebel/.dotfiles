@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-function setup_terminator
+function config_terminator
     echo "**** Terminator ****"
     if test -f $HOME/.config/terminator/config
         mv $HOME/.config/terminator/config $HOME/.config/terminator/config.bak;
@@ -8,13 +8,13 @@ function setup_terminator
     ln -s $HOME/.dotfiles/config/terminator/config $HOME/.config/terminator/config;
 end
 
-function setup_konsole
+function config_konsole
     mkdir -p $HOME/tmp;
     git clone git@github.com:catppuccin/konsole.git $HOME/tmp/catppuccin-konsole;
     cp $HOME/tmp/catppuccin-konsole/Catppuccin-Mocha.colorscheme $HOME/.local/share/konsole;
 end
 
-function setup_iterm2
+function config_iterm2
     mkdir -p $HOME/.config/iterm2;
     git clone https://github.com/catppuccin/iterm.git;
     # Launch iTerm
@@ -27,7 +27,11 @@ function setup_iterm2
     # Click on Color Presets and choose the Catppuccin flavour
 end
 
-function setup_tilix
+function config_tilix
   ln -s $HOME/.dotfiles/config/tilix/ $HOME/.config/;
 end
 
+config_konsole
+config_iterm2
+config_terminator
+config_tilix
