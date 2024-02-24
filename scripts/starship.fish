@@ -1,4 +1,6 @@
-function setup_starfish_prompt
+#!/usr/bin/fish
+
+function starship_prompt
     echo "**** STARSHIP PROMPT ****"
     mkdir -p $HOME/.fonts;
     cd $HOME;
@@ -13,3 +15,4 @@ function setup_starfish_prompt
     echo "Done."
 end
 
+starship_prompt

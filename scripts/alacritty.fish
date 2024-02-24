@@ -1,4 +1,6 @@
-function setup_alacritty
+#!/usr/bin/fish
+
+function config_alacritty
     echo "**** Alacritty ****"
     if test -f $HOME/.config/alacritty/alacritty.yml
         mv $HOME/.config/alacritty/alacritty.yml $HOME/.config/alacritty/alacritty.yml.bak;
@@ -17,3 +19,4 @@ function setup_alacritty
     ln -s $HOME/.dotfiles/config/alacritty/themes/ $HOME/.config/alacritty/themes;
 end
 
+config_alacritty

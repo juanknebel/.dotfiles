@@ -1,3 +1,5 @@
+#!/usr/bin/fish
+
 function install_rust_apps
   echo "**** Rust Apps ****"
   echo "Must install rust toolchain before"
@@ -33,13 +35,42 @@ function install_rust_apps
   # https://github.com/lakoliu/Furtherance
 end
 
+function install_extra_software
+    switch (uname)
+        case Linux
+            # Ubuntu Essentials
+            if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Ubuntu"
+		ubuntu_apps
+            end
+            # Garuda soft
+            if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Garuda"
+                arch_apps
+            end
+            if [ "EndeavourOS" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "EndevourOS"
+                arch_apps
+            end
+            if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "Fedora"
+            end
+        case Darwin
+            echo "MacOs"
+	    macos_apps
+        case '*'
+            # Do nothing
+    end
+    echo "Done."
+end
+
 function ubuntu_apps
     # install https://pkgs.org/download/webapp-manager
     sudo apt install -y btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie plantuml mpv pgcli;
 end
 
 function arch_apps
-    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt youtube-dl duf dog ncdu helix fzf plantuml mpv pgcli;
+    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt youtube-dl dog plantuml mpv pgcli alacritty;
     yay -S jqp-bin;
 end
 
@@ -60,16 +91,21 @@ function app_links
     ln -s $HOME/.dotfiles/config/mvi/ $HOME/.config/mvi;
 end
 
-function setup_skim
+function config_skim
     echo "**** SKIM ****"
     mkdir -p $HOME/Apps
     ln -s $HOME/.dotfiles/bin/preview.sh $HOME/Apps/preview.sh
     ln -s $HOME/.dotfiles/bin/sk-tmux $HOME/Apps/sk-tmux;
 end
 
-function setup_mc
+function config_mc
     echo "**** MC ****"
     mkdir -p $HOME/.local/share/mc/skins && cd $HOME/.local/share/mc/skins && git clone https://github.com/catppuccin/mc.git && ln -s -f ./mc/catppuccin.ini .
     # Change or add skin=catppuccin in the [Midnight-Commander] section inside ~/.config/mc/ini
 end
 
+install_extra_software
+install_rust_apps
+app_links
+config_skim
+config_mc

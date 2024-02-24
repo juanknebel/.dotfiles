@@ -1,4 +1,6 @@
-function setup_wezterm
+#!/usr/bin/fish
+
+function config_wezterm
     echo "**** Wezterm ****"
     if test -f $HOME/.config/wezterm/wezterm.lua
         mv $HOME/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua.bak;
@@ -32,3 +34,4 @@ function setup_wezterm
     end
 end
 
+config_wezterm

@@ -7,7 +7,7 @@ function init
     echo "Done."
 end
 
-function setup_git
+function config_git
     # SSH
     # ssh-keygen -t ed25519 -b 4096 -C "juanknebel@gmail.com";
     # eval (ssh-agent -c);
@@ -27,7 +27,7 @@ function setup_git
     echo "Done."
 end
 
-function setup_rust
+function config_rust
     echo "**** RUST ****"
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
     mkdir -p $HOME/.config/rustfmt;
@@ -57,17 +57,18 @@ function setup_rust
     echo "Done."
 end
 
-functon setup_go
+function config_go
   echo "**** GO ****"
   curl -LO https://go.dev/dl/go1.21.1.linux-amd64.tar.gz;
-  tar -C /usr/local -xzf go1.21.1.linux-amd64.tar.gz;
+  sudo tar -C /usr/local/ -xzf go1.21.1.linux-amd64.tar.gz;
+  rm go1.21.1.linux-amd64.tar.gz;
   go install -v golang.org/x/tools/gopls@latest;
   go install github.com/go-delve/delve/cmd/dlv@latest;
   go install honnef.co/go/tools/cmd/staticcheck@latest;
   go install github.com/cosmtrek/air@latest;
 end
 
-function setup_python
+function config_python
     echo "**** PYTHON ****"
     echo "Pyenv"
     # Pyenv
@@ -88,7 +89,7 @@ function setup_python
     echo "Done."
 end
 
-function setup_java
+function config_java
     echo "**** JAVA ****"
     echo "SDK Manager ..."
     curl -s "https://get.sdkman.io" | bash;
@@ -100,22 +101,22 @@ function setup_java
     rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
     #reload the terminal 
     sdk install maven 3.9.2;
-    sdk install java 8.0.372-zulu;
-    sdk install java 11.0.19-zulu;
+    # sdk install java 8.0.372-zulu;
+    # sdk install java 11.0.19-zulu;
     sdk install java 17.0.7-zulu;
     echo "Done."
 end
 
-function setup_nvm
+function config_nvm
     echo "**** NVM ****"
     fisher install jorgebucaran/nvm.fish;
     nvm install latest;
     nvm use latest;
-    node -v > $HOME/.nvmrc;
+    # node -v > $HOME/.nvmrc;
     echo "Done."
 end
 
-function catppuccin
+function config_catppuccin
     echo "**** Jetbrains ****"
     echo "Catppuccin Theme -> theme"
 
@@ -123,3 +124,9 @@ function catppuccin
     echo "https://github.com/catppuccin/firefox"
 end
 
+config_rust
+config_python
+config_go
+config_java
+config_nvm
+# config_catppuccin

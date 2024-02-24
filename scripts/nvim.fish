@@ -1,4 +1,6 @@
-function setup_neovim
+#!/usr/bin/fish
+
+function config_neovim
     pip install pynvim;
     rm -rf $HOME/.config/nvim;
     rm -rf $HOME/.local/share/nvim;
@@ -15,3 +17,4 @@ function setup_neovim
     ln -s $HOME/.dotfiles/config/fish/functions/nv.fish $HOME/.config/fish/functions/nv.fish;
 end
 
+config_neovim

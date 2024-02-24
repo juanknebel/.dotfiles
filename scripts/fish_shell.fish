@@ -1,4 +1,6 @@
-function setup_fish_shell
+#!/usr/bin/fish
+
+function fish_shell
     echo "*** FISH ****"
     echo "Shell"
     # Fish shell
@@ -45,3 +47,4 @@ function setup_fish_shell
     echo "Done."
 end
 
+fish_shell

@@ -1,4 +1,6 @@
-function setup_tmux
+#!/usr/bin/fish
+
+function config_tmux
     echo "**** TMUX ****"
     if test -f $HOME/.tmux.conf
         mv $HOME/.tmux.conf $HOME/.tmux.conf.bak;
@@ -20,7 +22,7 @@ function setup_tmux
     echo "Done."
 end
 
-function setup_zellij
+function config_zellij
     echo "**** ZELLIJ ****"
     mkdir -p $HOME/.config/zellij;
     if test -f $HOME/.config/zellij/config.kdl
@@ -36,3 +38,5 @@ function setup_zellij
     end
 end
 
+config_tmux
+# config_zellij

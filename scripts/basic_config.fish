@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-function setup_software
+function install_software
     echo "**** SOFTWARE ****"
     echo "Installing essentials"
 
@@ -14,6 +14,10 @@ function setup_software
             # Garuda soft
             if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Garuda"
+                essentials_arch
+            end
+            if [ "EndeavourOS" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
+                echo "EndevourOS"
                 essentials_arch
             end
             if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
@@ -54,5 +58,5 @@ function essentials_macos
     brew install wget curl;
 end
 
-setup_software
+install_software
 
