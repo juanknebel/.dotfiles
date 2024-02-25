@@ -1,0 +1,12 @@
+[Unit]
+Description=Lock the screen on resume from suspend
+Before=suspend.target
+
+[Service]
+User=%i
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/home/zero/.config/i3/scripts/blur-lock
+
+[Install]
+WantedBy=suspend.target
