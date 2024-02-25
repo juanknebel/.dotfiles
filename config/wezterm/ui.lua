@@ -51,7 +51,7 @@ return {
   -- color_scheme = "nordfox",
   color_scheme = "tokyonight_moon",
   font_size = 10,
-  dpi = 192.0,
+  -- dpi = 192.0,
   tab_max_width = 100,
   window_decorations = "RESIZE",
   tab_bar_at_bottom = false,
