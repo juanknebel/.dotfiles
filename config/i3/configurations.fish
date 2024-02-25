@@ -5,3 +5,6 @@ sudo ln -s $HOME/.dotfiles/config/i3/resources/lock@.service /usr/lib/systemd/sy
 sudo systemctl enable lock@$USER.service;
 ln -s $HOME/.dotfiles/config/i3/i3blocks.conf $HOME/.config/i3/i3blocks.conf;
 ln -s $HOME/.dotfiles/config/i3/config $HOME/.config/i3/config;
+mkdir -p $HOME/.config/picom;
+ln -s $HOME/.dotfiles/config/picom/picom.conf $HOME/.config/picom/picom.conf;
+sudo pacman -S picom;
