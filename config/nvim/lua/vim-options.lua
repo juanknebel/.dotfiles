@@ -38,6 +38,8 @@ vim.keymap.set("n", "<leader>mk", "<C-w>+", { desc = "Resize up" }) -- resize up
 vim.keymap.set("n", "<leader>mj", "<C-w>-", { desc = "Resize down" }) -- resize down
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Make equal split windows" }) -- make split windows equal width & height
 vim.keymap.set("n", "<leader>sx", ":close<CR>", { desc = "Close current split window" }) -- close current split window
+vim.keymap.set("n", "<leader>bp", ":bprev<CR>", { desc = "Move to previous buffer" })
+vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Move to next buffer" })
 
 -- Navigate
 vim.keymap.set("n", "J", "20jzz")
