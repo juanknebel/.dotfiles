@@ -7,4 +7,4 @@ ln -s $HOME/.dotfiles/config/i3/i3blocks.conf $HOME/.config/i3/i3blocks.conf;
 ln -s $HOME/.dotfiles/config/i3/config $HOME/.config/i3/config;
 mkdir -p $HOME/.config/picom;
 ln -s $HOME/.dotfiles/config/picom/picom.conf $HOME/.config/picom/picom.conf;
-sudo pacman -S picom;
+sudo pacman -S picom blueberry xfc4-clipman-plugin;
