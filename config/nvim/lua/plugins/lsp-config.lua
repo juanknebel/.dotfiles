@@ -19,6 +19,7 @@ return {
 					"rust_analyzer",
 					"html",
 					"pyright" --[[, "pylsp"  ]],
+					"gopls",
 				},
 			})
 		end,
@@ -30,6 +31,7 @@ return {
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 			local lspconfig = require("lspconfig")
+			local util = require("lspconfig/util")
 			lspconfig.html.setup({
 				capabilites = capabilities,
 			})
@@ -41,6 +43,21 @@ return {
 			-- })
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
+			})
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+				cmd = { "gopls" },
+				filetypes = { "go", "gomod", "gowork", "gotmpl" },
+				root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+				settings = {
+					gopls = {
+						completeUnimported = true,
+						usePlaceholders = true,
+						analyses = {
+							unusedparams = true,
+						},
+					},
+				},
 			})
 
 			vim.keymap.set("n", "<leader>gk", vim.lsp.buf.hover, { desc = "Hover" })
