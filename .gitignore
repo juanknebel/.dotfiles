@@ -1,4 +1,5 @@
 config/nvim/plugin/packer_compiled.lua
+JavaNvim/lazy-lock.json
 *lazy-lock.json
 # only temporary
 config/sway/
