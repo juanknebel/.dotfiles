@@ -66,3 +66,6 @@ abbr gwho 'git for-each-ref refs/remotes --format="%(authorname) %(refname)"'
 
 ## Http
 abbr chead 'curl -s -D - -o  /dev/null'
+
+## Zellij
+abbr zru 'zellij -l ~/.config/zellij/rust-layout.kdl'

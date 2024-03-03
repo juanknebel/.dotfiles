@@ -27,6 +27,8 @@ function install_rust_apps
   cargo install so; # stackoverflow client.
   cargo install gping; # ping with graphs.
   cargo install tree-sitter-cli; # tree sitter cli.
+  cargo install --locked zellij;
+  cargo install atuin;
   cargo install cargo-updater
 
   # ---------- #

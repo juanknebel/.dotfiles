@@ -64,3 +64,6 @@ set -gx MCFLY_FUZZY 2
 set -gx MCFLY_RESULTS 50
 set -gx MCFLY_RESULTS_SORT LAST_RUN # RANK
 set -gx MCFLY_PROMPT "<<the-doc>>"
+
+### Atuin
+atuin init fish | source

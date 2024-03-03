@@ -30,13 +30,16 @@ function config_zellij
     end
     switch (uname)
         case Linux
-            ln -s $HOME/.dotfiles/config/zellij/config-linux.kdl $HOME/.config/zellij/config.kdl
+            ln -s $HOME/.dotfiles/config/zellij/config-linux.kdl $HOME/.config/zellij/config.kdl;
         case Darwin
-            ln -s $HOME/.dotfiles/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl
+            ln -s $HOME/.dotfiles/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl;
         case '*'
             # Do nothing
     end
+    ln -s $HOME/.dotfiles/config/zellij/rust-layout.kdl $HOME/.config/zellij/rust-layout.kdl;
+    ln -s $HOME/.dotfiles/config/zellij/rust-layout-default.kdl $HOME/.config/zellij/rust-layout-default.kdl;
+
 end
 
 config_tmux
-# config_zellij
+config_zellij
