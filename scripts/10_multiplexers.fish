@@ -38,6 +38,8 @@ function config_zellij
     end
     ln -s $HOME/.dotfiles/config/zellij/rust-layout.kdl $HOME/.config/zellij/rust-layout.kdl;
     ln -s $HOME/.dotfiles/config/zellij/rust-layout-default.kdl $HOME/.config/zellij/rust-layout-default.kdl;
+    ln -s $HOME/.dotfiles/config/zellij/default-code-layout.kdl $HOME/.config/zellij/default-code-layout.kdl;
+    ln -s $HOME/.dotfiles/config/zellij/four-panes-layout.kdl $HOME/.config/zellij/four-panes-layout.kdl;
 
 end
 
