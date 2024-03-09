@@ -3,6 +3,21 @@ keybinds {
     normal {
         // uncomment this and adjust key if using copy_on_select=false
         // bind "Alt c" { Copy; }
+        bind "Alt m" {
+            LaunchPlugin "file:~/.config/zellij/plugins/monocle.wasm" {
+                // in_place true
+                // kiosk true
+                floating true
+            };
+        SwitchToMode "Normal"
+        }
+        bind "Alt w" {
+            LaunchPlugin "file:~/.config/zellij/plugins/weather-pal.wasm" {
+                floating true;
+                "location" "ituzaingo";
+            };
+        SwitchToMode "Normal"
+        }
     }
     locked {
         bind "Ctrl g" { SwitchToMode "Normal"; }
@@ -21,7 +36,7 @@ keybinds {
         bind "-" { Resize "Decrease"; }
     }
     pane {
-	unbind "Ctrl p"
+        unbind "Ctrl p"
         bind "Ctrl v" { SwitchToMode "Normal"; }
         bind "h" "Left" { MoveFocus "Left"; }
         bind "l" "Right" { MoveFocus "Right"; }

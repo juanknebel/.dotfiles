@@ -24,7 +24,7 @@ end
 
 function config_zellij
     echo "**** ZELLIJ ****"
-    mkdir -p $HOME/.config/zellij;
+    mkdir -p $HOME/.config/zellij/plugins;
     if test -f $HOME/.config/zellij/config.kdl
         mv $HOME/.config/zellij/config.kdl $HOME/.config/zellij/config.kdl.bak
     end
@@ -41,6 +41,9 @@ function config_zellij
     ln -s $HOME/.dotfiles/config/zellij/default-code-layout.kdl $HOME/.config/zellij/default-code-layout.kdl;
     ln -s $HOME/.dotfiles/config/zellij/four-panes-layout.kdl $HOME/.config/zellij/four-panes-layout.kdl;
 
+    # Downloading the plugins
+    curl -LO https://github.com/imsnif/weather-pal/releases/latest/download/weather-pal.wasm -o $HOME/.config/zellij/plugins;
+    curl -LO https://github.com/imsnif/monocle/releases/latest/download/monocle.wasm -o $HOME/.config/zellij/plugins;
 end
 
 config_tmux
