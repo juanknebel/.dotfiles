@@ -36,14 +36,16 @@ function config_zellij
         case '*'
             # Do nothing
     end
-    ln -s $HOME/.dotfiles/config/zellij/rust-layout.kdl $HOME/.config/zellij/rust-layout.kdl;
-    ln -s $HOME/.dotfiles/config/zellij/rust-layout-default.kdl $HOME/.config/zellij/rust-layout-default.kdl;
-    ln -s $HOME/.dotfiles/config/zellij/default-code-layout.kdl $HOME/.config/zellij/default-code-layout.kdl;
-    ln -s $HOME/.dotfiles/config/zellij/four-panes-layout.kdl $HOME/.config/zellij/four-panes-layout.kdl;
+    # ln -s $HOME/.dotfiles/config/zellij/rust-layout.kdl $HOME/.config/zellij/rust-layout.kdl;
+    # ln -s $HOME/.dotfiles/config/zellij/rust-layout-default.kdl $HOME/.config/zellij/rust-layout-default.kdl;
+    # ln -s $HOME/.dotfiles/config/zellij/default-code-layout.kdl $HOME/.config/zellij/default-code-layout.kdl;
+    # ln -s $HOME/.dotfiles/config/zellij/four-panes-layout.kdl $HOME/.config/zellij/four-panes-layout.kdl;
+    ln -s $HOME/.dotfiles/config/zellij/layouts $HOME/.config/zellij/layouts;
 
     # Downloading the plugins
-    curl -LO https://github.com/imsnif/weather-pal/releases/latest/download/weather-pal.wasm -o $HOME/.config/zellij/plugins;
-    curl -LO https://github.com/imsnif/monocle/releases/latest/download/monocle.wasm -o $HOME/.config/zellij/plugins;
+    curl -LO https://github.com/imsnif/weather-pal/releases/latest/download/weather-pal.wasm -o $HOME/.config/zellij/plugins/;
+    curl -LO https://github.com/imsnif/monocle/releases/latest/download/monocle.wasm -o $HOME/.config/zellij/plugins/;
+    curl -LO https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm -o $HOME/.config/zellij/plugins/;
 end
 
 config_tmux

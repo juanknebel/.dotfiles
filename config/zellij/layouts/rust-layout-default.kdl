@@ -1,0 +1,22 @@
+layout {
+    pane size=1 borderless=true {
+        plugin location="zellij:tab-bar"
+    }
+    pane split_direction="vertical" size="70%" {
+        pane edit="src/main.rs" name="NVIM"
+        pane edit="Cargo.toml" name="Cargo"
+    }
+    pane split_direction="vertical" size="30%" {
+        pane command="cargo" name="Cargo run" {
+            args "run"
+            focus true
+        }
+        pane command="cargo" name="Cargo test" {
+            args "test"
+        }
+    }
+    pane size=2 borderless=true {
+        plugin location="zellij:status-bar"
+    }
+}
+

@@ -38,6 +38,10 @@ function install_rust_apps
 end
 
 function install_extra_software
+    # Cli apps
+    # https://github.com/wustho/epr -> epub reader
+    # https://github.com/larose/utt -> time tracker
+    # https://github.com/nikolassv/bartib -> time tracker
     switch (uname)
         case Linux
             # Ubuntu Essentials
