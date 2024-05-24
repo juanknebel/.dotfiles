@@ -13,6 +13,7 @@ set shiftwidth=2
 " Line Number
 set relativenumber
 set number
+set number relativenumber
 
 " Search
 nnoremap <leader>h :nohlsearch<CR>

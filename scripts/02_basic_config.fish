@@ -33,8 +33,8 @@ function install_software
 end
 
 function essentials_ubuntu
-    sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev fish exa wget curl;
-    sudo apt-get install ca-certificates curl gnupg;
+    sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev fish exa wget curl gnupg protobuf-compiler;
+    sudo apt install ca-certificates curl; 
     sudo install -m 0755 -d /etc/apt/keyrings;
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
     sudo chmod a+r /etc/apt/keyrings/docker.gpg;
