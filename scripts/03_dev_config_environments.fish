@@ -1,12 +1,5 @@
 #!/usr/bin/fish
 
-function init
-    echo "**** INIT ****"
-    git clone git@github.com:juanknebel/.dotfiles.git;
-    mkdir -p $HOME/git;
-    echo "Done."
-end
-
 function config_git
     # SSH
     # ssh-keygen -t ed25519 -b 4096 -C "juanknebel@gmail.com";
@@ -100,7 +93,7 @@ function config_java
     tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
     rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
     #reload the terminal 
-    sdk install maven 3.9.2;
+    sdk install maven 3.9.6;
     # sdk install java 8.0.372-zulu;
     # sdk install java 11.0.19-zulu;
     sdk install java 17.0.7-zulu;
@@ -124,9 +117,10 @@ function config_catppuccin
     echo "https://github.com/catppuccin/firefox"
 end
 
+config_git
 config_rust
 config_python
 config_go
 config_java
-config_nvm
-# config_catppuccin
+# config_nvm # was replaces with fnm
+config_catppuccin

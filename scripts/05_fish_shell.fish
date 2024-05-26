@@ -24,11 +24,6 @@ function fish_shell
 
     # Linux
     ln -s $HOME/.dotfiles/config/fish/config-linux.fish $HOME/.config/fish/config-linux.fish;
-    
-    # Save old garuda config file
-    if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-        ln -s $HOME/.dotfiles/config/fish/config-garuda.fish $HOME/.config/fish/config-garuda.fish
-    end
 
     # For some local configuration that is only for this machine
     touch $HOME/.config/fish/config-local.fish;

@@ -11,20 +11,12 @@ function install_software
                 echo "Ubuntu"
                 essentials_ubuntu
             end
-            # Garuda soft
-            if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-                echo "Garuda"
-                essentials_arch
-            end
             if [ "EndeavourOS" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "EndevourOS"
                 essentials_arch
             end
-            if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-                echo "Fedora"
-                essentials_macos
-            end
         case Darwin
+            essentials_macos
             echo "MacOs"
         case '*'
             # Do nothing
@@ -33,7 +25,7 @@ function install_software
 end
 
 function essentials_ubuntu
-    sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev fish exa wget curl gnupg protobuf-compiler;
+    sudo apt install -y git build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget llvm lldb libncurses-dev xz-utils tk-dev libffi-dev liblzma-dev python3 openssl xclip clang libpq-dev sqlite3 libmysqlcppconn-dev libmysqlclient-dev fish eza wget curl gnupg protobuf-compiler;
     sudo apt install ca-certificates curl; 
     sudo install -m 0755 -d /etc/apt/keyrings;
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
@@ -47,11 +39,17 @@ function essentials_ubuntu
 end
 
 function essentials_arch
-    sudo pacman -S peco openssh git fish exa tokei noto-color-emoji-fontconfig noto-fonts-emoji unzip xclip keepassxc zsh cmake wget curl llvm openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl clang libpqxx;
+    sudo pacman -S peco openssh noto-fonts-emoji unzip zip xclip zsh cmake wget curl llvm openssl zlib lzlib readline sqlite ncurses xz tk libffi python-pyopenssl clang libpqxx eza;
     sudo pacman -S docker;
     sudo usermod -a -G docker $USER;
     sudo systemctl start docker.service;
     sudo systemctl enable docker.service;
+    sudo systemctl start bluetooth;
+    sudo systemctl enable bluetooth;
+    #sudo systemctl start sshd.service
+    #sudo systemctl enable sshd.service
+
+
 end
 
 function essentials_macos

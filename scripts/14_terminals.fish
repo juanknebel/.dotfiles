@@ -9,12 +9,14 @@ function config_terminator
 end
 
 function config_konsole
+    echo "**** Konsole ****"
     mkdir -p $HOME/tmp;
     git clone git@github.com:catppuccin/konsole.git $HOME/tmp/catppuccin-konsole;
-    cp $HOME/tmp/catppuccin-konsole/Catppuccin-Mocha.colorscheme $HOME/.local/share/konsole;
+    mv $HOME/tmp/catppuccin-konsole/Catppuccin-Mocha.colorscheme $HOME/.local/share/konsole;
 end
 
 function config_iterm2
+    echo "**** iTerm2 ****"
     mkdir -p $HOME/.config/iterm2;
     git clone https://github.com/catppuccin/iterm.git;
     # Launch iTerm
@@ -28,10 +30,11 @@ function config_iterm2
 end
 
 function config_tilix
-  ln -s $HOME/.dotfiles/config/tilix/ $HOME/.config/;
+    echo "**** Tilix ****"
+    ln -s $HOME/.dotfiles/config/tilix/ $HOME/.config/;
 end
 
 config_konsole
-config_iterm2
-config_terminator
-config_tilix
+# config_iterm2
+# config_terminator
+# config_tilix

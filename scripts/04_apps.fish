@@ -49,17 +49,9 @@ function install_extra_software
                 echo "Ubuntu"
 		ubuntu_apps
             end
-            # Garuda soft
-            if [ "Garuda" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-                echo "Garuda"
-                arch_apps
-            end
             if [ "EndeavourOS" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "EndevourOS"
                 arch_apps
-            end
-            if [ "Fedora" = (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
-                echo "Fedora"
             end
         case Darwin
             echo "MacOs"
@@ -76,7 +68,7 @@ function ubuntu_apps
 end
 
 function arch_apps
-    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt youtube-dl dog plantuml mpv pgcli alacritty;
+    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent;
     yay -S jqp-bin;
 end
 

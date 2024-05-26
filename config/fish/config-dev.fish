@@ -32,6 +32,13 @@ status --is-interactive; and pyenv virtualenv-init - | source
 ### Poetry
 set -U fish_user_paths $HOME/.poetry/bin $fish_user_paths
 
+# Docker
+alias dco="docker compose"
+alias dps="docker ps"
+alias dpa="docker ps -a"
+alias dl="docker ps -l -q"
+alias dx="docker exec -it"
+
 ## Abbr
 
 ### mvn
@@ -63,9 +70,10 @@ abbr guo 'git branch -u origin/'
 abbr gbu 'git branch -u'
 abbr grmo 'git push origin :'
 abbr gwho 'git for-each-ref refs/remotes --format="%(authorname) %(refname)"'
-
-## Http
-abbr chead 'curl -s -D - -o  /dev/null'
+abbr gdiff 'git diff'
+abbr gco 'git checkout'
+abbr gb 'git branch'
+abbr gfp 'git fetch -p'
 
 ## Zellij
 abbr zru 'zellij -l ~/.config/zellij/layouts/rust-layout.kdl'
