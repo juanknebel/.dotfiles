@@ -37,6 +37,10 @@ function install_rust_apps
   # https://github.com/lakoliu/Furtherance
 end
 
+function install_go_apps
+  go install github.com/jesseduffield/lazydocker@latest;
+end
+
 function install_extra_software
     # Cli apps
     # https://github.com/wustho/epr -> epub reader
@@ -47,7 +51,7 @@ function install_extra_software
             # Ubuntu Essentials
             if [ "Ubuntu" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "Ubuntu"
-		ubuntu_apps
+		            ubuntu_apps
             end
             if [ "EndeavourOS" =  (lsb_release -a | awk '/^Distributor ID/ {print $3}') ]
                 echo "EndevourOS"
@@ -55,7 +59,7 @@ function install_extra_software
             end
         case Darwin
             echo "MacOs"
-	    macos_apps
+      	    macos_apps
         case '*'
             # Do nothing
     end
@@ -69,7 +73,7 @@ end
 
 function arch_apps
     sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent;
-    yay -S jqp-bin;
+    yay -S jqp-bin google-chrome;
 end
 
 function macos_apps  
@@ -104,6 +108,7 @@ end
 
 install_extra_software
 install_rust_apps
+install_go_apps
 app_links
 config_skim
 config_mc
