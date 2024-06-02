@@ -68,12 +68,16 @@ function config_python
     rm -rf ~/.pyenv;
     git clone https://github.com/pyenv/pyenv.git ~/.pyenv;
     git clone https://github.com/pyenv/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv;
+    git clone https://github.com/alefpereira/pyenv-pyright.git ~/.pyenv/plugins/pyenv-pyright;
     pyenv install 3.11;
     pyenv global system;
     # pyenv global 3.11;
-    pip install pyright;
-    pip install pynvim;
-    pip install black;
+    # pip install pyright;
+    # pip install pynvim;
+    # pip install black;
+    # pip install python-lsp-server;
+    # for arch
+    sudo pacman -S python-lsp-server python-mccabe python-pycodestyle python-pydocstyle python-pyflakes  python-pylint python-rope autopep8 flake8 yapf python-whatthepatch pyright python-black python-nvim python-virtualenv;
 
     echo "Poetry"
     # Poetry

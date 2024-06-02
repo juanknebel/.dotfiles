@@ -45,6 +45,9 @@ vim.keymap.set("n", "<leader>bn", ":bnext<CR>", { desc = "Move to next buffer" }
 vim.keymap.set("n", "J", "20jzz")
 vim.keymap.set("n", "K", "20kzz")
 
+-- Python host
+vim.g.python3_host_prog = "~/.pyenv/versions/pynvim/bin/python"
+
 -- Setting fish shell
 vim.opt.shell = "fish"
 

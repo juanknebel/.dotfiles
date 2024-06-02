@@ -41,6 +41,18 @@ alias dx="docker exec -it"
 
 ## Abbr
 
+## pyenv
+#create new virtual env
+abbr pyv 'pyenv virtualenv'
+#remove virtual env
+abbr pyvrm 'pyenv virtualenv-delete'
+#list virtual envs
+abbr pyvls 'pyenv virtualenvs'
+#activate virtual env
+abbr pyvup 'pyenv activate'
+#deactivate virtual env
+abbr pyvdown 'pyenv deactivate'
+
 ### mvn
 abbr mci 'mvn clean install'
 abbr mcio 'mvn clean install -o'
