@@ -72,8 +72,8 @@ function ubuntu_apps
 end
 
 function arch_apps
-    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent;
-    yay -S jqp-bin google-chrome webapp-manager;
+    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent vim falkon;
+    yay -S jqp-bin google-chrome webapp-manager grpcurl-bin;
 end
 
 function macos_apps  
