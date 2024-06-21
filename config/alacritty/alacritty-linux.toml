@@ -32,3 +32,9 @@ program = "/usr/bin/fish"
 
 [window]
 title = "Juan's Terminal"
+startup_mode = "Maximized"
+dynamic_title = true
+
+[cursor]
+style = "Block"
+vi_mode_style = "Beam"

@@ -39,6 +39,8 @@ end
 
 function install_go_apps
   go install github.com/jesseduffield/lazydocker@latest;
+  go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest;
+  go install github.com/charmbracelet/glow@latest;
 end
 
 function install_extra_software

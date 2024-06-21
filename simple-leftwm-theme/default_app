@@ -1,0 +1,9 @@
+export TERM=alacritty
+export BROWSER=firefox
+export DOC=libreoffice
+export FILE=pcmanfm-qt
+export PLAYER=vlc
+export GAME=steam
+export SANDBOX=
+export DEV="alacritty -e nvim"
+export EDITOR=nvim

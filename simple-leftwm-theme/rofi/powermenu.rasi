@@ -1,0 +1,82 @@
+configuration {
+    show-icons:                     true;
+    disable-history:                false;
+    fullscreen:                     false;
+	hide-scrollbar: 				true;
+	sidebar-mode: 					false;
+}
+
+* {
+    font: "FiraCode Nerd Font 12";
+    foreground:                 #E6E6E6;
+    background-color:           #212121F2;
+    selected-foreground:        #FBC02DF2;
+    selected-background:        #FBC02DF2;
+    separatorcolor:             #ff79c6;
+    bordercolor:                #ff79c6;
+    highlightcolor:             #8be9fd;
+    transparent:                #00000000;
+
+    bg0:    #212121F2;
+    bg1:    #2A2A2A;
+    bg2:    #3D3D3D80;
+    bg3:    #FBC02DF2;
+    fg0:    #E6E6E6;
+    fg1:    #FFFFFF;
+    fg2:    #969696;
+    fg3:    #3D3D3D;
+}
+
+
+#window {
+    background-color:               @bg0;
+    text-color:                     @fg2;
+	border:							0;
+	border-color:					@bg3;
+    border-radius:                  8;
+	width:							300px;
+    location:                       northeast;
+    x-offset:                       -10;
+    y-offset:                       +50;
+}
+
+#listview {
+    background-color:               @transparent;
+    padding:                        0px;
+    columns:                        1;
+    lines:                          5;
+    spacing:                        0px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
+}
+
+#mainbox {
+    children:                       [ listview ];
+    background-color:               @transparent;
+}
+
+#element {
+    background-color:               @transparent;
+    text-color:                     @fg1;
+    orientation:                    horizontal;
+    border-radius:                  8;
+    padding:                        10px;
+}
+
+#element.selected {
+    background-color:               @bg3;
+    text-color:                     @fg1;
+	border:							0;
+    border-radius:                  8;
+}
+
+element-text {
+    background-color: @transparent;
+    text-color:       inherit;
+}
+
+element-icon {
+    background-color: @transparent;
+    text-color:       inherit;
+}
