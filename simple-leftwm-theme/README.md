@@ -31,6 +31,15 @@ A LeftWM theme late night coding sessions.
 
 ## Installation
 
+Checkout main branch of this repos and follow their respective README.
+
+```bash
+cd ~/git;
+git clone https://github.com/leftwm/leftwm.git;
+git clone https://github.com/leftwm/leftwm-theme;
+git clone https://github.com/leftwm/leftwm-config.git;
+```
+
 ```bash
 pacman -S rofi picom dunst polybar network-manager-applet feh blueman lxqt-powermanagement lxqt-policykit pcmanfm-qt pavucontrol-qt brightnessctl scrot i3lock
 ```
