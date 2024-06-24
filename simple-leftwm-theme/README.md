@@ -6,6 +6,8 @@ A LeftWM theme late night coding sessions.
 
 ## Dependencies
 
+**Apps**
+
 - leftwm
 - feh
 - polybar
@@ -21,6 +23,11 @@ A LeftWM theme late night coding sessions.
 - brightnessctl
 - scrot
 - i3lock
+
+**Fonts**
+
+- MesloLGS NF
+- Noto Sans Symbols 2 (for some symbols in polybar)
 
 ## Installation
 
@@ -39,7 +46,8 @@ To use this theme
 ```bash
 unlink ~/.config/leftwm/themes/current;
 ln -s ~/.config/leftwm/themes/simple-leftwm-theme ~/.config/leftwm/themes/current;
-cp ~/.config/leftwm/themes/simple-leftwm-theme/config/config.ron ~/.config/leftwm/config.ron;
+mv ~/.config/leftwm/config.ron ~/.config/leftwm/config.ron.bak;
+ln -s ~/.dotfiles/simple-leftwm-theme/config/config.ron ~/.config/leftwm/config.ron;
 ```
 
 ## Attribution

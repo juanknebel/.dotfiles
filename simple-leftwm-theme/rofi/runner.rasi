@@ -5,7 +5,7 @@
  *******************************************************************************/
 
 * {
-    font:   "FiraCode Nerd Font 12";
+    font:   "MesloLGS NF 14 Bold";
 
     background-color:   transparent;
     text-color:         @fg0;
@@ -45,7 +45,7 @@ prompt {
 
 entry {
     placeholder:        "Search";
-    placeholder-color:  @fg3;
+    placeholder-color:  @bg4;
 }
 
 message {
@@ -53,6 +53,7 @@ message {
     border-radius:      16px;
     border-color:       @bg2;
     background-color:   @bg2;
+    text-color: @bg4;
 }
 
 textbox {
@@ -76,11 +77,17 @@ element {
 }
 
 element normal active {
-    text-color: @bg3;
+    text-color: @bg4;
 }
 
-element selected normal, element selected active {
+element selected normal {
     background-color:   @bg3;
+    text-color: @bg4;
+}
+
+element selected active {
+    background-color: @bg3;
+    text-color: @fg0;
 }
 
 element-icon {
@@ -158,12 +165,13 @@ configuration {
 
 
 * {
-    bg0:    #212121F2;
-    bg1:    #2A2A2A;
-    bg2:    #3D3D3D80;
-    bg3:    #FBC02DF2;
-    fg0:    #E6E6E6;
+    bg0:    #686868F2;
+    bg1:    #A0A0A0;
+    bg2:    #43434380;
+    bg3:    #1F512E;
+    bg4:    #22272c;
+    fg0:    #FFFFFF;
     fg1:    #FFFFFF;
-    fg2:    #969696;
-    fg3:    #3D3D3D;
+    fg2:    #FFFFFF;
+    fg3:    #FFFFFF;
 }

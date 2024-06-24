@@ -7,7 +7,7 @@ configuration {
 }
 
 * {
-    font: "FiraCode Nerd Font 12";
+    font:   "MesloLGS NF 14 Bold";
     foreground:                 #E6E6E6;
     background-color:           #212121F2;
     selected-foreground:        #FBC02DF2;
@@ -17,14 +17,15 @@ configuration {
     highlightcolor:             #8be9fd;
     transparent:                #00000000;
 
-    bg0:    #212121F2;
-    bg1:    #2A2A2A;
-    bg2:    #3D3D3D80;
-    bg3:    #FBC02DF2;
-    fg0:    #E6E6E6;
+    bg0:    #686868F2;
+    bg1:    #A0A0A0;
+    bg2:    #43434380;
+    bg3:    #1F512E;
+    bg4:    #22272c;
+    fg0:    #FFFFFF;
     fg1:    #FFFFFF;
-    fg2:    #969696;
-    fg3:    #3D3D3D;
+    fg2:    #FFFFFF;
+    fg3:    #FFFFFF;
 }
 
 

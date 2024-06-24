@@ -40,7 +40,7 @@
     layout_mode: Tag,
     insert_behavior: Bottom,
     scratchpad: [
-        (name: "Alacritty", value: "alacritty", x: 860, y: 390, height: 300, width: 200),
+        (name: "Alacritty", value: "alacritty",args: ["-e", "python"], x: 0.1, y: 0.25, height: 0.50, width: 0.80),
     ],
     window_rules: [],
     disable_current_tag_swap: false,
@@ -52,6 +52,7 @@
         (command: Execute, value: "rofi -show combi -modes combi -combi-modes \"ssh\" -theme ~/.config/leftwm/themes/current/rofi/runner.rasi", modifier: ["Alt"], key: "s"),
         (command: Execute, value: "alacritty", modifier: ["modkey", "Shift"], key: "Return"),
         (command: CloseWindow, value: "", modifier: ["modkey", "Shift"], key: "q"),
+        (command: HardReload, value: "", modifier: ["modkey"], key: "r"),
         (command: SoftReload, value: "", modifier: ["modkey", "Shift"], key: "r"),
         (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "x"),
         (command: Execute, value: "i3lock --nofork -i ~/.config/leftwm/themes/current/wallpaper-blur.png -t", modifier: ["modkey", "Control"], key: "l"),
@@ -92,16 +93,20 @@
         (command: MoveToTag, value: "7", modifier: ["modkey", "Shift"], key: "7"),
         (command: MoveToTag, value: "8", modifier: ["modkey", "Shift"], key: "8"),
         (command: MoveToTag, value: "9", modifier: ["modkey", "Shift"], key: "9"),
-	// Brightness
+        // Brightness
         (command: Execute, value: "brightnessctl s +5%", modifier: [], key: "XF86XK_MonBrightnessUp"),
         (command: Execute, value: "brightnessctl s 5%- ", modifier: [], key: "XF86XK_MonBrightnessDown"),
         // Volume
-	(command: Execute, value: "amixer -q set Master toggle", modifier: [], key: "XF86XK_AudioMute"),
+        (command: Execute, value: "amixer -q set Master toggle", modifier: [], key: "XF86XK_AudioMute"),
         (command: Execute, value: "amixer -q set Master 5%-", modifier: [], key: "XF86XK_AudioLowerVolume"),
         (command: Execute, value: "amixer -q set Master 5%+", modifier: [], key: "XF86XK_AudioRaiseVolume"),
-	// Screenshots
+        // Screenshots
         (command: Execute, value: "scrot -b '%Y:%m:%d:%H:%M:%S.png' -e 'mv $f ~/Pictures/'", modifier: ["modkey"], key: "s"),
         (command: Execute, value: "scrot --select -b '%Y:%m:%d:%H:%M:%S.png' -e 'mv $f ~/Pictures/'", modifier: ["modkey", "Shift"], key: "s"),
+        // Scratchpad
+        (command: ToggleScratchPad, value: "Alacritty" , modifier: ["modkey"], key: "p"),
+        // Fullscreen
+        (command: ToggleFullScreen, modifier: ["modkey"], key: "f")
     ],
     workspaces: [],
 )
