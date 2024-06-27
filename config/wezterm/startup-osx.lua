@@ -10,7 +10,7 @@ wezterm.on("gui-startup", function(cmd)
 	if cmd then
 		args = cmd.args
 	else
-    args = shell.default_prog
+		args = shell.default_prog
 	end
 
 	local home = wezterm.home_dir
@@ -30,6 +30,9 @@ wezterm.on("gui-startup", function(cmd)
 
 	local agreements_tab = window:spawn_tab({ cwd = home .. "/git/fury_mpcs-agreements" })
 	agreements_tab:set_title("agreements")
+
+	local agreements_read_tab = window:spawn_tab({ cwd = home .. "/git/fury_mpcs-agreements-read" })
+	agreements_read_tab:set_title("agreements-read")
 
 	local git_tab = window:spawn_tab({ cwd = home .. "/git" })
 	git_tab:set_title("git")

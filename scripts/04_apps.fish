@@ -79,7 +79,7 @@ function arch_apps
 end
 
 function macos_apps  
-    brew install jq duf dog ncdu helix plantuml mpv pgcli;
+    brew install jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font;
     brew install noahgorstein/tap/jqp;
 end
 
