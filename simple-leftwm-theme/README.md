@@ -23,6 +23,7 @@ A LeftWM theme late night coding sessions.
 - brightnessctl
 - scrot
 - i3lock
+- bluetui
 
 **Fonts**
 
@@ -42,12 +43,19 @@ git clone https://github.com/leftwm/leftwm-config.git;
 
 ```bash
 pacman -S rofi picom dunst polybar network-manager-applet feh blueman lxqt-powermanagement lxqt-policykit pcmanfm-qt pavucontrol-qt brightnessctl scrot i3lock
+yay -S bluetui
 ```
 
 In order to avoid blueman-applet in other desktops, add at the end of the file `/etc/xdg/autostart/blueman.desktop` this line.
 
 ```bash
 NotShowIn=KDE;GNOME;
+```
+
+To use natural scrolling edit the following file `/usr/share/X11/xorg.conf.d/40-libinput.conf` and add the line:
+
+```bash
+Option "NaturalScrolling" "True"
 ```
 
 To use this theme

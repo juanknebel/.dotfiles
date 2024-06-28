@@ -42,7 +42,12 @@
     scratchpad: [
         (name: "Alacritty", value: "alacritty",args: ["-e", "python"], x: 0.1, y: 0.25, height: 0.50, width: 0.80),
     ],
-    window_rules: [],
+    window_rules: [
+        ( window_class: "Alacritty.Nmtui", spawn_floating: true ),
+        ( window_class: "Alacritty.Bluetui", spawn_floating: true ),
+        ( window_class: "JetBrains Toolbox", spawn_floating: true ),
+        ( window_class: "jetbrains-toolbox", spawn_floating: true ),
+    ],
     disable_current_tag_swap: false,
     disable_tile_drag: false,
     focus_behaviour: Sloppy,
@@ -75,6 +80,7 @@
         (command: PreviousLayout, value: "", modifier: ["modkey", "Control"], key: "Down"),
         (command: FocusWorkspaceNext, value: "", modifier: ["modkey"], key: "Right"),
         (command: FocusWorkspacePrevious, value: "", modifier: ["modkey"], key: "Left"),
+        (command: ToggleFloating, modifier: ["modkey", "Control"], key: "f"),
         (command: GotoTag, value: "1", modifier: ["modkey"], key: "1"),
         (command: GotoTag, value: "2", modifier: ["modkey"], key: "2"),
         (command: GotoTag, value: "3", modifier: ["modkey"], key: "3"),

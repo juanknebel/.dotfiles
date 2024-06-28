@@ -26,10 +26,7 @@ fi
 leftwm-command "LoadTheme $SCRIPTPATH/theme.ron"
 
 #Applications
-# nm-applet &
-# blueman-applet &
 lxqt-policykit-agent &
-lxqt-powermanagement &
 
 if [ -x "$(command -v polybar)" ]; then
     pkill polybar
