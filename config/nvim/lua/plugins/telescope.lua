@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-telescope/telescope-ui-select.nvim",
+		"ThePrimeagen/harpoon",
 		config = function()
 			require("telescope").setup({
 				extensions = {
