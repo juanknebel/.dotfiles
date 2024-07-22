@@ -47,13 +47,14 @@ end)
 
 return {
 	-- font = wezterm.font('JetBrains Mono Nerd Font', { weight = 'Bold'}),
-	font = wezterm.font("FiraCode Nerd Font"),
+	-- font = wezterm.font("FiraCode Nerd Font"),
+	font = wezterm.font("MesloLGS Nerd Font Mono"),
 	-- color_scheme = "nordfox",
 	color_scheme = "tokyonight_moon",
 	font_size = 14,
 	-- dpi = 192.0,
 	tab_max_width = 100,
-	window_decorations = "RESIZE",
+	-- window_decorations = "RESIZE",
 	tab_bar_at_bottom = false,
 	use_fancy_tab_bar = false,
 }
