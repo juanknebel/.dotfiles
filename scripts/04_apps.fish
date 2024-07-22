@@ -29,6 +29,7 @@ function install_rust_apps
   cargo install tree-sitter-cli; # tree sitter cli.
   cargo install --locked zellij;
   cargo install atuin;
+  cargo install --git https://github.com/fioncat/otree;
   cargo install cargo-updater
 
   # ---------- #
@@ -74,12 +75,12 @@ function ubuntu_apps
 end
 
 function arch_apps
-    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent vim falkon yazi ffmpegthumbnailer unarchiver poppler;
-    yay -S jqp-bin google-chrome webapp-manager grpcurl-bin;
+    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent vim falkon yazi ffmpegthumbnailer unarchiver poppler tabiew serpl;
+    yay -S jqp-bin google-chrome webapp-manager grpcurl-bin otree;
 end
 
 function macos_apps  
-    brew install jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font;
+    brew install jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree;
     brew install noahgorstein/tap/jqp;
 end
 

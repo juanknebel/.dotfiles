@@ -10,7 +10,7 @@ wezterm.on("gui-startup", function(cmd)
 	if cmd then
 		args = cmd.args
 	else
-    args = shell.default_prog
+		args = shell.default_prog
 	end
 
 	local home = wezterm.home_dir
@@ -31,11 +31,14 @@ wezterm.on("gui-startup", function(cmd)
 	local hummingbird_tab = window:spawn_tab({ cwd = home .. "/git/hummingbird" })
 	hummingbird_tab:set_title("hummingbird")
 
-	local cala_tourist_tab = window:spawn_tab({ cwd = home .. "/git/cala-tourist" })
-	cala_tourist_tab:set_title("cala-tourist")
+	local call_ik_tab = window:spawn_tab({ cwd = home .. "/git/call-ik" })
+	call_ik_tab:set_title("call-ik")
 
-	local cala_recruiter_tab = window:spawn_tab({ cwd = home .. "/git/cala-recruiter" })
-	cala_recruiter_tab:set_title("cala-recruiter")
+	-- local cala_tourist_tab = window:spawn_tab({ cwd = home .. "/git/cala-tourist" })
+	-- cala_tourist_tab:set_title("cala-tourist")
+
+	-- local cala_recruiter_tab = window:spawn_tab({ cwd = home .. "/git/cala-recruiter" })
+	-- cala_recruiter_tab:set_title("cala-recruiter")
 
 	local downloads_tab = window:spawn_tab({ cwd = home .. "/Downloads" })
 	downloads_tab:set_title("Downloads")
