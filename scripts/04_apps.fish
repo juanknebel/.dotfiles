@@ -82,6 +82,7 @@ end
 function macos_apps  
     brew install jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font;
     brew install noahgorstein/tap/jqp;
+    brew install --cask devtoys;
 end
 
 function other_apps

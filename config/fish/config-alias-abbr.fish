@@ -25,7 +25,8 @@ alias lr="eza -l --sort modified --icons --git -a"
 alias lt="eza --tree --level=2 --long --icons --git"
 
 # Colorize grep output (good for log files)
-alias grep='grep --color=auto'
+# alias grep='grep --color=auto'
+alias grep='rg'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 

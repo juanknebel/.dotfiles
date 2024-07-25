@@ -44,17 +44,31 @@ wezterm.on("user-var-changed", function(window, pane, name, value)
 		pane:tab():set_title(value)
 	end
 end)
+local colors = {
+	foreground = "#CBE0F0",
+	background = "#011423",
+	cursor_bg = "#47FF9C",
+	cursor_border = "#47FF9C",
+	cursor_fg = "#011423",
+	selection_bg = "#033259",
+	selection_fg = "#CBE0F0",
+	ansi = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#0FC5ED", "#a277ff", "#24EAF7", "#24EAF7" },
+	brights = { "#214969", "#E52E2E", "#44FFB1", "#FFE073", "#A277FF", "#a277ff", "#24EAF7", "#24EAF7" },
+}
 
 return {
 	-- font = wezterm.font('JetBrains Mono Nerd Font', { weight = 'Bold'}),
 	-- font = wezterm.font("FiraCode Nerd Font"),
 	font = wezterm.font("MesloLGS Nerd Font Mono"),
 	-- color_scheme = "nordfox",
-	color_scheme = "tokyonight_moon",
+	-- color_scheme = "tokyonight_moon",
+	colors = colors,
 	font_size = 14,
 	-- dpi = 192.0,
 	tab_max_width = 100,
 	-- window_decorations = "RESIZE",
+	window_background_opacity = 0.8,
+	macos_window_background_blur = 30,
 	tab_bar_at_bottom = false,
 	use_fancy_tab_bar = false,
 }
