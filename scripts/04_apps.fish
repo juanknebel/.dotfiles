@@ -42,6 +42,12 @@ function install_go_apps
   go install github.com/jesseduffield/lazydocker@latest;
   go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest;
   go install github.com/charmbracelet/glow@latest;
+  go install github.com/jorgerojas26/lazysql@latest;
+end
+
+function install_python_apps
+  pipx install frogmouth;
+  pipx install harlequin;
 end
 
 function install_extra_software
@@ -75,7 +81,7 @@ function ubuntu_apps
 end
 
 function arch_apps
-    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent vim falkon yazi ffmpegthumbnailer unarchiver poppler tabiew serpl;
+    sudo pacman -S btop fzf duf ncdu helix starship vlc jq tmux ddgr neofetch htop bat httpie lazygit neovim neovim-qt dog plantuml mpv pgcli alacritty wezterm ttf-nerd-fonts-symbols-mono qbittorrent vim falkon yazi ffmpegthumbnailer unarchiver poppler tabiew serpl zenith atac ttf-meslo-nerd;
     yay -S jqp-bin google-chrome webapp-manager grpcurl-bin otree;
 end
 
