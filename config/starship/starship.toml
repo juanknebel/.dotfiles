@@ -1,4 +1,4 @@
-palette = "catppuccin_mocha"
+# palette = "catppuccin_mocha"
 
 format = """
 $username\
@@ -24,6 +24,7 @@ $line_break\
 $jobs\
 $battery\
 $status\
+$os\
 $shell\
 $character"""
 
@@ -31,9 +32,8 @@ $character"""
 add_newline = true
 
 [character]
-success_symbol = "[[♥ ](bold green) ➜ ➜ λ](maroon)"
-error_symbol = "[➜ ➜ 🛑](bold red)"
-vicmd_symbol = "[➜ ➜ 🤓](bold green)"
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
 
 [hostname]
 ssh_only = false
@@ -51,11 +51,14 @@ show_always = true
 [directory]
 truncation_length = 20
 truncation_symbol = "../"
-# Catppuccin 'lavender'
 style = "bold lavender"
 
 [python]
 pyenv_version_name = false
+symbol = ""
+
+[golang]
+symbol = ""
 
 [git_branch]
 always_show_remote = false
@@ -90,6 +93,11 @@ style = "bold dimmed green"
 [shell]
 fish_indicator = ""
 disabled = false
+
+[os]
+disabled = false
+format = "$symbol "
+symbols.EndeavourOS = "🐧 🚀"
 
 [time]
 disabled = false
