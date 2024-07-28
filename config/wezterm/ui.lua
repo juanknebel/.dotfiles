@@ -63,6 +63,7 @@ return {
 	-- color_scheme = "nordfox",
 	-- color_scheme = "tokyonight_moon",
 	colors = colors,
+	color_scheme = "Tokyo Night Storm",
 	font_size = 14,
 	-- dpi = 192.0,
 	tab_max_width = 100,

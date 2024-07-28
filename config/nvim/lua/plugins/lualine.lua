@@ -4,7 +4,8 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "nord",
+				theme = "tokyonight",
+				style = "storm",
 				globalstatus = true,
 				ignore_focus = {},
 				always_divide_middle = true,
