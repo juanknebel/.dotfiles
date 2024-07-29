@@ -14,7 +14,6 @@ function config_wezterm
             ln -s $HOME/.dotfiles/config/wezterm/mouse_binds.lua $HOME/.config/wezterm/mouse_binds.lua;
             ln -s $HOME/.dotfiles/config/wezterm/utils.lua $HOME/.config/wezterm/utils.lua;
             ln -s $HOME/.dotfiles/config/wezterm/ui.lua $HOME/.config/wezterm/ui.lua;
-            ln -s $HOME/.dotfiles/config/wezterm/toggle.lua $HOME/.config/wezterm/toggle.lua;
     switch (uname)
         case Darwin
             ln -s $HOME/.dotfiles/config/wezterm/keybinds-osx.lua $HOME/.config/wezterm/keybinds.lua;

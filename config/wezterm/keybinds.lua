@@ -29,6 +29,14 @@ wezterm.on("activate_pane_d", function(window, pane)
 	activate_pane(window, pane, "Down", "j")
 end)
 
+local toggleBlur = wezterm.action_callback(function(window)
+	if window:effective_config().window_background_opacity == 1 then
+		window:set_config_overrides({ window_background_opacity = 0.8 })
+	else
+		window:set_config_overrides({ window_background_opacity = 1 })
+	end
+end)
+
 local keys = {
 	{
 		key = "b",
@@ -181,6 +189,11 @@ local keys = {
 		key = "j",
 		mods = "CTRL|ALT|SHIFT",
 		action = action({ AdjustPaneSize = { "Down", 1 } }),
+	},
+	{
+		mods = "CTRL",
+		key = "b",
+		action = toggleBlur,
 	},
 }
 
