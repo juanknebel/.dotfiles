@@ -6,8 +6,6 @@ function config_alacritty
         mv $HOME/.config/alacritty/alacritty.toml $HOME/.config/alacritty/alacritty.toml.bak;
     end
 
-    git clone https://github.com/catppuccin/alacritty.git $HOME/.config/alacritty/catppuccin;
-
     switch (uname)
         case Darwin
             ln -s $HOME/.dotfiles/config/alacritty/alacritty-osx.toml $HOME/.config/alacritty/alacritty.toml;
