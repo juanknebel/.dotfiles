@@ -2,6 +2,7 @@
 
 function config_wezterm
     echo "**** Wezterm ****"
+    # https://wezfurlong.org/wezterm/colorschemes/t/index.html
     if test -f $HOME/.config/wezterm/wezterm.lua
         mv $HOME/.config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua.bak;
     end

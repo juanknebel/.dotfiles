@@ -1,5 +1,4 @@
-# import = ["/Users/jknebel/.config/alacritty/themes/nord.toml"]
-import = ["/home/zero/.config/alacritty/themes/tokio-night-storm.yaml"]
+import = ["/home/zero/.config/alacritty/themes/themes/tokyo-night.toml"]
 live_config_reload = true
 
 [env]
