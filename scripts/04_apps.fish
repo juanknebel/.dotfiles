@@ -48,6 +48,8 @@ end
 function install_python_apps
   pipx install frogmouth;
   pipx install harlequin;
+  pipx install calcure;
+  pipx install posting;
 end
 
 function install_extra_software
