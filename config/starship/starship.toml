@@ -1,20 +1,3 @@
-# $username\
-# $directory\
-# $git_branch\
-# $git_status\
-# $c\
-# $elixir\
-# $elm\
-# $golang\
-# $haskell\
-# $java\
-# $julia\
-# $nodejs\
-# $nim\
-# $rust\
-# $docker_context\
-# $time\
-
 format = """
 [](#7F3FBF)\
 $username\
@@ -107,7 +90,6 @@ style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [lua]
-pyenv_version_name = false
 style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
@@ -130,7 +112,7 @@ cherry_pick = "[🍒 PICKING](bold red)"
 style = "bg:#FF7F7F"
 
 [git_metrics]
-style = "bg:#FF7F7F"
+# style = "bg:#FF7F7F"
 
 [battery]
 full_symbol = "🔋 "
