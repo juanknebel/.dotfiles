@@ -1,7 +1,7 @@
 format = """
 [](#7F3FBF)\
 $username\
-[@ ](bg:#7F3FBF)\
+[@](bg:#7F3FBF)\
 $hostname\
 [](bg:#7F7FFF fg:#7F3FBF)\
 $directory\
@@ -12,7 +12,6 @@ $git_state\
 $git_metrics\
 $git_status\
 [](fg:#FF7F7F bg:#BE9EDE)\
-$package\
 $golang\
 $java\
 $python\
@@ -38,33 +37,50 @@ $character"""
 # Inserts a blank line between shell prompts
 add_newline = true
 
-[character]
-success_symbol = "[λ](bold green)"
-error_symbol = "[λ](bold red)"
-
-[hostname]
-ssh_only = false
-style = "bg:#7F3FBF"
-format =  "[$hostname]($style)"
-# trim_at = ".companyname.com"
-disabled = false
-
 [username]
 show_always = true
 style_user = "bg:#7F3FBF"
 style_root = "bg:#7F3FBF"
-format = '[$user ]($style)'
+format = '[$user]($style)'
+disabled = false
+
+[hostname]
+ssh_only = false
+style = "bg:#7F3FBF"
+format =  "[$hostname ]($style)"
+# trim_at = ".companyname.com"
 disabled = false
 
 [directory]
 style = "bg:#7F7FFF"
-format = "[$path]($style)"
+format = "[ $path ]($style)"
 truncation_length = 20
 truncation_symbol = "../"
 
+[git_branch]
+symbol = ""
+style = "bg:#FF7F7F"
+always_show_remote = false
+format = '[ $symbol $branch ]($style)'
+
+[git_commit]
+style = "bg:#FF7F7F"
+
+[git_state]
+style = "bg:#FF7F7F"
+format = '[\($state( $progress_current of $progress_total)\)]($style) '
+cherry_pick = "[🍒 PICKING](bold red)"
+
+[git_metrics]
+# style = "bg:#FF7F7F"
+
+[git_status]
+style = "bg:#FF7F7F"
+format = '[$all_status$ahead_behind ]($style)'
+
 [package]
 style = "bg:#BE9EDE"
-format = '[$symbol$version]($style)'
+format = '[ $symbol$version ]($style)'
 
 [golang]
 symbol = ""
@@ -93,26 +109,26 @@ format = '[ $symbol ($version) ]($style)'
 style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
-[git_branch]
-symbol = ""
-style = "bg:#FF7F7F"
-always_show_remote = false
-format = '[ $symbol $branch ]($style)'
+[docker_context]
+style = "bg:#BEBEFF"
+format = "[ $symbol$context ]($style)"
 
-[git_status]
-style = "bg:#FF7F7F"
-format = '[$all_status$ahead_behind ]($style)'
+[memory_usage]
+disabled = false
+threshold = -1
+style = "bg:#7F3FBF"
+format = '[ ${ram} ]($style)'
 
-[git_state]
-style = "bg:#FF7F7F"
-format = '[\($state( $progress_current of $progress_total)\)]($style) '
-cherry_pick = "[🍒 PICKING](bold red)"
+[time]
+disabled = false
+time_format = "%R" # Hour:Minute Format
+style = "bg:#7F3FBF"
+format = '[ $time ]($style)'
+# time_format = "%T"
+utc_time_offset = "-3"
 
-[git_commit]
-style = "bg:#FF7F7F"
-
-[git_metrics]
-# style = "bg:#FF7F7F"
+[cmd_duration]
+style = "bold blue"
 
 [battery]
 full_symbol = "🔋 "
@@ -131,30 +147,17 @@ style = "bold purple"
 threshold = 100
 style = "bold green"
 
-[memory_usage]
-disabled = false
-threshold = -1
-style = "bg:#7F3FBF"
-format = '[${ram}( | ${swap})]($style)'
-
-[shell]
-fish_indicator = ""
-disabled = false
-
 [os]
 disabled = false
 format = "$symbol "
 symbols.EndeavourOS = "🐧 🚀"
 
-[time]
+[shell]
+fish_indicator = ""
 disabled = false
-time_format = "%R" # Hour:Minute Format
-style = "bg:#7F3FBF"
-format = '[ $time ]($style)'
-# time_format = "%T"
-utc_time_offset = "-3"
 
-[cmd_duration]
-style = "bold blue"
+[character]
+success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
 
 # palette tables should be last in the config ⚓️
