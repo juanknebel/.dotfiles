@@ -58,6 +58,19 @@ To use natural scrolling edit the following file `/usr/share/X11/xorg.conf.d/40-
 Option "NaturalScrolling" "True"
 ```
 
+Or add this file `/etc/X11/xorg.conf.d/90-touchpad.conf`
+
+```bash
+Section "InputClass"
+        Identifier "touchpad"
+        MatchIsTouchpad "on"
+        Driver "libinput"
+        Option "Tapping" "on"
+        Option "NaturalScrolling" "true"
+        # Option "ScrollMethod" "edge"
+EndSection
+```
+
 To use this theme
 
 ```bash
