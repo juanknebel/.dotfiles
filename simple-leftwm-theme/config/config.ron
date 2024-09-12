@@ -43,11 +43,20 @@
         ( name: "Python",
           value: "alacritty",
           args: ["-e", "python"],
-          x: 0.1, y: 0.25, height: 0.50, width: 0.80
+          x: 0.1, y: 0.25, width: 0.80, height: 0.50
         ),
         ( name: "Alacritty",
-        value: "alacritty",
-        x: 0.1, y: 0.25, height: 0.50, width: 0.80
+          value: "alacritty",
+          x: 0.1, y: 0.25, width: 0.80, height: 0.50
+        ),
+        ( name: "FreeTube",
+          value: "freetube",
+          x: 0, y: 0.05, width: 0.40, height: 0.40
+        ),
+        ( name: "Yazi",
+          value: "alacritty",
+          args: ["-e", "yazi"],
+          x: 0.5, y: 0.5, width: 0.40, height: 0.40
         ),
     ],
     window_rules: [
@@ -82,8 +91,8 @@
         (command: PreviousLayout, value: "", modifier: ["modkey"], key: "m"),
         (command: MoveWindowUp, value: "", modifier: ["modkey", "Shift"], key: "k"),
         (command: MoveWindowDown, value: "", modifier: ["modkey", "Shift"], key: "j"),
-        (command: IncreaseMainWidth, value: "1", modifier: ["Control", "modkey"], key: "l"),
-        (command: DecreaseMainWidth, value: "1", modifier: ["Control", "modkey"], key: "h"),
+        (command: IncreaseMainSize, value: "1", modifier: ["Control", "modkey"], key: "l"),
+        (command: DecreaseMainSize, value: "1", modifier: ["Control", "modkey"], key: "h"),
         (command: ToggleFloating, modifier: ["modkey", "Control"], key: "f"),
         (command: ToggleFullScreen, modifier: ["modkey"], key: "f"),
         // Navigate Workspaces
@@ -125,6 +134,8 @@
         // Scratchpad
         (command: ToggleScratchPad, value: "Python" , modifier: ["modkey"], key: "p"),
         (command: ToggleScratchPad, value: "Alacritty" , modifier: ["modkey"], key: "a"),
+        (command: ToggleScratchPad, value: "FreeTube" , modifier: ["modkey"], key: "y"),
+        (command: ToggleScratchPad, value: "Yazi" , modifier: ["modkey"], key: "b"),
     ],
     workspaces: [
       // (output: "eDP-1", y: 0, x: 0, height: 1800,  width: 2880),
