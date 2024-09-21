@@ -46,7 +46,7 @@ return {
 			require("crates").setup({
 				smart_insert = true,
 				insert_closing_quote = true,
-				avoid_prerelease = true,
+				-- open_programs = { "xdg-open", "open" },
 				autoload = true,
 				autoupdate = true,
 				autoupdate_throttle = 250,
@@ -56,8 +56,6 @@ return {
 				notification_title = "Crates",
 				curl_args = { "-sL", "--retry", "1" },
 				max_parallel_requests = 80,
-				open_programs = { "xdg-open", "open" },
-				disable_invalid_feature_diagnostic = false,
 				text = {
 					loading = "   Loading",
 					version = "   %s",
@@ -171,7 +169,7 @@ return {
 						jump_back = { "<c-o>", "<C-RightMouse>" },
 					},
 				},
-				src = {
+				completation = {
 					insert_closing_quote = true,
 					text = {
 						prerelease = "  pre-release ",
