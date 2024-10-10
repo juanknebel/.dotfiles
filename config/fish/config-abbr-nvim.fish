@@ -1,6 +1,5 @@
-abbr nvim-cyber "NVIM_APPNAME=CyberNvim nvim"
-abbr nvim-astro "NVIM_APPNAME=AstroNvim nvim"
-abbr nvim-kickstar "NVIM_APPNAME=KickstarNvim nvim"
-abbr nvim-chad "NVIM_APPNAME=NvChad nvim"
-abbr nvim-java "NVIM_APPNAME=JavaNvim nvim"
+abbr nvim-rust "NVIM_APPNAME=nvim-rust nvim"
+abbr nvim-go "NVIM_APPNAME=nvim-go nvim"
+abbr nvim-python "NVIM_APPNAME=nvim-python nvim"
+abbr nvim-java "NVIM_APPNAME=nvim-java nvim"
 
