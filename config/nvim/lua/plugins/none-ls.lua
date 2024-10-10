@@ -10,7 +10,6 @@ return {
 					"stylua",
 					"prettier",
 					"black",
-					"ruff",
 					"gofumpt",
 					"goimports-reviser",
 					"golines",
@@ -30,7 +29,6 @@ return {
 					--null_ls.builtins.diagnostics.eslint_d,
 					null_ls.builtins.formatting.black,
 					-- null_ls.builtins.formatting.isort,
-					null_ls.builtins.diagnostics.ruff,
 					-- must be install using go install
 					-- null_ls.builtins.formatting.gofmt,
 					-- null_ls.builtins.formatting.goimports,

@@ -30,9 +30,22 @@ lxqt-policykit-agent &
 
 if [ -x "$(command -v polybar)" ]; then
     pkill polybar
-    monitors="$(polybar -m | sed s/:.*// | tac)"
-    while read -r display; do
-        MONITOR=$display polybar -c "$SCRIPTPATH/polybar.ini" mainbar &> /dev/null &
-    done <<< "$monitors"
-    exit 0
+    index=0
+    laptor_identifier="eDP-1"
+    leftwm-state -q -n -t "$SCRIPTPATH"/sizes.liquid | sed -r '/^\s*$/d' | while read -r width
+    do
+      monitor="$(polybar -m | awk -v i="$(( index + 1 ))" 'NR==i{print}' | sed s/:.*// | tr -d '\n')"
+      if [ "$monitor" = "$laptor_identifier" ]; then
+        monitor=$monitor polybar -c "$SCRIPTPATH"/polybar.ini mainbar1 &
+      else
+        monitor=$monitor polybar -c "$SCRIPTPATH"/polybar.ini mainbar2 &
+      fi
+      index=$((index+1))
+    done
+    
+    # monitors="$(polybar -m | sed s/:.*// | tac)"
+    # while read -r display; do
+    #     MONITOR=$display polybar -c "$SCRIPTPATH/polybar.ini" mainbar &> /dev/null &
+    # done <<< "$monitors"
+    # exit 0
 fi
