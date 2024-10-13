@@ -137,4 +137,16 @@ return {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
+  {
+    "vim-test/vim-test",
+    lazy = false,
+    config = function()
+      local map = vim.keymap.set
+      map("n", "<leader>tf", ":TestFile<CR>", { desc = "Test Run test in this file" })
+      map("n", "<leader>ta", ":TestSuite<CR>", { desc = "Test Run the test suite" })
+      map("n", "<leader>tl", ":TestLast<CR>", { desc = "Test Run the last test" })
+      map("n", "<leader>tn", ":TestNearest<CR>", { desc = "Test Run the nearest test" })
+      map("n", "<leader>tv", ":TestVisit<CR>", { desc = "Test Visit the last test" })
+    end,
+  }
 }
