@@ -2,14 +2,7 @@
 
 function install_fonts
     echo "**** INSTALLING FONTS ****"
-    switch (uname)
-        case Darwin
-          set FONT_HOME $HOME/Library/Fonts;
-        case Linux
-          set FONT_HOME $HOME/.local/share/fonts;
-        case '*'
-          set FONT_HOME $HOME/.fonts;
-    end
+    set FONT_HOME $HOME/.local/share/fonts;
     mkdir -p $FONT_HOME;
     cd $HOME;
     curl -fLo firaCode.zip https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip;

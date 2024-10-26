@@ -15,9 +15,6 @@ function install_software
                 echo "EndevourOS"
                 essentials_arch
             end
-        case Darwin
-            essentials_macos
-            echo "MacOs"
         case '*'
             # Do nothing
     end
@@ -50,10 +47,6 @@ function essentials_arch
     #sudo systemctl enable sshd.service
 
 
-end
-
-function essentials_macos
-    brew install wget curl;
 end
 
 install_software

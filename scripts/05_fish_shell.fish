@@ -37,8 +37,8 @@ function fish_shell
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
     
     # Catppuccin theme
-    fisher install catppuccin/fish;
-    fish_config theme save "Catppuccin Mocha";
+    #fisher install catppuccin/fish;
+    #fish_config theme save "Catppuccin Mocha";
     echo "Done."
 end
 

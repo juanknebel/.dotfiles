@@ -1,12 +1,6 @@
 #!/usr/bin/fish
 
 function config_git
-    # SSH
-    # ssh-keygen -t ed25519 -b 4096 -C "juanknebel@gmail.com";
-    # eval (ssh-agent -c);
-    # ssh-add $HOME/.ssh/id_ed25519;
-    # xclip -selection clipboard < $HOME/.ssh/id_ed25519.pub;
-    # pbcopy < $HOME/.ssh/id_ed25519.pub; #for macos
     echo "**** GIT ****"
     if test -f $HOME/.gitignore_global
         mv $HOME/.gitignore_global $HOME/.gitignore_global.bak;
@@ -35,18 +29,18 @@ function config_rust
     rustup component add clippy;
     rustup component add rustfmt;
     # Cargo adds
-    cargo install cargo-watch;
-    cargo install cargo-audit;
-    cargo install cargo-tarpaulin;
-    cargo install cargo-generate;
-    cargo install cargo-udeps --locked;
-    cargo +stable install cargo-llvm-cov;
+    # cargo install cargo-watch;
+    # cargo install cargo-audit;
+    # cargo install cargo-tarpaulin;
+    # cargo install cargo-generate;
+    # cargo install cargo-udeps --locked;
+    # cargo +stable install cargo-llvm-cov;
     # To handle database migrations
-    cargo install diesel_cli;
-    cargo install diesel_cli_ext;
+    # cargo install diesel_cli;
+    # cargo install diesel_cli_ext;
     # For webassembly
-    rustup target add wasm32-unknown-unknown;
-    cargo install trunk;
+    # rustup target add wasm32-unknown-unknown;
+    # cargo install trunk;
     echo "Done."
 end
 
@@ -91,16 +85,14 @@ function config_java
     echo "SDK Manager ..."
     curl -s "https://get.sdkman.io" | bash;
     fisher install reitzig/sdkman-for-fish@v1.4.0;
-    mkdir -p $HOME/.local/share/eclipse/jdtls;
-    curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
-    wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz "https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz";
-    tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
-    rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
+    # mkdir -p $HOME/.local/share/eclipse/jdtls;
+    # curl https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml > $HOME/.local/share/eclipse/eclipse-java-google-style.xml;
+    # wget -O $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz "https://www.eclipse.org/downloads/download.php?file=/jdtls/snapshots/jdt-language-server-latest.tar.gz";
+    # tar -xvf $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz -C $HOME/.local/share/eclipse/jdtls/;
+    # rm $HOME/.local/share/eclipse/jdtls/jdtls-latest.tar.gz;
     #reload the terminal 
-    sdk install maven 3.9.6;
-    # sdk install java 8.0.372-zulu;
-    # sdk install java 11.0.19-zulu;
-    sdk install java 17.0.7-zulu;
+    sdk install maven 3.9.9;
+    sdk install java 17.0.13-zulu;
     echo "Done."
 end
 
@@ -113,18 +105,8 @@ function config_nvm
     echo "Done."
 end
 
-function config_catppuccin
-    echo "**** Jetbrains ****"
-    echo "Catppuccin Theme -> theme"
-
-    echo "**** Firefox ****"
-    echo "https://github.com/catppuccin/firefox"
-end
-
-config_git
+# config_git
 config_rust
 config_python
 config_go
 config_java
-# config_nvm # was replaces with fnm
-config_catppuccin

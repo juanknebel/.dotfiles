@@ -30,12 +30,6 @@ switch (uname)
     # Do nothing
 end
 
-### Config for Garuda
-set GARUDA_CONFIG (dirname (status --current-filename))/config-garuda.fish
-if test -f $GARUDA_CONFIG
-  source $GARUDA_CONFIG
-end
-
 ### Config local
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
@@ -56,14 +50,6 @@ end
 
 ### Start zoxide
 zoxide init fish | source
-
-### Start mcfly
-mcfly init fish | source
-set -gx MCFLY_KEY_SCHEME vim
-set -gx MCFLY_FUZZY 2
-set -gx MCFLY_RESULTS 50
-set -gx MCFLY_RESULTS_SORT LAST_RUN # RANK
-set -gx MCFLY_PROMPT "<<the-doc>>"
 
 ### Atuin
 atuin init fish | source

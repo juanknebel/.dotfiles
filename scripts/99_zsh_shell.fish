@@ -1,6 +1,6 @@
 #!/usr/bin/fish
 
-funtion zsh_shell_mac
+function zsh_shell_mac
   mv ~/.zshrc ~.zshrc.bak;
   touch ~/.zshrc;
   echo "export PATH=/opt/homebrew/bin:\$PATH" >> ~/.zshrc;
@@ -12,10 +12,10 @@ funtion zsh_shell_mac
   echo "# bindkey '^[[A' history-search-backward" >> ~/.zshrc;
   echo "# bindkey '^[[B' history-search-forward" >> ~/.zshrc;
 
-  brew powerlevel10k zsh-autosuggestions zsh-syntax-highlighting;
+  brew install powerlevel10k zsh-autosuggestions zsh-syntax-highlighting;
   echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc;
   echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc;
-end
   echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc;
+end
 
 zsh_shell_mac
