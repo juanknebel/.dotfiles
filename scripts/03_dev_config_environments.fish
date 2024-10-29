@@ -96,6 +96,14 @@ function config_java
     echo "Done."
 end
 
+function config_deno
+    curl -fsSL https://deno.land/install.sh | sh;
+end
+
+function config_node
+    fnm install v20.18.0;
+end
+
 function config_nvm
     echo "**** NVM ****"
     fisher install jorgebucaran/nvm.fish;

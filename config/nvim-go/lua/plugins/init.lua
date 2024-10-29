@@ -108,46 +108,6 @@ return {
     dependencies = { "nvim-lua/plenary.nvim" },
   },
   {
-    "mfussenegger/nvim-dap",
-    init = function()
-      local map = vim.keymap.set
-      map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug Add breakpoint at line" })
-      map("n", "<leader>dus", function()
-        local widgets = require "dap.ui.widgets"
-        local sidebar = widgets.sidebar(widgets.scopes)
-        sidebar.open()
-      end, { desc = "Debug Open debugging sidebar" })
-    end,
-  },
-  {
-    "dreamsofcode-io/nvim-dap-go",
-    ft = "go",
-    dependencies = "mfussenegger/nvim-dap",
-    config = function(_, opts)
-      require("dap-go").setup(opts)
-      local map = vim.keymap.set
-      map("n", "<leader>dgt", function()
-        require("dap-go").debug_test()
-      end, { desc = "Debug Go test" })
-      map("n", "<leader>dgl", function()
-        require("dap-go").debug_last()
-      end, { desc = "Debug Last go test" })
-    end,
-  },
-  {
-    "olexsmir/gopher.nvim",
-    ft = "go",
-    config = function(_, opts)
-      require("gopher").setup(opts)
-      local map = vim.keymap.set
-      map("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { desc = "GO Add json struct tags" })
-      map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "GO Add yaml struct tags" })
-    end,
-    build = function()
-      vim.cmd [[silent! GoInstallDeps]]
-    end,
-  },
-  {
     "vim-test/vim-test",
     lazy = false,
     config = function()
@@ -240,5 +200,45 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "nvim-tree/nvim-web-devicons"
     },
+  },
+  {
+    "mfussenegger/nvim-dap",
+    init = function()
+      local map = vim.keymap.set
+      map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Debug Add breakpoint at line" })
+      map("n", "<leader>dus", function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end, { desc = "Debug Open debugging sidebar" })
+    end,
+  },
+  {
+    "dreamsofcode-io/nvim-dap-go",
+    ft = "go",
+    dependencies = "mfussenegger/nvim-dap",
+    config = function(_, opts)
+      require("dap-go").setup(opts)
+      local map = vim.keymap.set
+      map("n", "<leader>dgt", function()
+        require("dap-go").debug_test()
+      end, { desc = "Debug Go test" })
+      map("n", "<leader>dgl", function()
+        require("dap-go").debug_last()
+      end, { desc = "Debug Last go test" })
+    end,
+  },
+  {
+    "olexsmir/gopher.nvim",
+    ft = "go",
+    config = function(_, opts)
+      require("gopher").setup(opts)
+      local map = vim.keymap.set
+      map("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { desc = "GO Add json struct tags" })
+      map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "GO Add yaml struct tags" })
+    end,
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
   }
 }
