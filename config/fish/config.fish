@@ -49,7 +49,16 @@ if test -f $ALIAS_ABBR_CONFIG
 end
 
 ### Start zoxide
-zoxide init fish | source
+if type -q zoxide
+  zoxide init fish | source
+end
 
 ### Atuin
-atuin init fish | source
+if type -q atuin
+  atuin init fish | source
+end
+
+### Fzf
+if type -q fzf
+  fzf --fish | source
+end
