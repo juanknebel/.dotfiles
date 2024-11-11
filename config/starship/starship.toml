@@ -1,36 +1,25 @@
 format = """
-[](#7F3FBF)\
 $username\
-[@](bg:#7F3FBF)\
-$hostname\
-[](bg:#7F7FFF fg:#7F3FBF)\
 $directory\
-[](fg:#7F7FFF bg:#FF7F7F)\
 $git_branch\
 $git_commit\
 $git_state\
 $git_metrics\
 $git_status\
-[](fg:#FF7F7F bg:#BE9EDE)\
 $golang\
 $java\
 $python\
 $ruby\
 $rust\
 $lua\
-[](fg:#BE9EDE bg:#BEBEFF)\
 $docker_context\
-[](fg:#BEBEFF bg:#7F3FBF)\
-$memory_usage\
 $time\
-[ ](fg:#7F3FBF)\
 $custom\
 $cmd_duration\
 $line_break\
 $jobs\
 $battery\
 $status\
-$os\
 $shell\
 $character"""
 
@@ -39,35 +28,27 @@ add_newline = true
 
 [username]
 show_always = true
-style_user = "bg:#7F3FBF"
-style_root = "bg:#7F3FBF"
 format = '[$user]($style)'
 disabled = false
 
 [hostname]
 ssh_only = false
-style = "bg:#7F3FBF"
-format =  "[$hostname ]($style)"
-# trim_at = ".companyname.com"
+format =  "[@$hostname ]($style)"
 disabled = false
 
 [directory]
-style = "bg:#7F7FFF"
 format = "[ $path ]($style)"
-truncation_length = 20
+truncation_length = 200
 truncation_symbol = "../"
 
 [git_branch]
 symbol = ""
-style = "bg:#FF7F7F"
 always_show_remote = false
-format = '[ $symbol $branch ]($style)'
+format = '[on $symbol $branch ]($style)'
 
 [git_commit]
-style = "bg:#FF7F7F"
 
 [git_state]
-style = "bg:#FF7F7F"
 format = '[\($state( $progress_current of $progress_total)\)]($style) '
 cherry_pick = "[🍒 PICKING](bold red)"
 
@@ -75,54 +56,43 @@ cherry_pick = "[🍒 PICKING](bold red)"
 # style = "bg:#FF7F7F"
 
 [git_status]
-style = "bg:#FF7F7F"
 format = '[$all_status$ahead_behind ]($style)'
 
 [package]
-style = "bg:#BE9EDE"
 format = '[ $symbol$version ]($style)'
 
 [golang]
 symbol = ""
-style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [java]
-style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [python]
 pyenv_version_name = false
-style = "bg:#BE9EDE"
 symbol = ""
 format = '[ $symbol ($version) ]($style)'
 
 [rust]
-style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [ruby]
-style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [lua]
-style = "bg:#BE9EDE"
 format = '[ $symbol ($version) ]($style)'
 
 [docker_context]
-style = "bg:#BEBEFF"
 format = "[ $symbol$context ]($style)"
 
 [memory_usage]
 disabled = false
 threshold = -1
-style = "bg:#7F3FBF"
 format = '[ ${ram} ]($style)'
 
 [time]
 disabled = false
 time_format = "%R" # Hour:Minute Format
-style = "bg:#7F3FBF"
 format = '[ $time ]($style)'
 # time_format = "%T"
 utc_time_offset = "-3"
@@ -150,10 +120,11 @@ style = "bold green"
 [os]
 disabled = false
 format = "$symbol "
-symbols.EndeavourOS = "🐧 🚀"
+symbols.Macos = ""
+symbols.EndeavourOS = ""
 
 [shell]
-fish_indicator = ""
+fish_indicator = ""
 disabled = false
 
 [character]
