@@ -35,7 +35,7 @@ dotfiles
 git clone https://github.com/juanknebel/.dotfiles.git;
 
 soft
-brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting;
+brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf;
 
 zsh
 mv ~/.zshrc ~.zshrc.bak;
@@ -168,4 +168,10 @@ starship script
 echo 'starship init fish | source'>> $HOME/.config/fish/config-local.fish;
 ln -s $HOME/.dotfiles/config/starship/starship.toml $HOME/.config/starship.toml;
 
-
+# zellij
+mkdir -p $HOME/.config/zellij/plugins;
+ln -s $HOME/.dotfiles/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl;
+ln -s $HOME/.dotfiles/config/zellij/layouts $HOME/.config/zellij/layouts;
+curl -LO https://github.com/imsnif/weather-pal/releases/latest/download/weather-pal.wasm -o $HOME/.config/zellij/plugins/;
+curl -LO https://github.com/imsnif/monocle/releases/latest/download/monocle.wasm -o $HOME/.config/zellij/plugins/;
+curl -LO https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm -o $HOME/.config/zellij/plugins/;

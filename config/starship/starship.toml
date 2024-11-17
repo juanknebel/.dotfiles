@@ -42,9 +42,15 @@ format = "[ $path ]($style)"
 truncation_length = 200
 truncation_symbol = "../"
 
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
 [git_branch]
 symbol = ""
-always_show_remote = false
+always_show_remote = true
 format = '[on $symbol $branch ]($style)'
 
 [git_commit]
@@ -58,6 +64,16 @@ cherry_pick = "[🍒 PICKING](bold red)"
 
 [git_status]
 format = '[$all_status$ahead_behind ]($style)'
+up_to_date = "✓"
+untracked = '?\($count\)'
+stashed = '[$]'
+modified = '!\($count\)'
+renamed = '»\($count\)'
+deleted = '✘\($count\)'
+staged = '++\($count\)'
+ahead = '⇡\(${count}\)'
+diverged = '⇕[\[][⇡\(${ahead_count}\)][⇣\(${behind_count}\)][\]]'
+behind = '⇣\(${count}\)'
 
 [package]
 format = '[ $symbol$version ]($style)'
