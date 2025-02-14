@@ -35,7 +35,7 @@ dotfiles
 git clone https://github.com/juanknebel/.dotfiles.git;
 
 soft
-brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf;
+    brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio;
 
 zsh
 mv ~/.zshrc ~.zshrc.bak;
