@@ -203,3 +203,4 @@ __pycache__/
 
 # Misc
 *.fury
+.windsurf/
