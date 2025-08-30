@@ -1,29 +1,22 @@
-GitConfig
-# Git config
-# [core]
-#   pager = delta
-# [interactive]
-#   diffFilter = delta --color-only
-# [delta]
-#   navigate = true    # use n and N to move between diff sections
-#   side-by-side = true
-#   line-numbers = true
-# [merge]
-#   conflictstyle = diff3
-# [diff]
-#   colorMoved = default
-#
 # SSH
 # ssh-keygen -t ed25519 -b 4096 -C "juanknebel@gmail.com";
 # eval (ssh-agent -c);
 # ssh-add $HOME/.ssh/id_ed25519;
 # pbcopy < $HOME/.ssh/id_ed25519.pub; #for macos
 ln -s $HOME/.dotfiles/gitignore_global $HOME/.gitignore_global;
+
 git config --global core.excludesfile $HOME/.gitignore_global;
 git config --global init.defaultBranch main;
 git config --global user.email "juanknebel@gmail.com";
 git config --global user.name "Juan Knebel";
 git config --global core.editor "nvim"
+git config --global core.pager delta
+git config --global interactive.diffFilter "delta --color-only"
+git config --global delta.navigate true
+git config --global delta.side-by-side true
+git config --global delta.line-numbers true
+git config --global merge.conflictstyle diff3
+git config --global diff.colorMoved default
 
 init
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)";
@@ -35,7 +28,7 @@ dotfiles
 git clone https://github.com/juanknebel/.dotfiles.git;
 
 soft
-    brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio;
+    brew install fish wezterm keepassxc wget neovim firefox megasync python3 jq duf dog ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio fd ghostty;
 
 zsh
 mv ~/.zshrc ~.zshrc.bak;
@@ -127,42 +120,12 @@ nvim
 pyenv virtualenv-delete pynvim;
 pyenv virtualenv 3.11.10 pynvim;
 $HOME/.pyenv/versions/3.11.10/envs/pynvim/bin/pip install pynvim;
-
-# Nvim abbr and repos
-unlink $HOME/.config/fish/config-abbr-nvim.fish;
-unlink $HOME/.config/fish/functions/nv.fish;
-ln -s $HOME/.dotfiles/config/fish/config-abbr-nvim.fish $HOME/.config/fish/config-abbr-nvim.fish;
-ln -s $HOME/.dotfiles/config/fish/functions/nv.fish $HOME/.config/fish/functions/nv.fish;
-
-# Nvim default
-rm -rf $HOME/.config/nvim;
-rm -rf $HOME/.local/share/nvim;
-rm -rf $HOME/.local/state/nvim;
-ln -s $HOME/.dotfiles/config/nvim $HOME/.config/nvim;
-
-# Nvim for rust
-rm -rf $HOME/.config/nvim-rust;
-rm -rf $HOME/.local/share/nvim-rust;
-rm -rf $HOME/.local/state/nvim-rust;
-ln -s $HOME/.dotfiles/config/nvim-rust/ $HOME/.config/nvim-rust;
-
-# Nvim for go
-rm -rf $HOME/.config/nvim-go;
-rm -rf $HOME/.local/share/nvim-go;
-rm -rf $HOME/.local/state/nvim-go;
-ln -s $HOME/.dotfiles/config/nvim-go/ $HOME/.config/nvim-go;
-
-# Nvim for python
-# rm -rf $HOME/.config/nvim-python;
-# rm -rf $HOME/.local/share/nvim-python;
-# rm -rf $HOME/.local/state/nvim-python;
-# ln -s $HOME/.dotfiles/config/nvim-python/ $HOME/.config/nvim-python;
-
-# Nvim for java
-# rm -rf $HOME/.config/nvim-java;
-# rm -rf $HOME/.local/share/nvim-java;
-# rm -rf $HOME/.local/state/nvim-java;
-# ln -s $HOME/.dotfiles/config/nvim-java/ $HOME/.config/nvim-java;
+mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
+mv ~/.local/share/nvim ~/.local/share/nvim.bak 2>/dev/null
+mv ~/.local/state/nvim ~/.local/state/nvim.bak 2>/dev/null
+mv ~/.cache/nvim ~/.cache/nvim.bak 2>/dev/null
+git clone https://github.com/LazyVim/starter ~/.config/nvim
+rm -rf ~/.config/nvim/.git
 
 starship script
 echo 'starship init fish | source'>> $HOME/.config/fish/config-local.fish;
