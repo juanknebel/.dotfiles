@@ -48,6 +48,79 @@ curl -LsSf https://astral.sh/uv/install.sh | sh;
 
 # zsh
 ```bash
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/Users/zero/.zsh/completions:"* ]]; then export FPATH="/Users/zero/.zsh/completions:$FPATH"; fi
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# bindkey '^[[A' history-search-backward
+# bindkey '^[[B' history-search-forward
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+. "/Users/zero/.deno/env"
+# Initialize zsh completions (added by deno install script)
+autoload -Uz compinit
+compinit
+export PATH="$(brew --prefix openssl@3)/bin:$PATH"
+
+# Useful aliases
+alias ls='eza --icons --group-directories-first --color=auto'
+alias ll='eza -l --icons --group-directories-first --color=auto'
+alias la='eza -a --icons --group-directories-first --color=auto'
+alias lla='eza -la --icons --group-directories-first --color=auto'
+alias lt='eza -T --icons --group-directories-first --color=auto'
+
+# Function to create a directory and enter it
+function mkd() {
+    mkdir -p "$1" && cd "$1" || return
+}
+
+# FZF configuration
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_OPTS='--color=fg:#c0caf5,bg:#1a1b26,hl:#7aa2f7 --color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff --color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff --color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a --height 40% --layout=reverse --border --margin=1 --padding=1'
+
+# Add directories to PATH
+export PATH=/opt/homebrew/bin:$PATH
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$PATH"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Atuin
+eval "$(atuin init zsh)"
+
+# Mise
+eval "$(mise activate zsh)"
+
+# Initialize Starship if installed
+# if command -v starship &> /dev/null; then
+#     eval "$(starship init zsh)"
+# fi
+
+# Editor settings
+export EDITOR='nvim'
+export VISUAL='nvim'
+
+# Language settings
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# export SDKMAN_DIR="$HOME/.sdkman"
+# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+```
+```bash
 mv ~/.zshrc ~.zshrc.bak;
 touch ~/.zshrc;
 echo "export PATH=/opt/homebrew/bin:\$PATH" >> ~/.zshrc;
