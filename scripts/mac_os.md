@@ -33,7 +33,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)";
 
 # soft
 ```bash
-brew install fish keepassxc wget neovim firefox megasync python3 jq duf ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio fd;
+brew install fish keepassxc wget neovim firefox megasync python3 jq duf ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio fd lazygit tree-sitter tree-sitter-cli gcc;
 
 brew install --cask apidog ghostty;
 
@@ -156,10 +156,10 @@ ln -s $HOME/.dotfiles/config/.ideavimrc $HOME/;
 
 # nvim
 ```bash
-mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
-mv ~/.local/share/nvim ~/.local/share/nvim.bak 2>/dev/null
-mv ~/.local/state/nvim ~/.local/state/nvim.bak 2>/dev/null
-mv ~/.cache/nvim ~/.cache/nvim.bak 2>/dev/null
+rm -rf ~/.config/nvim;
+rm -rf ~/.local/share/nvim;
+rm -rf ~/.local/state/nvim;
+rm -rf ~/.cache/nvim;
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
 mkdir -p ~/.config/nvim/lua/plugins
