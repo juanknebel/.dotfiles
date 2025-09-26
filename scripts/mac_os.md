@@ -31,11 +31,6 @@ echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/jknebel/.zprofile;
 eval "$(/opt/homebrew/bin/brew shellenv)";
 ```
 
-# dotfiles
-```bash
-git clone https://github.com/juanknebel/.dotfiles.git;
-```
-
 # soft
 ```bash
 brew install fish keepassxc wget neovim firefox megasync python3 jq duf ncdu helix plantuml mpv pgcli yazi ffmpegthumbnailer unar poppler fzf font-symbols-only-nerd-font otree font-meslo-lg-nerd-font zoxide atuin eza fnm lua tmux starship skim dust procs ripgrep sd xh gitui zellij htop bottom amp tokei onefetch rm-improved fd grpcurl glow git-delta powerlevel10k zsh-autosuggestions zsh-syntax-highlighting libreoffice loop spotify protobuf ghostty rio fd;
@@ -47,6 +42,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh;
 ```
 
 # zsh
+### Ver como migrar estos
 ```bash
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/Users/zero/.zsh/completions:"* ]]; then export FPATH="/Users/zero/.zsh/completions:$FPATH"; fi
@@ -56,12 +52,6 @@ if [[ ":$FPATH:" != *":/Users/zero/.zsh/completions:"* ]]; then export FPATH="/U
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
-
-# bindkey '^[[A' history-search-backward
-# bindkey '^[[B' history-search-forward
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
@@ -94,19 +84,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-# Zoxide
-eval "$(zoxide init zsh)"
-
-# Atuin
-eval "$(atuin init zsh)"
-
-# Mise
-eval "$(mise activate zsh)"
-
-# Initialize Starship if installed
-# if command -v starship &> /dev/null; then
-#     eval "$(starship init zsh)"
-# fi
 
 # Editor settings
 export EDITOR='nvim'
@@ -115,16 +92,12 @@ export VISUAL='nvim'
 # Language settings
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-# export SDKMAN_DIR="$HOME/.sdkman"
-# [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 ```
+
 ```bash
 mv ~/.zshrc ~.zshrc.bak;
 touch ~/.zshrc;
 echo "export PATH=/opt/homebrew/bin:\$PATH" >> ~/.zshrc;
-echo "eval \"\$(atuin init zsh)\"" >> ~/.zshrc;
 echo "# bindkey '^[[A' history-search-backward" >> ~/.zshrc;
 echo "# bindkey '^[[B' history-search-forward" >> ~/.zshrc;
 echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc;
@@ -132,21 +105,25 @@ echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc;
 ```
 
+### Atuin
+```bash
+atuin import auto
+echo "# Atuin\neval \"\$(atuin init zsh)\"" >> ~/.zshrc;
+```
+### Zoxide
+```bash
+echo "# Zoxide\neval \"\$(zoxide init zsh)\"" >> ~/.zshrc;
+```
+### Mise
+```bash
+echo "# Mise\neval \"\$(mise activate zsh)\"" >> ~/.zshrc;
+```
+
 # Aerospace
 ```bash
 brew install --cask nikitabobko/tap/aerospace
 mkdir -p .config/aerospace;
 nvim .config/aerospace/aerospace.toml;
-```
-
-# local/bin
-```bash
-mkdir -p $HOME/Apps;
-ln -s $HOME/.dotfiles/bin/sk-tmux $HOME/Apps/sk-tmux;
-ln -s $HOME/.dotfiles/bin/preview.sh $HOME/Apps/preview.sh;
-mkdir -p $HOME/.config/procs;
-ln -s $HOME/.dotfiles/config/procs/config.toml $HOME/.config/procs/config.toml;
-ln -s $HOME/.dotfiles/config/mvi/ $HOME/.config/mvi;
 ```
 
 # python
@@ -161,36 +138,6 @@ mkdir -p $HOME/.config/fish/completions/;
 ~/.local/bin/poetry completions fish > ~/.config/fish/completions/poetry.fish;
 ```
 
-# fish
-```bash
-ln -s $HOME/.dotfiles/config/fish/config.fish $HOME/.config/fish/config.fish;
-ln -s $HOME/.dotfiles/config/fish/config-alias-abbr.fish $HOME/.config/fish/config-alias-abbr.fish;
-ln -s $HOME/.dotfiles/config/fish/config-dev.fish $HOME/.config/fish/config-dev.fish;
-touch $HOME/.config/fish/config-local.fish;
-Mkdir -p $HOME/.config/fish/conf.d/;
-ln -s $HOME/.dotfiles/config/fish/conf.d/fnm.fish $HOME/.config/fish/conf.d/fnm.fish;
-ln -s $HOME/.dotfiles/config/fish/config-osx.fish $HOME/.config/fish/config-osx.fish;
-source $HOME/.config/fish/config.fish;
-fish;
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher;
-```
-
-# java
-```bash
-curl -s "https://get.sdkman.io" | bash;
-fisher install reitzig/sdkman-for-fish@v1.4.0;
-source $HOME/.config/fish/config.fish;
-sdk install maven 3.9.9;
-sdk install java 17.0.13-zulu;
-```
-
-# go
-```bash
-# install from the page https://go.dev/dl/go1.23.2.darwin-arm64.pkg
-go install -v golang.org/x/tools/gopls@latest;
-go install github.com/go-delve/delve/cmd/dlv@latest;
-```
-
 # rust
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh;
@@ -202,56 +149,87 @@ rustup component add clippy;
 rustup component add rustfmt;
 ```
 
-# javascript
-```bash
-fnm install v20.18.0;
-curl -fsSL https://deno.land/install.sh | sh;
-```
-
 # Jetbrains
 ```bash
 ln -s $HOME/.dotfiles/config/.ideavimrc $HOME/;
 ```
 
-# Wezterm
-```bash
-mkdir -p $HOME/.config/wezterm/;
-ln -s $HOME/.dotfiles/config/wezterm/wezterm.lua $HOME/.config/wezterm/wezterm.lua;
-ln -s $HOME/.dotfiles/config/wezterm/font.lua $HOME/.config/wezterm/font.lua;
-ln -s $HOME/.dotfiles/config/wezterm/cursor.lua $HOME/.config/wezterm/cursor.lua;
-ln -s $HOME/.dotfiles/config/wezterm/mouse_binds.lua $HOME/.config/wezterm/mouse_binds.lua;
-ln -s $HOME/.dotfiles/config/wezterm/utils.lua $HOME/.config/wezterm/utils.lua;
-ln -s $HOME/.dotfiles/config/wezterm/ui.lua $HOME/.config/wezterm/ui.lua;
-ln -s $HOME/.dotfiles/config/wezterm/keybinds-osx.lua $HOME/.config/wezterm/keybinds.lua;
-ln -s $HOME/.dotfiles/config/wezterm/shell-osx.lua $HOME/.config/wezterm/shell.lua;
-ln -s $HOME/.dotfiles/config/wezterm/startup-osx.lua $HOME/.config/wezterm/startup.lua;
-```
-
 # nvim
 ```bash
-pyenv virtualenv-delete pynvim;
-pyenv virtualenv 3.11.10 pynvim;
-$HOME/.pyenv/versions/3.11.10/envs/pynvim/bin/pip install pynvim;
 mv ~/.config/nvim ~/.config/nvim.bak 2>/dev/null
 mv ~/.local/share/nvim ~/.local/share/nvim.bak 2>/dev/null
 mv ~/.local/state/nvim ~/.local/state/nvim.bak 2>/dev/null
 mv ~/.cache/nvim ~/.cache/nvim.bak 2>/dev/null
 git clone https://github.com/LazyVim/starter ~/.config/nvim
 rm -rf ~/.config/nvim/.git
+mkdir -p ~/.config/nvim/lua/plugins
+
+cat >~/.config/nvim/lua/plugins/snacks.lua <<'EOF'
+return {
+  {
+    "folke/snacks.nvim",
+    opts = {
+      picker = {
+        hidden = true, -- for hidden files
+        ignored = true, -- for .gitignore files
+      },
+    },
+  },
+}
+EOF
+
+cat >~/.config/nvim/lua/plugins/fzf-lua.lua <<'EOF'
+return {
+  {
+    "ibhagwan/fzf-lua",
+    opts = {
+      files = {
+        fd_opts = "--type f --hidden --no-ignore --no-ignore --exclude .git --exclude node_modules",
+      },
+      grep = {
+        rg_opts = "--hidden --no-ignore --column --line-number --no-heading --color=always --smart-case",
+      },
+    },
+  },
+}
+EOF
+
+# 1. Open Neovim
+# 2. Run :LazyExtras
+# 3. Search and enable 'editor.fzf'
+mkdir -p ~/.config/nvim/lua/config
+echo 'vim.o.shell = "/bin/zsh"' >>~/.config/nvim/lua/config/options.lua
+
+cat >~/.config/nvim/lua/plugins/claude-code.lua <<'EOF'
+return {
+  "nandoolle/claude-code.nvim",
+  cmd = "ClaudeCode", -- Load when :ClaudeCode is executed
+  keys = {
+    { "<leader>ai", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude Code" },
+  },
+  config = function()
+    require("claude-code").setup({
+      keybinding = "<leader>ai", -- Custom keybinding
+    })
+  end,
+}
+EOF
+
+# python-pylatexenc
+
+cat >~/.config/nvim/lua/plugins/render-markdown.lua <<'EOF'
+return {
+  "MeanderingProgrammer/render-markdown.nvim",
+  dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-mini/mini.nvim" }, -- if you use the m
+ini.nvim suite
+  ---@module 'render-markdown'
+  ---@type render.md.UserConfig
+  opts = {},
+}
+EOF
 ```
 
-# starship script
-```bash
-echo 'starship init fish | source'>> $HOME/.config/fish/config-local.fish;
-ln -s $HOME/.dotfiles/config/starship/starship.toml $HOME/.config/starship.toml;
-```
-
-# zellij
-```bash
-mkdir -p $HOME/.config/zellij/plugins;
-ln -s $HOME/.dotfiles/config/zellij/config-osx.kdl $HOME/.config/zellij/config.kdl;
-ln -s $HOME/.dotfiles/config/zellij/layouts $HOME/.config/zellij/layouts;
-curl -LO https://github.com/imsnif/weather-pal/releases/latest/download/weather-pal.wasm -o $HOME/.config/zellij/plugins/;
-curl -LO https://github.com/imsnif/monocle/releases/latest/download/monocle.wasm -o $HOME/.config/zellij/plugins/;
-curl -LO https://github.com/dj95/zjstatus/releases/latest/download/zjstatus.wasm -o $HOME/.config/zellij/plugins/;
+```npm
+mkdir -p "${HOME}/.npm-global"
+npm config set prefix "${HOME}/.npm-global"
 ```
