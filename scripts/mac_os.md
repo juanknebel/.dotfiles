@@ -42,10 +42,18 @@ curl -LsSf https://astral.sh/uv/install.sh | sh;
 ```
 
 # zsh
-### Ver como migrar estos
 ```bash
+# Backup existing .zshrc and create new one
+mv ~/.zshrc ~/.zshrc.bak 2>/dev/null || true
+
+# Import atuin history
+atuin import auto
+
+# Write complete zsh configuration
+cat > ~/.zshrc <<'EOF'
 # Add deno completions to search path
 if [[ ":$FPATH:" != *":/Users/zero/.zsh/completions:"* ]]; then export FPATH="/Users/zero/.zsh/completions:$FPATH"; fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -56,9 +64,11 @@ fi
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 . "/Users/zero/.deno/env"
+
 # Initialize zsh completions (added by deno install script)
 autoload -Uz compinit
 compinit
+
 export PATH="$(brew --prefix openssl@3)/bin:$PATH"
 
 # Useful aliases
@@ -84,7 +94,6 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/.npm-global/bin:$PATH"
 
-
 # Editor settings
 export EDITOR='nvim'
 export VISUAL='nvim'
@@ -92,33 +101,107 @@ export VISUAL='nvim'
 # Language settings
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
+
+# Powerlevel10k theme
+source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# Zsh autosuggestions
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Zsh syntax highlighting
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Atuin
+eval "$(atuin init zsh)"
+
+# Zoxide
+eval "$(zoxide init zsh)"
+
+# Mise
+eval "$(mise activate zsh)"
+EOF
 ```
 
+# Ghostty
 ```bash
-mv ~/.zshrc ~.zshrc.bak;
-touch ~/.zshrc;
-echo "export PATH=/opt/homebrew/bin:\$PATH" >> ~/.zshrc;
-echo "# bindkey '^[[A' history-search-backward" >> ~/.zshrc;
-echo "# bindkey '^[[B' history-search-forward" >> ~/.zshrc;
-echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >> ~/.zshrc;
-echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ~/.zshrc;
-echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ~/.zshrc;
-```
+# This is the configuration file for Ghostty.
+#
+# This template file has been automatically created at the following
+# path since Ghostty couldn't find any existing config files on your system:
+#
+#   /home/zero/.config/ghostty/config
+#
+# The template does not set any default options, since Ghostty ships
+# with sensible defaults for all options. Users should only need to set
+# options that they want to change from the default.
+#
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+#
+# Additionally, each config option is also explained in detail
+# on Ghostty's website, at https://ghostty.org/docs/config.
 
-### Atuin
-```bash
-atuin import auto
-echo "# Atuin\neval \"\$(atuin init zsh)\"" >> ~/.zshrc;
+# Config syntax crash course
+# ==========================
+# # The config file consists of simple key-value pairs,
+# # separated by equals signs.
+# font-family = Iosevka
+# window-padding-x = 2
+#
+# # Spacing around the equals sign does not matter.
+# # All of these are identical:
+# key=value
+# key= value
+# key =value
+# key = value
+#
+# # Any line beginning with a # is a comment. It's not possible to put
+# # a comment after a config option, since it would be interpreted as a
+# # part of the value. For example, this will have a value of "#123abc":
+# background = #123abc
+#
+# # Empty values are used to reset config keys to default.
+# key =
+#
+# # Some config options have unique syntaxes for their value,
+# # which is explained in the docs for that config option.
+# # Just for example:
+# resize-overlay-duration = 4s 200ms
+command = /bin/zsh
+shell-integration = zsh
+clipboard-read = allow
+clipboard-write = allow
+copy-on-select = true
+background = #191724
+foreground = #e0def4
+selection-background = #403d52
+selection-foreground = #e0def4
+cursor-color = #e0def4
+cursor-text = #191724
+palette = 0=#26233a
+palette = 1=#eb6f92
+palette = 2=#31748f
+palette = 3=#f6c177
+palette = 4=#9ccfd8
+palette = 5=#c4a7e7
+palette = 6=#ebbcba
+palette = 7=#e0def4
+palette = 8=#6e6a86
+palette = 9=#eb6f92
+palette = 10=#31748f
+palette = 11=#f6c177
+palette = 12=#9ccfd8
+palette = 13=#c4a7e7
+palette = 14=#ebbcba
+palette = 15=#e0def4
+palette = 16=#c9826b
+keybind = shift+enter=text:\n
+keybind = ctrl+shift+r=new_split:right
+keybind = ctrl+shift+d=new_split:down
+maximize = true
+confirm-close-surface = false
+font-family = MesloLGS Nerd Font Mono
 ```
-### Zoxide
-```bash
-echo "# Zoxide\neval \"\$(zoxide init zsh)\"" >> ~/.zshrc;
-```
-### Mise
-```bash
-echo "# Mise\neval \"\$(mise activate zsh)\"" >> ~/.zshrc;
-```
-
 # Aerospace
 ```bash
 brew install --cask nikitabobko/tap/aerospace
